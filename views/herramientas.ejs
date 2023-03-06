@@ -5,8 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="resources/imagenes/logoSena.png">
-  <link rel="stylesheet" href="/resources/css/prestamo-material.css">
+  <link rel="stylesheet" href="/resources/css/herramienta.css">
   <%- include('./partials/boostrap.ejs') %>
   <title>Prestamo herramientas SENA</title>
 </head>
@@ -69,34 +68,7 @@
       <form class="forma-formulario">
         <h1 class="titulo">Prestamo de materiales</h1>
 
-        <div class="contenedor-items-formulario">
-          <input type="text" class="items" placeholder="a">
-          <label for="" class="label">Tipo de material</label>
-        </div>
-
-        <div class="contenedor-items-formulario">
-          <input type="text" class="items" placeholder="a">
-          <label for="" class="label">Unidad de medida</label>
-        </div>
-
-        <div class="contenedor-items-formulario">
-          <input type="text" class="items" placeholder="a">
-          <label for="" class="label">Cantidad</label>
-        </div>
-
-        <div class="contenedor-items-formulario">
-          <input type="text" class="items" placeholder="a">
-          <label for="" class="label">Programa de formacion</label>
-        </div>
-
-        <div class="contenedor-items-formulario">
-          <input type="text" class="items" placeholder="a">
-          <label for="" class="label">Numero de ficha</label>
-        </div>
-        <input type="submit" class="reserva-btn" value="RESERVAR">
-        <input type="submit" class="cancelar-btn" value="CANCELAR">
-      </form>
-      <!-- CONTENEDOR CARRUSEL -->
+<!-- CONTENEDOR CARRUSEL -->
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -106,13 +78,13 @@
         <div class="fondo-img">
           <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="/resources/img/logoSena.png" class="w-70" alt="...">
+                <img src="/resources/img/th.jpg" class="w-70" alt="...">
               </div>
               <div class="carousel-item  ">
-                <img src="/resources/img/logoSena.png" class="w-70" alt="...">
+                <img src="/resources/img/th.jpg" class="w-70" alt="...">
               </div>
               <div class="carousel-item ">
-                <img src="/resources/img/logoSena.png" class="w-70" alt="...">
+                <img src="/resources/img/th.jpg" class="w-70" alt="...">
               </div>
           </div>
         </div>
@@ -125,12 +97,51 @@
           <span class="sr-only">Next</span>
         </button>
       </div>
+<!-- CONTENEDOR FORMULARIO -->
+<div>
+  <label for="" class="Tipo">Tipo de material
+  </label>
+  </div>
 
-      <!-- CONTENEDOR DEL BOTON DE DEVOLUCIONES -->
-      <div class="boton-devolucion">
-        <input type="submit" class="reserva-btn" value="DEVOLVER COMO PRODUCTO">
-      </div>
+<div class="contenedor-items-formulario">
+  <select class="items" aria-placeholder="Default select example">
+    <option value="0"></option>
+    <option value="1">Metro</option>
+    <option value="2">Cerrucho</option>
+    <option value="3">Martillo</option>
+    <option value="3">Navaja</option>
+  </select>
+</div>
+
+<div class="contenedor-items-formulario">
+  <input type="text" class="items" placeholder="a">
+  <label for="" class="label">N° de documento</label>
+</div>
+
+ 
+        <div class="contenedor-items-formulario">
+          <input type="text" class="items" placeholder="a">
+          <label for="" class="label">Cantidad</label>
+        </div>
+
+        <div class="contenedor-items-formulario">
+          <input type="text" class="items" placeholder="a">
+          <label for="" class="label">AA/MM/DD</label>
+        </div>
+
+        <div class="contenedor-items-formulario">
+          <input type="text" class="items" placeholder="a">
+          <label for="" class="label">
+            Numero de ficha</label>
+        </div>
+
+        <div class="contenedor-items-formulario">
+          <input type="text" class="items" placeholder="a">
+          <label for="" class="label">Programa de formacion</label>
+        </div>
+        <input type="submit" class="reserva-btn" value="RESERVAR">
+        <input type="submit" class="cancelar-btn" value="CANCELAR">
+      </form>
     </div>
   </div>
 </body>
-</html>

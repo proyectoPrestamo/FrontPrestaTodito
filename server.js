@@ -11,7 +11,7 @@ server.listen(process.env.PORT,()=>{
 server.set("view engine", "ejs");
 
 //navegador pueda acceder a pubic,archivos staticos
-server.use("/ressources", express.static(__dirname + "/public"));
+server.use("/resources", express.static(__dirname + "/public"));
 
 //archivo para encontrar las rutas de la pg
 server.use("/",require("./router"));

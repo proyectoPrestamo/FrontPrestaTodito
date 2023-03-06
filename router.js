@@ -7,8 +7,12 @@ router.get('/', (req,res)=>{
 })
 
 
-router.get('/holiwis', (req,res)=>{
-    res.render('holiwis.ejs');
+router.get('/menu', (req,res)=>{
+    res.render('menu.ejs');
+})
+
+router.get('/herramientas', (req,res)=>{
+    res.render('herramientas.ejs');
 })
 
 module.exports = router;
