@@ -1,0 +1,107 @@
+body {
+  background-image: url(/);
+}
+
+.form-container {
+  background-color: #fff;
+  max-width: 500px;
+  margin: auto;
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-container img {
+  display: block;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.form-container label {
+  font-weight: bold;
+}
+
+.form-container button[type="submit"] {
+  margin-top: 20px;
+}
+
+.container {
+  margin-top: 100px;
+  
+
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+
+
+.btn-success {
+  width: 100%;
+}
+
+.btn {
+  color: green;
+}
+img.rounded-circle {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+footer {
+  background-color: green;
+  color: white;
+  height: 30px;
+  line-height: 30px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+
+
+
+
+footer p {
+  margin: 0;
+  animation: move-text 20s infinite;
+}
+
+@keyframes move-text {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+
+
+
+.navbar {
+  background-color: green; /* fondo verde */
+  position: relative;
+  padding : 10px; /* padding para evitar que el fondo cubra parte del navegador */
+}
+
+.navbar-brand {
+  color: white; /* color del texto del brand */
+}
+
+.navbar-toggler {
+  border: none; /* quitar borde del botón del menú */
+}
+
+/* centrar el menú */
+.justify-content-center {
+  -ms-flex-pack: center !important;
+  justify-content: center !important;
+}
+
+/* estilo del botón del menú */
+.navbar-toggler-icon {
+  background-color: white;
+}
+
+.btn-hover-danger:hover{
+  background-color: gray;
+}
