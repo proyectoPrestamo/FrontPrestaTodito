@@ -7,17 +7,26 @@ router.get('/', (req,res)=>{
 })
 //E
 
+// VISTAS INSTRUCTOR
 
-router.get('/menu', (req,res)=>{
-    res.render('menu.ejs');
+router.get('/ambientes', (req,res)=>{
+    res.render('ambientes.ejs');
 })
 
-router.get('/herramientas', (req,res)=>{
+router.get('/controlAula', (req,res)=>{
+    res.render('controlAula.ejs');
+})
+
+  router.get('/herramientas', (req, res) => {
     res.render('herramientas.ejs');
-})
+  });
 
-router.get('/registroaprendiz', (req, res) => {
-    res.render('registroaprendiz.ejs');
+  router.get('/material', (req, res) => {
+    res.render('material.ejs');
+  });
+
+  router.get('/menu-instructor', (req, res) => {
+    res.render('menu-instructor.ejs');
   });
   
   router.get('/registroinstructor', (req, res) => {

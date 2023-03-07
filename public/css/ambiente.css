@@ -94,9 +94,10 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 
 .forma-formulario {
   background-color: white;
+  height: 900px;
   width: 600px;
   padding: 40px 40px;
-  margin-top: 400px;
+  margin-top: 350px;    
   box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   border-radius: 10px;
@@ -130,6 +131,37 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   z-index: 1;
 }
 
+.items-2{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 40%;
+    border: 1px solid #DADCE0;
+    border-radius: 7px;
+    font-size: 16px;
+    padding: 0 20px;
+    outline: none;
+    background: none;
+    z-index: 1;
+  }
+
+  .items-3{
+    position: absolute;
+    bottom: 60px;
+    left: 280px;
+    height: 100%;
+    width: 30%;
+    border: 1px solid #DADCE0;
+    border-radius: 7px;
+    font-size: 16px;
+    padding: 0 20px;
+    outline: none;
+    background: none;
+    z-index: 1;
+  }
+
+
 .tipo{
   position: absolute;
   bottom: 50px;
@@ -147,11 +179,13 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   left: 15px;
   padding: 0 4px;
   background-color: white;
+  color: black;
   font-size: 16px;
   transition: 0.5s;
   z-index: 0;
 }
 
+  
 /* BOTONES */ 
 
 .reserva-btn {
@@ -167,7 +201,7 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 }
 .cancelar-btn {
   position: relative;
-  margin-top: 30px;
+  margin-top: 10px;
   left: 120px;
   padding: 15px 30px;
   border: none;
@@ -189,27 +223,28 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   color: #39a900;
 }
 
+.items-2:focus + .label {
+    top: -7px;
+    left: 3px;
+    z-index: 10;
+    font-size: 14px;
+    font-weight: 600;
+    color: #39a900;
+  }
+
+
 .items:focus {
-  border: 2px solid #39a900;
+    border: 2px solid #39a900;
 }
 
-/* CARRUSEL */
-
-#carouselExampleIndicators{
-  top: -30px;
-  position:relative;
-  width: 520px;
-  background-color: #888686;
-  border-radius: 10px;
+.items-2:focus {
+    border: 2px solid #39a900;
 }
 
-.carousel-item{
-  text-align: center;
+.items-3:focus {
+    border: 2px solid #39a900;
 }
 
-.fondo-img{
-  margin: 70px;
-}
 
 
 

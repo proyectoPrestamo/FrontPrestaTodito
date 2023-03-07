@@ -1,0 +1,111 @@
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* CONTENEDORES */
+.container-menu{
+  background-color: rgb(230, 230, 230);
+ margin-left: 250px;
+ margin-right: 250px;
+ margin-top: 10px;
+ height: 100px;
+} 
+
+.fondo{
+  margin: 50px;
+  height: 1300px;
+  background-color: #a8a8a8;
+}
+
+.container{
+margin-bottom: 40px;
+}
+
+.container-items{
+	margin-top: 15px;
+  list-style: none;
+  margin-left: 190px;
+  font-size: 30px;
+}
+
+
+.container-letrero{
+  margin: 0px;
+  height: 70px;
+  text-align: center;
+  font-size: 40px;
+  background-color: #39a900;
+}
+
+.container-letrero-control{
+  margin: 50px;
+  margin-top: 100px;
+  height: 70px;
+  font-size: 40px;
+  background-color: rgb(230, 230, 230)
+}
+
+.container-letrero{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.control-reportes{
+    margin-left: 250px;
+}
+
+/* ITEMS DE LA BARRA */
+.inicio{
+  float:left;
+  margin-right: 100px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.control{
+  float:left;
+  margin-right: 100px;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.prestamo{
+  float: left;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.inicio > li:hover{
+  background-color: #888686;
+}
+
+.control> li:hover{
+  background-color: #888686;
+}
+
+.prestamo > li:hover{
+  background-color: #888686;
+}
+
+/* LOGOS */
+.user{
+  margin-left: 1400px;
+}
+
+.user > i{
+  margin: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
