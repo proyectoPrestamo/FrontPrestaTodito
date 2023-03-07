@@ -4,7 +4,7 @@ const fs = require('fs');
 const router = express.Router();
 const app = express();
 
-
+//prueba
 // Establecer la carpeta pública
 app.use('/resources', express.static('public'));
 
