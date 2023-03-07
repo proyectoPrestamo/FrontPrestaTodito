@@ -5,7 +5,7 @@ const router = express.Router();
 router.get('/', (req,res)=>{
     res.render('index.ejs');
 })
-//E
+//Esto es una prueba
 
 
 router.get('/menu', (req,res)=>{
