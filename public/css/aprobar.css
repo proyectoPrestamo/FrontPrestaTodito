@@ -1,0 +1,99 @@
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* CONTENEDORES */
+.container-menu{
+  background-color: rgb(230, 230, 230);
+ margin-left: 100px;
+ margin-right: 100px;
+ margin-top: 10px;
+ height: 100px;
+} 
+
+.fondo{
+  margin: 50px;
+  height: 1300px;
+  background-color: #a8a8a8;
+}
+
+
+.container-items{
+	margin-top: 15px;
+  list-style: none;
+  margin-left: 190px;
+  font-size: 30px;
+}
+
+
+.container-letrero{
+  margin: 0px;
+  width: 1500px;
+  height: 70px;
+  text-align: center;
+  font-size: 40px;
+  background-color: #39a900;
+}
+
+.navbar-brand-2{
+  font-size: 40px;
+  color: #000;
+  margin-top: 10px;
+}
+
+
+.container-letrero{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+/* ITEMS DE LA BARRA */
+.inicio{
+  float:left;
+  margin-right: 100px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.inicio > li:hover{
+  background-color: #888686;
+}
+
+/* LOGOS */
+.user{
+  margin-left: 1400px;
+}
+
+.user > i{
+  margin: 20px;
+}
+
+
+.navbar-brand{
+  margin-top: 15px;
+  margin-left: 10px;
+  color: #000;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ 
+}
+.form-control{
+  margin-top: 15px;
+}
+
+.fa-solid{
+  color: #000;
+}
+
+
+
+
+
+
+
+
+
+ 
+
+

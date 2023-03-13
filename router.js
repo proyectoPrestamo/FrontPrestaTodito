@@ -30,12 +30,17 @@ router.get('/controlAula', (req,res)=>{
   });
   
   router.get('/registroinstructor', (req, res) => {
-    res.render('/registroinstructor.ejs');
+    res.render('registroinstructor.ejs');
   });
   
   router.get('/registrocoordinador', (req, res) => {
-      res.render('/registrocoordinador.ejs');
+      res.render('registrocoordinador.ejs');
     });
   
+      
+  router.get('/aprobar', (req, res) => {
+    res.render('aprobar.ejs');
+  });
+
 
 module.exports = router;
