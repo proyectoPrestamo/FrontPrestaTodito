@@ -73,8 +73,8 @@
       <!--boton para ingresar al modal -->
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+<div class="modal fade" id="exampleModal" aria-hidden="true" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Agregue una observacion</h5>
@@ -83,6 +83,12 @@
        <div class="contenedor-formulario">
         <input type="text" class="items" placeholder="a">
         <label for="" class="label">N° de ambiente</label>
+        <!-- from de seleccionar archivo -->
+        <form>
+          <div class="archivo">
+            <input type="file">
+          </div>
+        </form>
       </div>
       <!-- body del modal -->
       <div class="modal-body">
@@ -99,11 +105,4 @@
 </div>
       </div>
     </div>
-
-    <form>
-      <div class="form-group">
-        <label for="exampleFormControlFile1">Example file input</label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1">
-      </div>
-    </form>
 </body>
