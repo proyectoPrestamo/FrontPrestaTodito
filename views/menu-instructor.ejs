@@ -23,41 +23,22 @@
         </div>
 
         <!-- contenedor del menu -->
-        <div class="fondo">
-            <div class="container-menu">
-                <nav class="navbar navbar-expand mt-8 text-aling-center">
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <!-- contenedor de los elementos del menu  -->
-                        <div class="container-items">
-                            <div class="inicio">
-                                <li class="nav-init active">
-                                    <a class="nav-link text-light" href="#">INICIO<span
-                                            class="sr-only">(current)</span></a>
-                                </li>
-                            </div>
-                            <div class="control">
-                                <li class="nav-item">
-                                    <a class="nav-link text-light" href="#">CONTROL DE AULAS</a>
-                                </li>
-                            </div>
-                            <div class="prestamo">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle  text-light" href="#" role="button"
-                                        data-toggle="dropdown" aria-expanded="false">
-                                        PRESTAMOS
-                                    </a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">AMBIENTES</a>
-                                        <a class="dropdown-item" href="#">HERRAMIENTAS</a>
-                                        <a class="dropdown-item" href="#">MATERIALES</a>
-                                    </div>
-                                </li>
-                            </div>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </div>
+        <nav>
+            <ul>
+              <li><a href="#">Inicio</a></li>
+              <li>
+                <a href="#">Control de aulas</a>
+              </li>
+              <li>
+                <a href="#">Préstamo</a>
+                <ul class="submenu">
+                  <li><a href="#">Libros</a></li>
+                  <li><a href="#">Laptops</a></li>
+                  <li><a href="#">Proyectores</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
             <!-- CONTENEDOR DE EL MENSAJE -->
             <div class="bienvenido text-light rounded-top">
                 <div class="texto">¡Bienvenido!</div>
