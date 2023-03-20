@@ -37,9 +37,12 @@ router.get('/controlAula', (req,res)=>{
       res.render('registrocoordinador.ejs');
     });
   
-      
+      // VISTAS COORDINADOR
   router.get('/aprobar', (req, res) => {
     res.render('aprobar.ejs');
+  });
+  router.get('/reportes', (req, res) => {
+    res.render('reportes.ejs');
   });
 
 

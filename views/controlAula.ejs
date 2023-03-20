@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/resources/css/control.css">
   <%- include('./partials/boostrap.ejs') %>
-  <title>Control de aulas SENA</title>
+    <title>Control de aulas SENA</title>
 </head>
 
 
@@ -47,45 +47,46 @@
       Control de aulas
     </div>
     <div class="container-letrero-control rounded-top">
-        <section class="control-reportes">
+      <section class="control-reportes">
         Reporte de aulas
         <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
           Agregar observacion
         </button>
-    </section>
+      </section>
       <!--boton para ingresar al modal -->
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" aria-hidden="true" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agregue una observacion</h5>
-      </div>
-       <!-- texto de ambientes -->
-       <div class="contenedor-formulario">
-        <input type="text" class="items" placeholder="a">
-        <label for="" class="label">N° de ambiente</label>
-        <!-- from de seleccionar archivo -->
-        <form>
-          <div class="archivo">
-            <input type="file">
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" aria-hidden="true" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Agregue una observacion</h5>
+            </div>
+            <!-- texto de ambientes -->
+            <div class="contenedor-formulario">
+              <input type="text" class="items" placeholder="a">
+              <label for="" class="label">N° de ambiente</label>
+              <!-- from de seleccionar archivo -->
+              <form>
+                <div class="archivo">
+                  <input type="file">
+                </div>
+              </form>
+            </div>
+            <!-- body del modal -->
+            <div class="modal-body">
+              <textarea required="" class="form-control" id="elcontent" name="content" rows="10" data-rule="required"
+                data-msg="Please write something for us">Describe tus quejas</textarea>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-success">Enviar</button>
+              </div>
+            </div>
           </div>
-        </form>
-      </div>
-      <!-- body del modal -->
-      <div class="modal-body">
-        <textarea required="" class="form-control" id="elcontent" name="content" rows="10" 
-        data-rule="required" data-msg="Please write something for us">Describe tus quejas</textarea>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-success">Enviar</button>
         </div>
-      </div>
       </div>
     </div>
   </div>
-</div>
-      </div>
-    </div>
+  </div>
 </body>
