@@ -77,8 +77,8 @@ nav ul li a:hover {
 
 .fondo{
   margin: 50px;
-  height: 1300px;
-  background-color: #a8a8a8;
+  height: 900px;
+  background-color: #b8b8b8;
 }
 
 .container-letrero{
@@ -156,6 +156,7 @@ nav ul li a:hover {
 /* Estilos para la informacion del prestamo */
 .tinfo{
   margin-left: 50px;
+  margin-top: 178px
   
 }
 
@@ -165,27 +166,31 @@ nav ul li a:hover {
   margin-top: 50px;
   height: 70px;
   width: 600px;  
-
   font-size: 40px;
   background-color:#39A700;
 }
 
 /* estilos para los botones de aceptar y rechazar prestamo */
 
+.botones{
+ position: relative;
+ left: 1000px;
+ bottom: 55px;
+}
+
+
 .btnGenerar{
-display: inline-block;
-  color: white;
-  background-color: #1BBDC8;
-  line-height: 55px;
+
+color: white;
+background-color: #1BBDC8;
  border: #1BBDC8;
  border-radius: 2%;
 height: 56px;
-width: 160px;
+width: 180px;
 font-size: 25px;
-
 }
 .btnConfigurar{
-    display: inline;
+    
     margin-left: 50px;
   color: white;
   background-color: #808080;
@@ -193,14 +198,28 @@ font-size: 25px;
  border: #808080;
  border-radius: 2%;
 height: 56px;
-width: 160px;
+width: 180px;
 font-size: 25px;
+
 
 
 
 }
 
 .fa-sharp{
+  margin-left: 5px;
+  cursor: pointer;
+  margin-right: 7px;
+}
+.fa-solid{
+  margin-left: 5px;
+  cursor: pointer;
+  margin-right: 7px;
+}
+
+.fa-solid.fa-floppy-disk{
   margin-left: 50px;
   cursor: pointer;
+
 }
+

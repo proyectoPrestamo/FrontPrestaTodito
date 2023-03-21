@@ -45,5 +45,9 @@ router.get('/controlAula', (req,res)=>{
     res.render('reportes.ejs');
   });
 
+  router.get('/seguimiento', (req, res) => {
+    res.render('seguimiento.ejs');
+  });
+
 
 module.exports = router;
