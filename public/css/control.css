@@ -129,7 +129,9 @@ margin-bottom: 40px;
 
 /* LOGOS */
 .user{
-  margin-left: 1400px;
+  position: relative;
+  margin-left: 1600px;
+  cursor: pointer;
 }
 
 .user > i{

@@ -125,11 +125,13 @@ margin-bottom: 40px;
 
 /* LOGOS */
 .user{
-  margin-left: 1400px;
+  position: relative;
+  margin-left: 1600px;
+  cursor: pointer;
 }
 
 .user > i{
-  margin: 20px;
+  margin: 10px;
 }
 
 /* FORMULARIO */
@@ -142,11 +144,13 @@ margin-bottom: 40px;
 }
 
 .forma-formulario {
+  position: relative;
   background-color: white;
+  left: 100px;
   height: 900px;
   width: 600px;
   padding: 40px 40px;
-  margin-top: 350px;    
+  margin-top: 250px;    
   box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   border-radius: 10px;

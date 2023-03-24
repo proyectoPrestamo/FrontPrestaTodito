@@ -115,7 +115,9 @@ margin-bottom: 40px;
 
 /* LOGOS */
 .user{
-  margin-left: 1400px;
+  position: relative;
+  margin-left: 1600px;
+  cursor: pointer;
 }
 
 .user > i{
@@ -132,9 +134,12 @@ margin-bottom: 40px;
 }
 
 .forma-formulario {
+  position: relative;
   background-color: white;
   width: 400px;
   padding: 20px 40px;
+  left: 50px;
+  bottom: 100px;
   box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   border-radius: 10px;
@@ -228,7 +233,7 @@ margin-bottom: 40px;
 /* CARRUSEL */
 
 #carouselExampleIndicators{
-  top: -30px;
+  bottom: 110px;
   position:relative;
   left: 250px;
   width: 700px;
@@ -245,10 +250,10 @@ margin-bottom: 40px;
 }
 
 .boton-devolucion{
-  margin-top: 550px;
+  margin-top: 400px;
   width: 100px;
   position: absolute;
-  right: 33%;
+  right: 40%;
   
 }
 
