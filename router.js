@@ -49,5 +49,20 @@ router.get('/controlAula', (req,res)=>{
     res.render('seguimiento.ejs');
   });
 
+  // VISTAS APRENDIZ
+
+  router.get('/index', (req, res) => {
+    res.render('index.ejs');
+  });
+  router.get('/prestamoPC2', (req, res) => {
+    res.render('prestamoPC2.ejs');
+  });
+  router.get('/prestamoPC3', (req, res) => {
+    res.render('prestamoPC3.ejs');
+  });
+  router.get('/menu-aprendiz', (req, res) => {
+    res.render('menu-aprendiz.ejs');
+  });
+
 
 module.exports = router;
