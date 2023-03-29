@@ -7,7 +7,8 @@
 
 /* LOGOS */
 .user{
-  margin-left: 1400px;
+  position: relative;
+  margin-left: 1600px;
 }
 
 .user > i{
@@ -221,5 +222,41 @@ font-size: 25px;
   margin-left: 50px;
   cursor: pointer;
 
+}
+
+@media screen and (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  nav ul li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  nav ul li:last-child {
+    margin-bottom: 0;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 10px;
+  }
+
+  .submenu {
+    position: static;
+    display: none;
+  }
+
+  .submenu li a {
+    padding: 5px;
+  }
+
+  li:hover .submenu {
+    display: block;
+    position: static;
+  }
 }
 

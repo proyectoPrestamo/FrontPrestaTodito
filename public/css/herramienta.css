@@ -1,4 +1,4 @@
-/*prueba*/
+
 *{
 	margin: 0;
 	padding: 0;
@@ -127,7 +127,7 @@ margin-bottom: 40px;
 
 .formulario {
   display: flex;
-  margin-left: 500px;
+  margin-left: 450px;
   align-items: center;
   height: 100vh;
 }
@@ -138,7 +138,7 @@ margin-bottom: 40px;
   left: 100px;
   width: 600px;
   padding: 40px 40px;
-  margin-top: 300px;
+  margin-top: 400px;
   box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   border-radius: 10px;

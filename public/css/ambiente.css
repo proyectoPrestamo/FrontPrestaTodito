@@ -90,8 +90,9 @@ li:hover .submenu {
 
 /* LOGOS */
 .user{
-  margin-left: auto;
-  margin-right: 5%;
+  position: relative;
+  margin-left: 1600px;
+  cursor: pointer;
 }
 
 .user > i{
@@ -123,22 +124,11 @@ margin-bottom: 40px;
 }
 
 
-/* LOGOS */
-.user{
-  position: relative;
-  margin-left: 1600px;
-  cursor: pointer;
-}
-
-.user > i{
-  margin: 10px;
-}
-
 /* FORMULARIO */
 
 .formulario {
   display: flex;
-  margin-left: 500px;
+  margin-left: 450px;
   align-items: center;
   height: 100vh;
 }
