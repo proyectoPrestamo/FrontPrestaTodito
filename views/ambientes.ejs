@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/resources/css/ambiente.css">
   <%- include('./partials/boostrap.ejs') %>
-  <title>Prestamo herramientas SENA</title>
+  <title>Prestamo ambientes SENA</title>
 </head>
 
 
@@ -104,9 +104,11 @@
             </select>
           </div>
 
-        <input type="submit" class="reserva-btn" value="RESERVAR">
-        <input type="submit" class="cancelar-btn" value="CANCELAR">
+        <input type="submit" id="reserva-btn" class="reserva-btn" value="RESERVAR">
+        <input type="submit" id="cancelar-btn" class="cancelar-btn" value="CANCELAR">
       </form>
     </div>
   </div>
 </body>
+<script src="/resources/js/ambiente.js"></script>
+</html>
