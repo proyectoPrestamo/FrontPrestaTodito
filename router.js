@@ -54,6 +54,9 @@ router.get('/controlAula', (req,res)=>{
   router.get('/index', (req, res) => {
     res.render('index.ejs');
   });
+  router.get('/prestamoPC1', (req, res) => {
+    res.render('prestamoPC1.ejs');
+  });
   router.get('/prestamoPC2', (req, res) => {
     res.render('prestamoPC2.ejs');
   });
