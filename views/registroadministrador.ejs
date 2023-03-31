@@ -7,15 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/resources/css/index.css">
     <%- include('./partials/boostrap.ejs') %> 
+
    
-    <title>registro de Instructor</title>
+    <title>registro de Administrador</title>
 </head>
 
 
 <body class="d-flex justify-content-center align-items-center vh-100">
     <div class="container border shadow p-4 mt-3">
-        <h1 class="text-center mb-4">INSTRUCTOR</h1>
-        <form id="registro-instructor">
+        <h1 class="text-center mb-4">ADMINISTRADOR</h1>
+        <form id="registro-administrador">
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="nombre" class="form-label">Nombre <span class="text-danger">*</span></label>
@@ -59,14 +60,6 @@
                     </select>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="programaformacion" class="form-label">Programa de formación <span class="text-danger">*</span></label>
-                    <input type="text"  class="form-control" id="programaformacion" name="apellido" required>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="numeroficha" class="form-label">Numero de ficha <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="numeroficha" name="telefono" required>
-                </div>
-                <div class="col-md-6 mb-3">
                     <label for="genero" class="form-label">Genero <span class="text-danger">*</span></label>
                     <select class="form-control" id="genero" required>
                         <option value="option1" hidden>-- Seleccione un genero --</option>
@@ -77,6 +70,7 @@
                 <div class="col-md-6 mb-3">
                     <label for="contraseña" class="form-label">Ingrese una contraseña <span class="text-danger">*</span></label>
                     <input type="password" class="form-control" id="contraseña" name="contraseña" required>
+                    
                 </div>
                 
             
@@ -108,7 +102,7 @@
         </div>
     </div>
 </body>
-<script src="/resources/js/instructor.js"></script>
+<script src="/resources/js/administrador.js"></script>
 <footer>
     <p>DERECHOS RESERVADOS SENA</p>
   </footer>

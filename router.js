@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 // vista principal de la pagina
-router.get('/', (req,res)=>{
-    res.render('index.ejs');
+router.get('/rol', (req,res)=>{
+    res.render('rol.ejs');
 })
 //Esto es una prueba
 
@@ -67,5 +67,30 @@ router.get('/controlAula', (req,res)=>{
     res.render('menu-aprendiz.ejs');
   });
 
+  // VISTAS ADMINISTRADOR
 
+  router.get('/registroaprendiz', (req, res) => {
+    res.render('registroaprendiz');
+  });
+  
+  router.get('/registroinstructor', (req, res) => {
+    res.render('registroinstructor');
+  });
+  
+  router.get('/registrocoordinador', (req, res) => {
+      res.render('registrocoordinador');
+    });
+  
+    router.get('/registroadministrador', (req, res) => {
+      res.render('registroadministrador');
+    });
+  
+    router.get('/devolucionInsumos', (req, res) => {
+      res.render('devolucionInsumos');
+    });
+  
+    router.get('/inventario', (req, res) => {
+      res.render('inventario');
+    });
+  
 module.exports = router;

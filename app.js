@@ -38,9 +38,44 @@ app.get('/registroinstructor', function(req, res) {
 app.get('/registrocoordinador', function(req, res) {
   res.render('registrocoordinador');
 });
+
+app.get('/registroadministrador', function(req, res) {
+  res.render('registroadministrador');
+});
+
+app.get('/devolucionInsumos', function(req, res) {
+  res.render('devolucionInsumos');
+});
+
+app.get('/inventario', function(req, res) {
+  res.render('inventario');
+});
 // Redirigir si la url no está definida
 
+router.post('/registroinstructor', function(req, res) {
+  // Código para registrar el instructor
+  // ...
+  // Enviar respuesta al cliente
+  res.send('Registro exitoso');
+});
 
+router.post('/registrocoordinador', function(req, res) {
+  // Código para registrar el coordinador
+  // ...
+  // Enviar respuesta al cliente
+  res.send('Registro exitoso');
+});
 
-//esto es una prueba
+router.post('/registroaprendiz', function(req, res) {
+  // Código para registrar el coordinador
+  // ...
+  // Enviar respuesta al cliente
+  res.send('Registro exitoso');
+});
 
+router.post('/registroadministrador', function(req, res) {
+  // Código para registrar el coordinador
+  // ...
+  // Enviar respuesta al cliente
+  res.send('Registro exitoso');
+});
