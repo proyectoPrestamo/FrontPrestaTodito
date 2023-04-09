@@ -1,3 +1,4 @@
+
 {
   "name": "proyecto",
   "version": "1.0.0",
@@ -11,18 +12,20 @@
     "type": "git",
     "url": "git+https://github.com/camilagv1/Proyectoprestamo.git"
   },
-  "author": "Camila Grajales",
+  "author": "Camila Grajales,Daniela Jaramillo,Sebastian Henao, Juan Martines",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/camilagv1/Proyectoprestamo/issues"
   },
   "homepage": "https://github.com/camilagv1/Proyectoprestamo#readme",
   "dependencies": {
+    "colors": "^1.4.0",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
     "express": "^4.18.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.21"
   }
 }
+

@@ -39,48 +39,99 @@
       </li>
     </ul>
   </nav>
-  
+  <table id="tabla-solicitudes">
+    <thead>
+      <tr>
+        <th>Solicitudes Aprobadas</th>
+        <th>Fecha</th>
+        <th>Número de Insumos</th>
+        <th>
+          <div class="buscador">
+            <input type="text" id="buscar-solicitudes" placeholder="Buscar" required>
+            <label for="buscar-solicitudes"><i class="fas fa-search icon" style="color: #faf8f8;;"></i></label>
+          </div>
+
+      </tr>
+    </thead>
+    <tbody class="fondo">
+      <tr>
+
+      <tr class="info">
+        <td>
+          <h4 class="info1">Información del Insumo</h4>
+        </td>
+        <td class="center"><input type="date" name="fecha" id="fecha"></td>
+        <td class="center">
+          <h5 class="info1">cantidad</h5>
+        </td>
+        <td>
+          <i class="fa-sharp fa-solid fa-eye fa-2x"></i>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <h4 class="info1">Información del Insumo</h4>
+        </td>
+        <td class="center"><input type="date" name="fecha" id="fecha"></td>
+        <td class="center">
+          <h5 class="info1">cantidad</h5>
+        </td>
+
+        <td>
+          <i class="fa-sharp fa-solid fa-eye fa-2x"></i>
+        </td>
 
 
+    </tbody>
+  </table>
 
-  <div class="fondo rounded-top">
-    <div class="container-letrero rounded-top">
-      <div class="titulo"> Solicitudes De Prestamos</div>
+  <table id="tabla-solicitudes">
+    <thead>
+      <tr>
+        <th>Solicitudes No Aprobadas</th>
+        <th>Fecha</th>
+        <th>Número de Insumos</th>
+        <th>Aprobar</th>
+        <th>
+          <div class="buscador">
+            <input type="text" id="buscar-solicitudes" placeholder="Buscar" required>
+            <label for="buscar-solicitudes"><i class="fas fa-search icon" style="color: #faf8f8;;"></i></label>
+          </div>
 
-      <div class="buscador">
-        <input type="text" placeholder="Buscar" required>
-        <div class="btn">
-          <i class="fas fa-search icon"></i>
+      </tr>
+    </thead>
+    <tbody class="fondo">
+      <tr class="info">
+      <tr class="info">
+        <td>
+          <h4 class="info1">Información del Insumo</h4>
+        </td>
 
-        </div>
-      </div>
-    </div>
- 
+        <td><input type="date" name="fecha" id="fecha"></td>
+        <td>
+          <h4 class="info1">cantidad</h4>
+        </td>
+        <td>
+          <i class="fa-sharp fa-regular fa-circle-check fa-2x" style="color: #000000;"></i>
+          <i class="fa-sharp fa-regular fa-circle-xmark fa-2x" style="color: #000000;"></i>
+        </td>
+        <td>
 
-    <div class="info rounded-top">
-      <section class="tinfo">
-        
-        Información Del Insumo
-        <button class="btnAceptar">Aceptar</button>
-        <button class="btnRechazar">Rechazar</button>
-        <i class="fa-sharp fa-solid fa-eye"></i>
-      </section>
-    </div>
-    <hr>
-    
-
-
-
-    <div class="info rounded-top">
-      <section class="tinfo">
-        Información Del Insumo
-        <button class="btnAceptar">Aceptar</button>
-        <button class="btnRechazar">Rechazar</button>
-        <i class="fa-sharp fa-solid fa-eye"></i>
-    </section>
-    </div>
+          <i class="fa-sharp fa-solid fa-envelope fa-2x" style="color: #8fd14f;"></i>
+          <i class="fa-sharp fa-solid fa-eye fa-2x"></i>
+        </td>
+      </tr>
 
 
+    </tbody>
+    <tfoot>
+      <tr>
 
+        </td>
+      </tr>
+    </tfoot>
+  </table>
 
 </body>
+</html>

@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 // vista principal de la pagina
-router.get('/rol', (req,res)=>{
-    res.render('rol.ejs');
+router.get('/', (req,res)=>{
+    res.render('index.ejs');
 })
 //Esto es una prueba
 
@@ -51,9 +51,6 @@ router.get('/controlAula', (req,res)=>{
 
   // VISTAS APRENDIZ
 
-  router.get('/index', (req, res) => {
-    res.render('index.ejs');
-  });
   router.get('/prestamoPC1', (req, res) => {
     res.render('prestamoPC1.ejs');
   });
@@ -69,28 +66,32 @@ router.get('/controlAula', (req,res)=>{
 
   // VISTAS ADMINISTRADOR
 
+  router.get('/rol', (req,res)=>{
+    res.render('rol.ejs');
+  });
+
   router.get('/registroaprendiz', (req, res) => {
-    res.render('registroaprendiz');
+    res.render('registroaprendiz.ejs');
   });
   
   router.get('/registroinstructor', (req, res) => {
-    res.render('registroinstructor');
+    res.render('registroinstructor.ejs');
   });
   
   router.get('/registrocoordinador', (req, res) => {
-      res.render('registrocoordinador');
+      res.render('registrocoordinador.ejs');
     });
   
     router.get('/registroadministrador', (req, res) => {
-      res.render('registroadministrador');
+      res.render('registroadministrador.ejs');
     });
   
     router.get('/devolucionInsumos', (req, res) => {
-      res.render('devolucionInsumos');
+      res.render('devolucionInsumos.ejs');
     });
   
     router.get('/inventario', (req, res) => {
-      res.render('inventario');
+      res.render('inventario.ejs');
     });
   
 module.exports = router;

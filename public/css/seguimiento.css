@@ -36,7 +36,6 @@
   }
 }
 
-
 /* MENU */
 
 nav {
@@ -113,49 +112,24 @@ nav ul li a:hover {
     }
   }
 
+/* estilos de la tabla */
+#tabla-solicitudes {
+  border-collapse: collapse;
+  width: 96%;
+ margin-top: 2rem;
+ margin-left: 2rem;
+  
+}
+
+
 /* CONTENEDORES DESPUES DE MENU*/
 
 .container{
   margin-bottom: 40px;
   }
 
-.fondo{
-  margin: 50px;
-  height: 1300px;
-  background-color: #a8a8a8;
-}
-
-.container-letrero{
-  margin: 0px;
-  height: 70px;
-  text-align: center;
-  font-size: 40px;
-  background-color: #39a900;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-/* Solicitudes prestamos */
-.titulo{
-
-  height: 70px;
-  text-align: left;
-  /* arriba,derecha,abajo,izquierda */
-  padding: 5px 0 0 2em;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
-}
-
 
 /* estilos del buscador */
-.buscador{
-
-  position: relative;
-    display: inline-block;
-    margin-right: 50px;
-    margin-bottom: 20px;
-
-}
 
 /* colores del texto del buscador y del borde */
 .buscador input{
@@ -163,121 +137,102 @@ nav ul li a:hover {
   height: 40px;
   padding: 0 30px;
   font-size: 18px;
-  color: #000;
+  color: #faf8f8;
   outline: none;
   border: 1px solid rgb(16, 16, 16);
   border-radius: 30px;
-  transition: all 0,6s ease;
+ background-color: #0b0b0b;
 
 
 
 }
 
-.btn{
-   position: absolute;
-  top: 20px;
-  right: 0;
-  width: 55px;
-  height: 55px;
-  line-height: 55px;
-  text-align: center;
-  font-size: 18px;
-  border-radius: 50%;
-  cursor: pointer;
 
 
-}
-
-.buscador:hover input{
-  width: 500px;
-} 
-
-.buscador input:focus {
-  width: 500px;
-} 
 
 
-/* Estilos para la informacion del prestamo */
-.tinfo{
-  margin-left: 50px;
 
-}
-
-.info{
-  margin: 50px;
-  margin-left: 50px;
-  margin-top: 50px;
-  height: 70px;
-  font-size: 40px;
-  background-color: rgb(230, 230, 230)
-}
-
-/* estilos para los botones de aceptar y rechazar prestamo */
-
-.btnAceptar{
-
- margin-left: 300px;
-  color: white;
-  background-color: #39a900;
-  line-height: 55px;
- border: #39a900;
- border-radius: 2%;
-height: 56px;
-width: 160px;
-font-size: 25px;
-
-}
-.btnRechazar{
-
-  color: white;
-  background-color: #a90025;
-  line-height: 55px;
- border: #a90025;
- border-radius: 2%;
-height: 56px;
-width: 160px;
-font-size: 25px;
-margin-left: 50px;
-
-}
-
+/* icono de sobre y ojo */
 .fa-sharp{
   margin-left: 50px;
   cursor: pointer;
 }
 
-@media screen and (max-width: 600px) {
-  nav {
-    flex-direction: column;
-    height: auto;
-    padding: 20px;
-  }
 
-  nav ul li {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
 
-  nav ul li:last-child {
-    margin-bottom: 0;
-  }
 
-  nav ul li a {
-    display: block;
-    padding: 10px;
-  }
 
-  .submenu {
-    position: static;
-    display: none;
-  }
 
-  .submenu li a {
-    padding: 5px;
-  }
 
-  li:hover .submenu {
-    display: block;
-    position: static;
-  }
+#tabla-solicitudes th, #tabla-solicitudes td {
+ 
+  padding: 8px;
+  text-align: center;
+}
+
+#tabla-solicitudes th {
+  background-color: #39a900;
+
+  
+}
+
+#tabla-solicitudes tbody tr:first-child td:first-child {
+  text-align: left;
+}
+
+#tabla-solicitudes input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+#tabla-solicitudes .buscador {
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+}
+
+#tabla-solicitudes .buscador label {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  padding: 6px;
+}
+
+#tabla-solicitudes tfoot td {
+  text-align: center;
+}
+
+#tabla-solicitudes tfoot i {
+  margin-left: 10px;
+}
+
+#tabla-solicitudes .fa-regular {
+  margin-left: 5px;
+}
+
+#tabla-solicitudes .fa-solid {
+  margin-left: 10px;
+}
+
+.info1 {
+  font-size: 100%;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ 
+}
+
+.fondo{
+  
+  height: 100px;
+  background-color: #a8a8a8;
+}
+
+.info{
+  
+  background-color: rgb(230, 230, 230)
+  
 }
