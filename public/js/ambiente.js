@@ -44,3 +44,38 @@ $(document).ready(function () {
         }) 
         });
 // 1
+
+const formulario = document.getElementById("forma-formulario");
+const botonEnviar = document.getElementById("reserva-btn");
+
+
+
+
+
+// Agregar un evento de escucha al botón de envío
+botonEnviar.addEventListener("click", function(event) {
+  // Detener el envío del formulario
+  event.preventDefault();
+
+  // Obtener los valores de los campos del formulario
+ 
+  const documento = document.getElementById("documento").value;
+  const ficha = document.getElementById("ficha").value;
+  const jornada = document.getElementById("jornada").value;
+  const fecha = document.getElementById("fecha").value;
+  const formacion = document.getElementById("formacion").value;
+  const aprendices = document.getElementById("aprendices").value;
+
+  // Verificar si los campos están vacíos
+  if (documento === "" || ficha === "" || jornada === "" || fecha === "" || formacion === "" || aprendices === "") {
+    // Mostrar un mensaje de alerta
+    Swal.fire({
+      title: 'Error',
+      text: 'Debes llenar todos los campos antes de continuar',
+      icon: 'error',
+      confirmButtonColor: '#dc3545',
+      confirmButtonText: 'OK',
+      focusConfirm: false // Evita que el foco se mueva al botón "OK"
+    });
+  } 
+});

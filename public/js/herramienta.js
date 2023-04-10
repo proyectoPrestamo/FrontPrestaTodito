@@ -43,3 +43,37 @@ $(document).ready(function () {
           }
         }) 
         });
+
+
+const formulario = document.getElementById("formulario");
+const botonEnviar = document.getElementById("Reservar-btn");
+
+
+
+
+
+// Agregar un evento de escucha al botón de envío
+botonEnviar.addEventListener("click", function(event) {
+  // Detener el envío del formulario
+  event.preventDefault();
+
+  // Obtener los valores de los campos del formulario
+  const documento = document.getElementById("documento").value;
+  const cantidad = document.getElementById("cantidad").value;
+  const fecha = document.getElementById("fecha").value;
+  const ficha = document.getElementById("ficha").value;
+  const formacion = document.getElementById("formacion").value;
+
+  // Verificar si los campos están vacíos
+  if (documento === ""|| cantidad === "" || fecha === "" ||  ficha === "" || formacion === "" ) {
+    // Mostrar un mensaje de alerta
+    Swal.fire({
+      title: 'Error',
+      text: 'Debes llenar todos los campos antes de continuar',
+      icon: 'error',
+      confirmButtonColor: '#dc3545',
+      confirmButtonText: 'OK',
+      focusConfirm: false // Evita que el foco se mueva al botón "OK"
+    });
+  } 
+});
