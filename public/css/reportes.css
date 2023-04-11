@@ -116,20 +116,28 @@ nav ul li a:hover {
 /* CONTENEDORES DESPUES DE MENU*/
 
 .container{
-  margin-bottom: 40px;
+  margin-bottom: 5%;
   }
 
 .fondo{
   margin: 50px;
-  height: 900px;
+  height: 110%;
   background-color: #b8b8b8;
 }
+/* RESPONSIVE FONDO DE LOS CONTENEDORES */
+@media screen and (max-width: 768px) {
+ .fondo{
+  margin-left: 10px;
+  margin-right: 10px;
 
-.container-letrero{
+ }
+}
+
+.container-reporte{
   margin: 0px;
-  height: 70px;
+  height: 8%;
   text-align: center;
-  font-size: 40px;
+  font-size: 30px;
   background-color: #39a900;
   display: flex;
   justify-content: space-between;
@@ -137,7 +145,6 @@ nav ul li a:hover {
 }
 /* Solicitudes prestamos */
 .titulo{
- 
   height: 70px;
   text-align: left;
   /* arriba,derecha,abajo,izquierda */
@@ -146,7 +153,16 @@ nav ul li a:hover {
   
 }
 
-
+/* Responsive titulo contenedor */
+@media screen and (max-width: 768px) {
+  .titulo{
+    padding: 20px 0 0 2em;
+   font-size: 60%;
+  }
+  .container-reporte{
+  height: 50px;
+  }
+}
 /* estilos del buscador */
 .buscador{
 
@@ -175,7 +191,7 @@ nav ul li a:hover {
 
 .btn{
    position: absolute;
-  top: 20px;
+  top: 10px;
   right: 0;
   width: 55px;
   height: 55px;
@@ -195,31 +211,79 @@ nav ul li a:hover {
 .buscador input:focus {
   width: 500px;
 } 
+/* RESPONSIVE BUSCADOY E ICONO */
+@media screen and (max-width: 768px) {
+  .buscador{
 
+      margin-right: 10px;
+      margin-bottom: 10px;
+  
+  }
+  
+  /* colores del texto del buscador y del borde */
+  .buscador input{
+    height: 30px;
+    padding: 0 30px;
+    font-size: 10px;
+
+  }
+  
+  .btn{
+    top: 10px;
+    width: 50px;
+  }
+  
+  .buscador:hover input{
+    width: 200px;
+  } 
+  
+  .buscador input:focus {
+    width: 200px;
+  } 
+}
 
 /* Estilos para la informacion del prestamo */
 .tinfo{
-  margin-left: 50px;
-  margin-top: 178px
+  margin-left: 10%;
+  margin-top: 20%;
+  
   
 }
-
 .info{
-  margin: 50px;
-  margin-left: 50px;
-  margin-top: 50px;
-  height: 70px;
-  width: 600px;  
-  font-size: 40px;
+  margin: 5%;
+  margin-left:2%;
+  margin-top: 10%;
+  height: 2em;
+  width: 40%;  
+  font-size: 30px;
   background-color:#39A700;
 }
 
+/* RESPONSIVE CONTENEDORES DE SUBTITULOS */
+@media screen and (max-width: 768px) {
+  .tinfo {
+    margin-left: 5%;
+    margin-top: 10%;
+    font-size: 15px;
+ 
+  
+  }
+  
+  .info {
+    margin: 5%;
+    margin-left: 2%;
+    margin-top: 5%;
+    height: 2em;
+    width: 55%;
+    font-size: 20px;
+  }
+}
 /* estilos para los botones de aceptar y rechazar prestamo */
 
 .botones{
  position: relative;
- left: 1000px;
- bottom: 55px;
+ left: 140%;
+ bottom: 80%;
 }
 
 
@@ -230,23 +294,56 @@ background-color: #1BBDC8;
  border: #1BBDC8;
  border-radius: 2%;
 height: 56px;
-width: 180px;
+width: 30%;
 font-size: 25px;
+
 }
 .btnConfigurar{
     
-    margin-left: 50px;
+  margin-left: 50px;
   color: white;
   background-color: #808080;
-  line-height: 55px;
  border: #808080;
  border-radius: 2%;
-height: 56px;
-width: 180px;
+height: 60px;
+width: 36%;
 font-size: 25px;
-
-
 
 
 }
 
+ 
+
+
+  .fa-floppy-disk {
+    margin-left: 10%;
+   
+  }
+ 
+
+/* RESPONSIVE BOTONES GENERAR Y CONFIGURAR + icono GUARDAR */
+@media screen and (max-width: 768px) {
+  .botones{
+    left: 110%;
+  }
+  .btnGenerar{  height: 40px;
+    width: 50px;
+    font-size: 13px;}
+
+  .btnConfigurar {
+    height: 40px;
+    width: 50px;
+    font-size: 10px;
+    margin-left: 10px;
+ 
+  }
+  
+  .fa-floppy-disk {
+    margin-left: 5%;
+    margin-top: 20px;
+  }
+ 
+ 
+}
+
+  
