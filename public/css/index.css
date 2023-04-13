@@ -1,83 +1,109 @@
 #i {
-    font-size: larger;
+  font-size: larger;
 }
+/* Esta regla cambia el borde del input de tipo "text" cuando está en foco */
 input[type="text"]:focus {
-    border-color: green;
+border-color: green;
 }
 
+/* Esta regla cambia el borde del input de tipo "number" cuando está en foco */
 input[type="number"]:focus {
-  border-color: green;
+border-color: green;
 }
+
 
 input[type="email"]:focus {
-  border-color: green;
+border-color: green;
 }
 
 input[type="password"]:focus {
-  border-color: green;
+border-color: green;
 }
 
+/* Esta regla cambia el borde de los elementos con id "edit-rol" y "edit-estado" cuando están en foco */
+#jornada:focus, #tipo_documento:focus, #genero:focus {
+border-color: green;
+}
+
+/* Estilo del footer */
+footer {
+background-color: green; /* color de fondo */
+color: white; /* color del texto */
+height: 30px; /* altura del footer */
+line-height: 30px; /* altura de línea del texto */
+position: fixed; /* posición fija */
+bottom: 0; /* colocado en la parte inferior */
+width: 100%; /* ancho al 100% */
+}
+
+/* Estilo del párrafo dentro del footer */
 footer p {
-    margin: 0;
-    animation: move-text 20s infinite;
-  }
-  
-  @keyframes move-text {
-    from { transform: translateX(0); }
-    to { transform: translateX(100%); }
-  }
-  
+margin: 0; /* margen de 0 */
+animation: move-text 20s infinite; /* animación para mover el texto */
+}
 
+/* Animación para mover el texto */
+@keyframes move-text {
+from { transform: translateX(0); } /* comienza desde la posición x = 0 */
+to { transform: translateX(100%); } /* termina en la posición x = 100% (fuera de la pantalla) */
+}
 
-  footer {
-    background-color: green;
-    color: white;
-    height: 30px;
-    line-height: 30px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-  
-  .container {
-    padding-bottom: 50px;
-    border-radius: 10px;
-  }
+/* Cambia la opacidad cuando el cursor está sobre #footer-test */
+#footer-test:hover {
+opacity: 0; /* opacidad 0 cuando el cursor está sobre el elemento */
+transition: opacity 0.5s ease-in-out; /* transición suave */
+}
+
+/* Establece la opacidad cuando el cursor no está sobre #footer-test */
+#footer-test:not(:hover) {
+opacity: 1; /* opacidad 1 cuando el cursor no está sobre el elemento */
+transition: opacity 0.5s ease-in-out; /* transición suave */
+}
+
+/* Animación para mover el texto cuando el cursor no está sobre #footer-test */
+#footer-test:not(:hover) p {
+animation: move-text 20s infinite; /* animación para mover el texto */
+}
+
+.container {
+  padding-bottom: 50px;
+  border-radius: 10px;
+}
 
 input[type=text], select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
 }
 
 /* Estilos para el botón de envío */
 input[type=submit] {
-  width: 100%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+width: 100%;
+background-color: #4CAF50;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+border-radius: 4px;
+cursor: pointer;
 }
 
 /* Estilos para el contenedor del formulario */
 .container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-  width: 60%;
-  margin: auto;
+border-radius: 5px;
+background-color: #f2f2f2;
+padding: 20px;
+width: 60%;
+margin: auto;
 }
 
 /*Para quitar las flechas que aparecen en los campos de entrada de números*/
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+-webkit-appearance: none;
+margin: 0;
 }

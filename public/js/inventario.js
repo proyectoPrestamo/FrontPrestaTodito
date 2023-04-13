@@ -64,7 +64,7 @@ function searchTable() {
   }
 
   // Recorrer todas las filas de la tabla
-  let found = false;
+  const found = false;
   tableRows.forEach(row => {
     // Obtener el texto de la fila y convertirlo a minúsculas
     const rowText = row.innerText.toLowerCase();
@@ -104,60 +104,36 @@ searchInput.addEventListener('keyup', function(event) {
   }
 });
 
-// Agregar el evento "click" al botón de búsqueda
-searchButton.addEventListener('click', function() {
+// Función para manejar el evento "click" del botón de búsqueda
+function handleSearchButtonClick() {
   searchTable();
-  
-  // Mostrar todas las filas cuando se borra el campo de búsqueda
-  if (searchInput.value === '') {
-    tableRows.forEach(row => {
-      row.style.display = '';
-    });
-  }
-});
+}
+
+// Agregar el evento "click" al botón de búsqueda
+searchButton.addEventListener('click', handleSearchButtonClick);
 
 $(document).ready(function() {
-  // Función para obtener los datos del producto a editar
-  function obtenerDatosEditar() {
-    let producto = $("#edit-producto").val();
-    let cantidad = $("#edit-cantidad").val();
-    let fecha = $("#edit-fecha").val();
-    let codigo = $("#edit-codigo").val();
-    let estado = $("#edit-estado").val();
-
-    let datos = {
-      producto: producto,
-      cantidad: cantidad,
-      fecha: fecha,
-      codigo: codigo,
-      estado: estado
-    };
-
-    return datos;
-  }
+  let idEditar;
 
   // Función para guardar los cambios del producto editado
   function guardarCambios() {
-    let datos = obtenerDatosEditar();
-
-    // Actualizamos los valores de la fila correspondiente
-    let fila = $(`tr[data-id="${idEditar}"]`);
-    fila.find("td:eq(0)").text(datos.producto);
-    fila.find("td:eq(1)").text(datos.cantidad);
-    fila.find("td:eq(2)").text(datos.fecha);
-    fila.find("td:eq(3)").text(datos.codigo);
-    fila.find("td:eq(4)").text(datos.estado + " ");
-
-    // Mostramos los iconos de editar y eliminar
-    fila.find(".edit-icon, .delete-icon").css("visibility", "visible");
+    const fila = $(`tr[data-id="${idEditar}"]`);
+    fila.find("td:eq(0)").text($("#edit-producto").val());
+    fila.find("td:eq(1)").text($("#edit-cantidad").val());
+    fila.find("td:eq(2)").text($("#edit-fecha").val());
+    fila.find("td:eq(3)").text($("#edit-codigo").val());
+    fila.find("td:eq(4)").text($("#edit-estado").val() + " ");
 
     $("#edit-modal").modal("hide");
+    fila.find(".edit-icon, .delete-icon").css("visibility", "visible");
   }
+
+  
 
   // Función para mostrar el modal y cargar los datos del producto a editar
   $(".edit-icon").click(function() {
     idEditar = $(this).closest("tr").data("id");
-    let fila = $(`tr[data-id="${idEditar}"]`);
+    const fila = $(`tr[data-id="${idEditar}"]`);
 
     // Cargamos los valores del producto a editar en el modal
     $("#edit-producto").val(fila.find("td:eq(0)").text());
@@ -166,27 +142,36 @@ $(document).ready(function() {
     $("#edit-codigo").val(fila.find("td:eq(3)").text());
     $("#edit-estado").val(fila.find("td:eq(4)").text().trim());
 
+    // Ocultamos los iconos de editar y eliminar
+    fila.find(".edit-icon, .delete-icon").css("visibility", "hidden");
+
     // Mostramos el modal
     $("#edit-modal").modal("show");
   });
 
   // Función para cancelar la edición del producto
   $(".cancelar-edicion").click(function() {
-    // Mostramos los iconos de editar y eliminar
-    let fila = $(`tr[data-id="${idEditar}"]`);
+    const fila = $(`tr[data-id="${idEditar}"]`);
     fila.find(".edit-icon, .delete-icon").css("visibility", "visible");
 
     $("#edit-modal").modal("hide"); 
   });
 
-  // Función para guardar los cambios del producto editado al presionar el botón "Guardar"
-  $("#guardar-cambios").click(function() {
-    guardarCambios();
-  });
-
-  // Función para eliminar un producto
-  $(".delete-icon").click(function() {
-    let fila = $(this).closest("tr");
-    fila.remove();
-  });
+ // Función para guardar los cambios del producto editado al presionar el botón "Guardar"
+$("#guardar-cambios").click(function() {
+  guardarCambios();
+  
+  // Mostramos los iconos de editar y eliminar después de guardar los cambios
+  const fila = $(`tr[data-id="${idEditar}"]`);
+  fila.find(".edit-icon, .delete-icon").css("visibility", "visible");
 });
+
+
+
+// Función para mostrar los iconos de editar y eliminar después de cerrar el modal
+$('#edit-modal').on('hidden.bs.modal', function () {
+  const fila = $(`tr[data-id="${idEditar}"]`);
+  fila.find(".edit-icon, .delete-icon").css("visibility", "visible");
+});
+})
+
