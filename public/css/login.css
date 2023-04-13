@@ -82,3 +82,15 @@ margin-top: 5px;
 /* .swa12-styled.swa12-confirm {
 background-color: green;
 } */
+
+.swal-input-field:focus {
+    border-color: #4CAF50 !important;
+    box-shadow: 0 0 10px #4CAF50 !important;
+  }
+  
+  
+  #rol:focus, #contraseña:focus, #usuario:focus {
+    border-color: #4CAF50 !important;
+    box-shadow: 0 0 10px #4CAF50 !important;
+  }
+  

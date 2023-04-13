@@ -1,11 +1,11 @@
 // Obtiene el elemento del formulario con el ID "login-user"
-const formulario = document.getElementById("login-user");
+var formulario = document.getElementById("login-user");
 
 // Obtiene el botón con el ID "login"
-const botonEnviar = document.getElementById("login");
+var botonEnviar = document.getElementById("login");
 
 // Obtiene el botón con el ID "contraseña-olvidada"
-const botonOlvidoContraseña = document.getElementById("contraseña-olvidada");
+var botonOlvidoContraseña = document.getElementById("contraseña-olvidada");
 
 // Agrega un evento de escucha al botón de envío
 botonEnviar.addEventListener("click", function(event) {
@@ -13,9 +13,9 @@ botonEnviar.addEventListener("click", function(event) {
 event.preventDefault();
 
 // Obtiene los valores de los campos del formulario
-const usuario = document.getElementById("usuario").value;
-const contraseña = document.getElementById("contraseña").value;
-const rol = document.getElementById("rol").value;
+var usuario = document.getElementById("usuario").value;
+var contraseña = document.getElementById("contraseña").value;
+var rol = document.getElementById("rol").value;
 
 // Verifica si los campos están vacíos
 if (usuario === "" || contraseña === "" || rol === "") {
@@ -46,20 +46,43 @@ botonOlvidoContraseña.addEventListener("click", async function(event) {
 event.preventDefault();
 
 // Muestra la alerta de ingreso de contraseña utilizando SweetAlert2
-const { value: password } = await Swal.fire({
+var { value: password } = await Swal.fire({
 title: 'Ingresa tu correo ',
 input: 'email',
 // inputLabel: 'Asegurate de que sea el mismo correo con el cual te encuentras registrado',
-inputPlaceholder: 'Ingresa tu correo',
+inputPlaceholder: 'Ingresa tu correo electronico',
 inputAttributes: {
 maxlength: 50,
 autocapitalize: 'off',
-autocorrect: 'off'
-}
+autocorrect: 'off',
+},
+showCancelButton: true,
+confirmButtonColor: '#28a745',
+confirmButtonText: 'Aceptar',
+cancelButtonText: 'Cancelar',
+cancelButtonColor: '#dc3545',
+
+customClass: {
+  input: 'swal-input-field',
+  validationMessage: 'swal-validation-message'
+
+},
+inputValidator: (value) => {
+  if (!value) {
+    return 'Este campo es requerido';
+  }
+  if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(value)) {
+    return 'Ingresa un correo electrónico válido';
+  }
+},
 });
 
 if (password) {
-Swal.fire(`Te hemos enviado un correo de recuperacion a: ${password}`);
+  Swal.fire({
+    title: `Te hemos enviado un correo de recuperación a: ${password}`,
+    confirmButtonText: 'Aceptar',
+    confirmButtonColor: '#28a745',
+  });
 }
 });
 
