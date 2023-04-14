@@ -1,0 +1,85 @@
+/* Estilo para un contenedor de vista previa */
+.preview-container {
+    border: 1px solid #ced4da; /* Añade un borde de 1px con color #ced4da */
+    padding: 10px; /* Añade un relleno interno de 10px */
+    width: 200px; /* Establece el ancho en 200px */
+    height: 200px; /* Establece la altura en 200px */
+    position: absolute; /* Establece la posición absoluta */
+    right: 50px; /* Establece la distancia del borde derecho en 50px */
+    top: 100px; /* Establece la distancia del borde superior en 100px */
+    margin-right: 10px; /* Añade un margen derecho de 10px */
+    overflow: hidden; /* Oculta cualquier contenido que exceda los límites del contenedor */
+    cursor: pointer; /* Cambia el cursor a un puntero */
+  }
+  
+  /* Estilo del footer */
+footer {
+  background-color: green; /* color de fondo */
+  color: white; /* color del texto */
+  height: 30px; /* altura del footer */
+  line-height: 30px; /* altura de línea del texto */
+  position: fixed; /* posición fija */
+  bottom: 0; /* colocado en la parte inferior */
+  width: 100%; /* ancho al 100% */
+}
+
+/* Estilo del párrafo dentro del footer */
+footer p {
+  margin: 0; /* margen de 0 */
+  animation: move-text 20s infinite; /* animación para mover el texto */
+}
+
+/* Animación para mover el texto */
+@keyframes move-text {
+  from { transform: translateX(0); } /* comienza desde la posición x = 0 */
+  to { transform: translateX(100%); } /* termina en la posición x = 100% (fuera de la pantalla) */
+}
+
+/* Cambia la opacidad cuando el cursor está sobre #footer-test */
+#footer-test:hover {
+  opacity: 0; /* opacidad 0 cuando el cursor está sobre el elemento */
+  transition: opacity 0.5s ease-in-out; /* transición suave */
+}
+
+/* Establece la opacidad cuando el cursor no está sobre #footer-test */
+#footer-test:not(:hover) {
+  opacity: 1; /* opacidad 1 cuando el cursor no está sobre el elemento */
+  transition: opacity 0.5s ease-in-out; /* transición suave */
+}
+
+/* Animación para mover el texto cuando el cursor no está sobre #footer-test */
+#footer-test:not(:hover) p {
+  animation: move-text 20s infinite; /* animación para mover el texto */
+}
+  
+  /* Estilo para quitar las flechas de los campos de entrada numérica */
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Quita la apariencia del botón */
+    margin: 0; /* Establece el margen en 0 */
+  }
+  
+  /* Estilo para resaltar el borde de entrada de texto cuando está enfocado */
+  input[type="text"]:focus {
+    border-color: green; /* Establece el color del borde en verde */
+  }
+  
+  /* Estilo para resaltar el borde de entrada numérica cuando está enfocado */
+  input[type="number"]:focus {
+    border-color: green; /* Establece el color del borde en verde */
+  }
+  
+  /* Estilo para resaltar el borde de entrada de fecha cuando está enfocado */
+  input[type="date"]:focus {
+    border-color: green; /* Establece el color del borde en verde */
+  }
+
+/* Estilo para resaltar un enlace de navegación cuando se pasa el cursor sobre él */
+.navbar-nav .nav-link:hover {
+    /* Cambia el color de fondo del enlace cuando se pasa el cursor sobre él */
+    background-color: rgb(143, 143, 143);
+    /* Agrega una transición suave al cambiar el color de fondo del enlace */
+    transition: background-color 0.3s ease-in-out;
+}
+
+/*V3*/

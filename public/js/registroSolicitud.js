@@ -11,12 +11,12 @@ deleteIcons.forEach(icon => {
     const parentTr = event.target.closest('tr');
 
     // Obtiene el código del producto (el valor del atributo "data-id" del "tr")
-    const productCode = parentTr.getAttribute('data-id');
+    const regiCode = parentTr.getAttribute('data-id');
 
     // Utiliza SweetAlert para mostrar un mensaje de confirmación y tomar la acción del usuario
     Swal.fire({
-      title: '¿Estás seguro de que deseas eliminar el producto?',
-      text: `Código de producto: ${productCode}`,
+      title: '¿Estás seguro de que deseas eliminar el registro?',
+      text: `Código de registro: ${regiCode}`,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#28A745',
@@ -29,8 +29,8 @@ deleteIcons.forEach(icon => {
         parentTr.remove();
         // Muestra una alerta de éxito utilizando SweetAlert
         Swal.fire({
-          title: 'Producto eliminado',
-          text: `El producto con código ${productCode} ha sido eliminado correctamente`,
+          title: 'Registro eliminado',
+          text: `El registro con código ${regiCode} ha sido eliminado correctamente`,
           icon: 'success',
           confirmButtonColor: '#28A745'
         });
@@ -56,7 +56,7 @@ function searchTable() {
     // Mostrar alerta si el campo está vacío
     Swal.fire({
       icon: 'warning',
-      title: 'Por favor ingresa el nombre o código del insumo a buscar',
+      title: 'Por favor ingresa el nombre del registro a buscar',
       confirmButtonText: 'Aceptar',
       confirmButtonColor: '#28A745',
     });
@@ -64,7 +64,7 @@ function searchTable() {
   }
 
   // Recorrer todas las filas de la tabla
-  const found = false;
+  let found = false;
   tableRows.forEach(row => {
     // Obtener el texto de la fila y convertirlo a minúsculas
     const rowText = row.innerText.toLowerCase();
@@ -82,7 +82,7 @@ function searchTable() {
   if (!found) {
     Swal.fire({
       icon: 'warning',
-      title: 'El insumo no ha sido encontrado',
+      title: 'El registro no ha sido encontrado',
       confirmButtonText: 'Aceptar',
       confirmButtonColor: '#28A745',
     });
@@ -104,25 +104,24 @@ searchInput.addEventListener('keyup', function(event) {
   }
 });
 
-// Función para manejar el evento "click" del botón de búsqueda
-function handleSearchButtonClick() {
-  searchTable();
-}
-
 // Agregar el evento "click" al botón de búsqueda
-searchButton.addEventListener('click', handleSearchButtonClick);
+searchButton.addEventListener('click', function() {
+  searchTable();
+  
+});
 
 $(document).ready(function() {
   let idEditar;
 
-  // Función para guardar los cambios del producto editado
+  // Función para guardar los cambios del registro editado
   function guardarCambios() {
-    const fila = $(`tr[data-id="${idEditar}"]`);
-    fila.find("td:eq(0)").text($("#edit-producto").val());
-    fila.find("td:eq(1)").text($("#edit-cantidad").val());
-    fila.find("td:eq(2)").text($("#edit-fecha").val());
-    fila.find("td:eq(3)").text($("#edit-codigo").val());
-    fila.find("td:eq(4)").text($("#edit-estado").val() + " ");
+    let fila = $(`tr[data-id="${idEditar}"]`);
+    fila.find("td:eq(0)").text($("#edit-rol").val());
+    fila.find("td:eq(2)").text($("#edit-insumo").val());
+    fila.find("td:eq(3)").text($("#edit-fechas").val());
+    fila.find("td:eq(4)").text($("#edit-fechad").val());
+    fila.find("td:eq(5)").text($("#edit-cantidad").val());
+    fila.find("td:eq(6)").text($("#edit-estado").val() + " ");
 
     $("#edit-modal").modal("hide");
     fila.find(".edit-icon, .delete-icon").css("visibility", "visible");
@@ -130,17 +129,18 @@ $(document).ready(function() {
 
   
 
-  // Función para mostrar el modal y cargar los datos del producto a editar
+  // Función para mostrar el modal y cargar los datos del registro a editar
   $(".edit-icon").click(function() {
     idEditar = $(this).closest("tr").data("id");
-    const fila = $(`tr[data-id="${idEditar}"]`);
+    let fila = $(`tr[data-id="${idEditar}"]`);
 
     // Cargamos los valores del producto a editar en el modal
-    $("#edit-producto").val(fila.find("td:eq(0)").text());
-    $("#edit-cantidad").val(fila.find("td:eq(1)").text());
-    $("#edit-fecha").val(fila.find("td:eq(2)").text());
-    $("#edit-codigo").val(fila.find("td:eq(3)").text());
-    $("#edit-estado").val(fila.find("td:eq(4)").text().trim());
+    $("#edit-rol").val(fila.find("td:eq(0)").text());
+    $("#edit-insumo").val(fila.find("td:eq(2)").text());
+    $("#edit-fechas").val(fila.find("td:eq(3)").text());
+    $("#edit-fechad").val(fila.find("td:eq(4)").text());
+    $("#edit-cantidad").val(fila.find("td:eq(5)").text());
+    $("#edit-estado").val(fila.find("td:eq(6)").text().trim());
 
     // Ocultamos los iconos de editar y eliminar
     fila.find(".edit-icon, .delete-icon").css("visibility", "hidden");
@@ -151,7 +151,7 @@ $(document).ready(function() {
 
   // Función para cancelar la edición del producto
   $(".cancelar-edicion").click(function() {
-    const fila = $(`tr[data-id="${idEditar}"]`);
+    let fila = $(`tr[data-id="${idEditar}"]`);
     fila.find(".edit-icon, .delete-icon").css("visibility", "visible");
 
     $("#edit-modal").modal("hide"); 
@@ -162,7 +162,7 @@ $("#guardar-cambios").click(function() {
   guardarCambios();
   
   // Mostramos los iconos de editar y eliminar después de guardar los cambios
-  const fila = $(`tr[data-id="${idEditar}"]`);
+  let fila = $(`tr[data-id="${idEditar}"]`);
   fila.find(".edit-icon, .delete-icon").css("visibility", "visible");
 });
 
@@ -170,9 +170,88 @@ $("#guardar-cambios").click(function() {
 
 // Función para mostrar los iconos de editar y eliminar después de cerrar el modal
 $('#edit-modal').on('hidden.bs.modal', function () {
-  const fila = $(`tr[data-id="${idEditar}"]`);
+  let fila = $(`tr[data-id="${idEditar}"]`);
   fila.find(".edit-icon, .delete-icon").css("visibility", "visible");
 });
 })
+
+$(document).ready(function() {
+    // Función que se ejecuta al hacer clic en el botón "Aceptar registro"
+    $("#accept-button").click(function() {
+      // Obtener la lista de filas seleccionadas
+      var selectedRows = [];
+      $(".select-checkbox:checked").each(function() {
+        selectedRows.push($(this).data("id"));
+      });
+  
+      // Si hay filas seleccionadas
+      if (selectedRows.length > 0) {
+        // Mostrar SweetAlert de confirmación
+        var title = '';
+        var aceptados = '';
+        if (selectedRows.length === 1) {
+          title = '¿Estás seguro de aceptar el registro?';
+          aceptados = 'Se ha aceptado 1 registro.';
+        } else {
+          title = '¿Estás seguro de aceptar los registros?';
+          aceptados = 'Se han aceptado ' + selectedRows.length + ' registros.';
+        }
+        Swal.fire({
+          title: title,
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonText: 'Aceptar',
+          confirmButtonColor: '#28A745',
+          cancelButtonText: 'Cancelar',
+          cancelButtonColor: '#d33'
+        }).then((result) => {
+          // Si se confirma la aceptación de los registros
+          if (result.isConfirmed) {
+            // Mostrar SweetAlert con el número de registros aceptados
+            Swal.fire({
+              title: aceptados,
+              icon: 'success',
+              confirmButtonText: 'Aceptar',
+              confirmButtonColor: '#28A745'
+            });
+          }
+        });
+      } else {
+        // Si no hay filas seleccionadas, mostrar SweetAlert de error
+        Swal.fire({
+          title: 'No hay registros que aceptar.',
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+          confirmButtonColor: '#28A745'
+        });
+      } 
+    });
+    });
+
+// Inicializa una variable booleana con valor false
+var selectAllChecked = false;
+
+// Agrega un evento de clic al elemento con ID "select-button"
+$('#select-button').click(function() {
+
+  // Verifica si la variable selectAllChecked es verdadera
+  if (selectAllChecked) {
+
+    // Si la variable es verdadera, establece la propiedad "checked" de los elementos con clase "select-checkbox" en false
+    $('.select-checkbox').prop('checked', false);
+
+    // Establece la variable selectAllChecked en false
+    selectAllChecked = false;
+
+  } else {
+
+    // Si la variable es falsa, establece la propiedad "checked" de los elementos con clase "select-checkbox" en true
+    $('.select-checkbox').prop('checked', true);
+
+    // Establece la variable selectAllChecked en true
+    selectAllChecked = true;
+
+  }
+});
 
 //V3

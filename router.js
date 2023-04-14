@@ -67,31 +67,61 @@ router.get('/controlAula', (req,res)=>{
   // VISTAS ADMINISTRADOR
 
   router.get('/rol', (req,res)=>{
-    res.render('rol.ejs');
+    res.render('rol');
   });
 
   router.get('/registroaprendiz', (req, res) => {
-    res.render('registroaprendiz.ejs');
+    res.render('registroaprendiz');
   });
   
   router.get('/registroinstructor', (req, res) => {
-    res.render('registroinstructor.ejs');
+    res.render('registroinstructor');
   });
   
   router.get('/registrocoordinador', (req, res) => {
-      res.render('registrocoordinador.ejs');
+      res.render('registrocoordinador.');
     });
   
     router.get('/registroadministrador', (req, res) => {
-      res.render('registroadministrador.ejs');
+      res.render('registroadministrador.');
     });
   
     router.get('/devolucionInsumos', (req, res) => {
-      res.render('devolucionInsumos.ejs');
+      res.render('devolucionInsumos');
     });
   
     router.get('/inventario', (req, res) => {
-      res.render('inventario.ejs');
+      res.render('inventario');
+    });
+
+
+
+    router.post('/registroinstructor', function(req, res) {
+      // Código para registrar el instructor
+      // ...
+      // Enviar respuesta al cliente
+      res.send('Registro exitoso');
+    });
+    
+    router.post('/registrocoordinador', function(req, res) {
+      // Código para registrar el coordinador
+      // ...
+      // Enviar respuesta al cliente
+      res.send('Registro exitoso');
+    });
+    
+    router.post('/registroaprendiz', function(req, res) {
+      // Código para registrar el coordinador
+      // ...
+      // Enviar respuesta al cliente
+      res.send('Registro exitoso');
+    });
+    
+    router.post('/registroadministrador', function(req, res) {
+      // Código para registrar el coordinador
+      // ...
+      // Enviar respuesta al cliente
+      res.send('Registro exitoso');
     });
   
 module.exports = router;

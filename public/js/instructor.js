@@ -111,3 +111,22 @@ $(document).ready(function () {
     return true;
   });
 });
+
+var campos = document.querySelectorAll("#nombre, #apellido, #programaformacion, #direccion, #correo_electronico, #telefono, #numeroficha, #contraseña, #numero_documento");
+  campos.forEach(function(campo) {
+    campo.addEventListener("input", function() {
+      if (this.id === "nombre" || this.id === "apellido" || this.id === "programaformacion") {
+        this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚ\s]/g, "");
+      } else if (this.id === "direccion") {
+        this.value = this.value.replace(/[^a-zA-Z0-9.,#\/\-\_\s]/g, "");
+      } else if (this.id === "correo_electronico") {
+        this.value = this.value.replace(/[^a-zA-Z0-9.\-\_\@]/g, "");
+      } else if (this.id === "telefono" || this.id === "numeroficha" || this.id === "numero_documento") {
+        this.value = this.value.replace(/[^0-9]/g, "");
+      } else if (this.id === "contraseña") {
+        this.value = this.value.replace(/[^a-zA-Z0-9.]/g, "");
+      }
+    });
+  });
+
+  //V3

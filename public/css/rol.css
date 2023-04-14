@@ -1,126 +1,126 @@
-
-
 .form-container {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 30px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(8.5px);
-  -webkit-backdrop-filter: blur(8.5px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  margin: auto;
-  margin-top: 50px;
-  padding: 50px 70px;
-  max-width: 400px;
+  background: rgba(255, 255, 255, 0.2); /* Fondo con transparencia */
+  border-radius: 30px; /* Borde redondeado */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Sombra */
+  backdrop-filter: blur(8.5px); /* Filtro de desenfoque para el fondo */
+  -webkit-backdrop-filter: blur(8.5px); /* Filtro de desenfoque para el fondo en navegadores WebKit */
+  border: 1px solid rgba(255, 255, 255, 0.18); /* Borde con transparencia */
+  margin: auto; /* Margen automático en la posición horizontal */
+  margin-top: 50px; /* Margen superior de 50 píxeles */
+  padding: 50px 70px; /* Relleno de 50 píxeles en la parte superior e inferior, y de 70 píxeles en los lados izquierdo y derecho */
+  max-width: 400px; /* Ancho máximo de 400 píxeles */
 }
 
 .form-container h2 {
-  color: #fff;
+  color: #fff; /* Color de texto blanco */
 }
 
 .form-group label {
-  color: #fff;
+  color: #fff; /* Color de texto blanco */
 }
 
 .form-control {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: none;
-  border-radius: 10px;
-  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo con transparencia */
+  border: none; /* Sin borde */
+  border-radius: 10px; /* Borde redondeado */
+  color: #fff; /* Color de texto blanco */
 }
 
 .form-control:focus {
-  background-color: rgba(255, 255, 255, 0.2);
-  outline: none;
+  background-color: rgba(255, 255, 255, 0.2); /* Fondo con transparencia */
+  outline: none; /* Sin contorno */
 }
 
 .btn-block {
-  background-color: #fff;
-  border: none;
-  border-radius: 30px;
-  color: #0d6efd;
-  font-weight: 500;
-  margin-top: 20px;
+  background-color: #fff; /* Fondo blanco */
+  border: none; /* Sin borde */
+  border-radius: 30px; /* Borde redondeado */
+  color: #0d6efd; /* Color azul claro */
+  font-weight: 500; /* Peso de la fuente de texto */
+  margin-top: 20px; /* Margen superior de 20 píxeles */
 }
 
 .btn-block:hover {
-  background-color: #0d6efd;
-  color: #fff;
+  background-color: #0d6efd; /* Fondo azul claro */
+  color: #fff; /* Color de texto blanco */
 }
 
-
-
 .btn-success {
-  width: 100%;
+  width: 100%; /* Ancho del botón del 100% */
 }
 
 .btn {
-  color: green;
+  color: green; /* Color verde para el botón */
 }
+
 img.rounded-circle {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
+  width: 150px; /* Ancho de imagen de 150 píxeles */
+  height: 150px; /* Altura de imagen de 150 píxeles */
+  object-fit: cover; /* Ajuste del objeto */
 }
 
+
+/* Estilo del footer */
 footer {
-  background-color: green;
-  color: white;
-  height: 30px;
-  line-height: 30px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  background-color: green; /* color de fondo */
+  color: white; /* color del texto */
+  height: 30px; /* altura del footer */
+  line-height: 30px; /* altura de línea del texto */
+  position: fixed; /* posición fija */
+  bottom: 0; /* colocado en la parte inferior */
+  width: 100%; /* ancho al 100% */
 }
 
-
-
-
-
+/* Estilo del párrafo dentro del footer */
 footer p {
-  margin: 0;
-  animation: move-text 20s infinite;
+  margin: 0; /* margen de 0 */
+  animation: move-text 20s infinite; /* animación para mover el texto */
 }
 
+/* Animación para mover el texto */
 @keyframes move-text {
-  from { transform: translateX(0); }
-  to { transform: translateX(100%); }
+  from { transform: translateX(0); } /* comienza desde la posición x = 0 */
+  to { transform: translateX(100%); } /* termina en la posición x = 100% (fuera de la pantalla) */
 }
 
+/* Cambia la opacidad cuando el cursor está sobre #footer-test */
+#footer-test:hover {
+  opacity: 0; /* opacidad 0 cuando el cursor está sobre el elemento */
+  transition: opacity 0.5s ease-in-out; /* transición suave */
+}
+
+/* Establece la opacidad cuando el cursor no está sobre #footer-test */
+#footer-test:not(:hover) {
+  opacity: 1; /* opacidad 1 cuando el cursor no está sobre el elemento */
+  transition: opacity 0.5s ease-in-out; /* transición suave */
+}
+
+/* Animación para mover el texto cuando el cursor no está sobre #footer-test */
+#footer-test:not(:hover) p {
+  animation: move-text 20s infinite; /* animación para mover el texto */
+}
+
+/* Estilos para el efecto de hover en los enlaces de la barra de navegación */
 .navbar-nav .nav-link:hover {
-  background-color: grey;
-  transition: background-color 0.3s ease-in-out;
+  background-color: grey; /* Cambia el color de fondo al hacer hover en el enlace */
+  transition: background-color 0.3s ease-in-out; /* Agrega una transición suave de 0.3 segundos para el cambio de color de fondo */
 }
 
-
-.iconos {
-  display: flex;
-  align-items: center;
+/* Esta regla cambia el borde de los elementos con id "edit-rol" y "edit-estado" cuando están en foco */
+#select-rol:focus {
+  border-color: green;
 }
 
-.iconos i {
-  font-size: 1.5rem;
-  margin-right: 10px;
-}
-
-.user-icon {
-  color: white;
-}
-
-.config-icon {
-  color: white;
-}
-
-
-
+/* Estilos para el fondo de pantalla */
 body {
-  background-image: url('/resources/img/sena.jpg'); /*dirección de la imagen que se utilizará como fondo de pantalla*/
-  background-repeat: no-repeat; /*significa que la imagen no se repetirá en ningún momento.*/
-  background-position: center center; /*Se establece la posición de la imagen de fondo. Con center center se indica que la imagen se centrará tanto horizontal como verticalmente.*/
-  background-size: cover; /*Establece el tamaño de la imagen de fondo. Con cover se indica que la imagen cubra todo el espacio posible sin perder la proporción*/
-  min-height: 100vh;
+  background-image: url('/resources/img/sena.jpg'); /* Establece la imagen de fondo */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-position: center center; /* Establece la posición de la imagen en el centro */
+  background-size: cover; /* Hace que la imagen cubra todo el fondo */
+  min-height: 100vh; /* Establece la altura mínima del cuerpo al 100% de la ventana del navegador */
 }
 
-
+/*V3*/
 
 
 

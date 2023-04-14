@@ -38,6 +38,25 @@ app.get('/registroinstructor', function(req, res) {
 app.get('/registrocoordinador', function(req, res) {
   res.render('registrocoordinador');
 });
-// Redirigir si la url no está definida
 
+app.get('/registroadministrador', function(req, res) {
+  res.render('registroadministrador');
+});
+
+app.get('/devolucionInsumos', function(req, res) {
+  res.render('devolucionInsumos');
+});
+
+app.get('/inventario', function(req, res) {
+  res.render('inventario');
+});
+
+app.get('/registroInventario', (req, res) => {
+  res.render('registroInventario');
+});
+
+app.get('/registroSolicitud', (req, res) => {
+  res.render('registroSolicitud');
+});
+//V3
 
