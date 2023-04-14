@@ -79,11 +79,11 @@ router.get('/controlAula', (req,res)=>{
   });
   
   router.get('/registrocoordinador', (req, res) => {
-      res.render('registrocoordinador.');
+      res.render('registrocoordinador');
     });
   
     router.get('/registroadministrador', (req, res) => {
-      res.render('registroadministrador.');
+      res.render('registroadministrador');
     });
   
     router.get('/devolucionInsumos', (req, res) => {
@@ -92,6 +92,14 @@ router.get('/controlAula', (req,res)=>{
   
     router.get('/inventario', (req, res) => {
       res.render('inventario');
+    });
+
+    router.get('/registroInventario', (req, res) => {
+      res.render('registroInventario');
+    });
+
+    router.get('/registroSolicitud', (req, res) => {
+      res.render('registroSolicitud');
     });
 
 

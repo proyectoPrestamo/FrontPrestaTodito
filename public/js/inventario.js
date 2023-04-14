@@ -8,10 +8,10 @@ deleteIcons.forEach(icon => {
     event.stopPropagation();
 
     // Obtiene el elemento "tr" padre del ícono de eliminación (que contiene los datos que deseamos eliminar)
-    const parentTr = event.target.closest('tr');
+    let parentTr = event.target.closest('tr');
 
     // Obtiene el código del producto (el valor del atributo "data-id" del "tr")
-    const productCode = parentTr.getAttribute('data-id');
+    let productCode = parentTr.getAttribute('data-id');
 
     // Utiliza SweetAlert para mostrar un mensaje de confirmación y tomar la acción del usuario
     Swal.fire({
@@ -64,7 +64,7 @@ function searchTable() {
   }
 
   // Recorrer todas las filas de la tabla
-  const found = false;
+  let found = false;
   tableRows.forEach(row => {
     // Obtener el texto de la fila y convertirlo a minúsculas
     const rowText = row.innerText.toLowerCase();

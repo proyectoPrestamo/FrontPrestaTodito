@@ -34,9 +34,10 @@ if (rol === "1") {
 location.href = "/menu-aprendiz";
 } else if (rol === "2") {
 location.href = "/menu-instructor";
+} else if (rol === "3") {
+  location.href = "/rol";
 }
-// Si los campos no están vacíos, envía el formulario
-// formulario.submit();
+
 }
 });
 
