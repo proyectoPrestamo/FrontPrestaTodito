@@ -3,26 +3,31 @@
 }
 /* Esta regla cambia el borde del input de tipo "text" cuando está en foco */
 input[type="text"]:focus {
-border-color: green;
+  border-color: #4CAF50 !important;
+  box-shadow: 0 0 10px #4CAF50 !important;
 }
 
 /* Esta regla cambia el borde del input de tipo "number" cuando está en foco */
 input[type="number"]:focus {
-border-color: green;
+  border-color: #4CAF50 !important;
+  box-shadow: 0 0 10px #4CAF50 !important;
 }
 
 
 input[type="email"]:focus {
-border-color: green;
+  border-color: #4CAF50 !important;
+  box-shadow: 0 0 10px #4CAF50 !important;
 }
 
 input[type="password"]:focus {
-border-color: green;
+  border-color: #4CAF50 !important;
+  box-shadow: 0 0 10px #4CAF50 !important;
 }
 
 /* Esta regla cambia el borde de los elementos con id "edit-rol" y "edit-estado" cuando están en foco */
 #jornada:focus, #tipo_documento:focus, #genero:focus {
-border-color: green;
+  border-color: #4CAF50 !important;
+  box-shadow: 0 0 10px #4CAF50 !important;
 }
 
 /* Estilo del footer */

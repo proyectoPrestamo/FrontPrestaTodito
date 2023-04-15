@@ -1,8 +1,4 @@
-$(document).ready(function(){ //se utiliza para asegurarse de que todo el HTML de la página se ha cargado antes de ejecutar cualquier código JavaScript.
-  $('.navbar-toggler').on('click', function(){ //navbar-toggler para seleccionar el botón que activa la barra de navegación y se añade un evento de click a este botón con el método on('click', function(){}).
-      $('.navbar-collapse').toggleClass('show');
-  });
-});
+
 
 // Obtener el formulario del DOM
 var form = document.querySelector("form");

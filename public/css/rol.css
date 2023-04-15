@@ -108,8 +108,9 @@ footer p {
 
 /* Esta regla cambia el borde de los elementos con id "edit-rol" y "edit-estado" cuando están en foco */
 #select-rol:focus {
-  border-color: green;
-}
+    border-color: #4CAF50 !important;
+    box-shadow: 0 0 10px #4CAF50 !important;
+  }
 
 /* Estilos para el fondo de pantalla */
 body {
