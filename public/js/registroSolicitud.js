@@ -116,7 +116,7 @@ $(document).ready(function() {
   // Función para guardar los cambios del registro editado
   function guardarCambios() {
     let fila = $(`tr[data-id="${idEditar}"]`);
-    fila.find("td:eq(0)").text($("#edit-rol").val());
+    fila.find("td:eq(1)").text($("#edit-rol").val());
     fila.find("td:eq(2)").text($("#edit-insumo").val());
     fila.find("td:eq(3)").text($("#edit-fechas").val());
     fila.find("td:eq(4)").text($("#edit-fechad").val());
@@ -135,7 +135,7 @@ $(document).ready(function() {
     let fila = $(`tr[data-id="${idEditar}"]`);
 
     // Cargamos los valores del producto a editar en el modal
-    $("#edit-rol").val(fila.find("td:eq(0)").text());
+    $("#edit-rol").val(fila.find("td:eq(1)").text());
     $("#edit-insumo").val(fila.find("td:eq(2)").text());
     $("#edit-fechas").val(fila.find("td:eq(3)").text());
     $("#edit-fechad").val(fila.find("td:eq(4)").text());
