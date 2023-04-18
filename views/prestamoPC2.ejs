@@ -47,31 +47,31 @@
         <h1 class="titulo">Prestamo de PC</h1>
 <!-- CONTENEDOR FORMULARIO -->
 <div class="contenedor-items-formulario">
-    <input type="text" class="items" placeholder="a">
+    <input type="text" class="items" placeholder="a" id="nombres">
     <label for="" class="label">Nombres:</label>
   </div>
   <div class="contenedor-items-formulario">
-    <input type="text" class="items" placeholder="a">
+    <input type="text" class="items" placeholder="a" id="apellidos">
     <label for="" class="label">Apellidos:</label>
   </div>
   <div class="contenedor-items-formulario">
-    <input type="text" class="items" placeholder="a">
+    <input type="text" class="items" placeholder="a" id="documento">
     <label for="" class="label">N° de documento</label>
   </div>
   <div class="contenedor-items-formulario">
-    <input type="text" class="items" placeholder="a">
+    <input type="text" class="items" placeholder="a" id="ficha">
     <label for="" class="label">N° de ficha</label>
   </div>
   <div class="contenedor-items-formulario">
-    <input type="text" class="items" placeholder="a">
+    <input type="text" class="items" placeholder="a" id="programa">
     <label for="" class="label">Programa de formacion</label>
   </div>
   <div class="contenedor-items-formulario">
-    <input type="text" class="items" placeholder="a">
+    <input type="text" class="items" placeholder="a" id="jornada">
     <label for="" class="label">Jornada</label>
   </div>
   <div class="contenedor-items-formulario">
-    <input type="date" class="items" placeholder="a">
+    <input type="date" class="items" placeholder="a" id="fecha">
     <label for="" class="label"></label>
   </div>
   <div class="contenedor-items-formulario">
@@ -79,20 +79,19 @@
     <label for="" class="label">Tiempo Requerido</label>
   </div>
 <div class="contenedor-items-formulario">
-  <select class="items-3" aria-placeholder="Default select example">
-    <option value="0"></option>
+  <select class="items-3" aria-placeholder="Default select example" id="tiempo">
+    <option hidden value="0">Tiempo</option>
     <option value="1">1 hora</option>
     <option value="2">2 horas</option>
     <option value="3">3 horas</option>
     <option value="4">4 horas</option>
   </select>
 </div>
-
-
-
         <input type="submit" class="reserva-btn" value="RESERVAR">
         <input type="submit" class="cancelar-btn" value="CANCELAR">
       </form>
     </div>
   </div>
 </body>
+<script src="/resources/js/prestamoPC2.js"></script>
+</html>

@@ -316,7 +316,8 @@ margin-bottom: 40px;
 }
 
 .items:focus {
-  border: 2px solid #39a900;
+  border-color: #4CAF50 ;
+  box-shadow: 0 0 10px #4CAF50;
 }
 
 @media screen and (max-width: 600px) {
@@ -355,18 +356,23 @@ margin-bottom: 40px;
   }
 }
 
+.contenedor-items-formulario input:focus ~ label,
+.contenedor-items-formulario input:not(:placeholder-shown) ~ label {
+top: 0;
+font-size: 12px;
+color: #707070;
+}
 
+.contenedor-items-formulario input:placeholder-shown ~ label {
+top: 50%;
+transform: translateY(-50%);
+font-size: 16px;
+color: #a0a0a0;
+}
 
-
-
-
-
-
-
-
-
-
-
- 
-
+.contenedor-items-formulario input:not(:placeholder-shown) ~ label {
+  top: calc(10% - 6px);
+  font-size: 12px;
+  color: #707070;
+}
 
