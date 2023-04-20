@@ -74,15 +74,23 @@ cancelarBtn.addEventListener('click', function(event) {
 
   // Verificar si todos los campos están vacíos
   if (nombres === '' && apellidos === '' && documento === '' && ficha === '' && programa === '' && jornada === '' && fecha === '' && tiempo === '0') {
-    swal.fire('No hay campos para limpiar.');
+    swal.fire({
+      title: 'No hay campos que limpiar.',
+      icon: 'info',
+      confirmButtonColor: '#28a745',
+      confirmButtonText: 'Aceptar',
+    })
     return;
   }
 
   // Preguntar si se quiere limpiar los campos
   swal.fire({
-    title: '¿Está seguro que desea limpiar los campos que se han llenado?',
+    title: '¿Está seguro de que desea limpiar el o los campos que ha llenado?.',
     icon: 'warning',
-    buttons: ['Cancelar', 'Aceptar'],
+    confirmButtonColor: '#28a745',
+    confirmButtonText: 'Aceptar',
+    cancelButtonText: 'Cancelar',
+    cancelButtonColor: 'dc3545'
   }).then(function(value) {
     if (value) {
       // Si se acepta, vaciar los campos y mostrar mensaje
@@ -95,7 +103,12 @@ cancelarBtn.addEventListener('click', function(event) {
       document.querySelector('#fecha').value = '';
       document.querySelector('#tiempo').value = '0';
 
-      swal.fire('Campos vaciados satisfactoriamente.');
+      swal.fire({
+        title: 'Campos vaciados satisfactoriamente.',
+        icon: 'success',
+        confirmButtonColor: '#28a745',
+        confirmButtonText: 'Aceptar',
+      })
     } else {
       // Si se cancela, no hacer nada
       return;

@@ -18,14 +18,14 @@ var contraseña = document.getElementById("contraseña").value;
 var rol = document.getElementById("rol").value;
 
 // Verifica si los campos están vacíos
-if (usuario === "" || contraseña === "" || rol === "") {
+if (usuario === "" || contraseña === "" || rol === "-- Seleccione un Rol --") {
 // Muestra un mensaje de alerta utilizando la librería SweetAlert2
 Swal.fire({
 title: 'Error',
 text: 'Debes llenar todos los campos antes de continuar',
 icon: 'error',
-confirmButtonColor: '#dc3545',
-confirmButtonText: 'OK',
+confirmButtonColor: '#28a745',
+confirmButtonText: 'Aceptar',
 focusConfirm: false // Evita que el foco se mueva al botón "OK"
 });
 } else {
