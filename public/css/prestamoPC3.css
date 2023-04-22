@@ -4,37 +4,7 @@
 	box-sizing: border-box;
 }
 
-/* LOGOS */
-.container-logos {
-  display: flex;
-  justify-content: flex-end;
-}
-.user{
-  position: relative;
-  margin-left: 1600px;
-  display: flex;
-  flex-direction: row;
-}
 
-.user > i{
-  margin: 20px;
-  font-size: 3rem;
-}
-
-
-/* responsive iconos administrativos */
-
-@media screen and (max-width: 768px) {
-  .user i {
-    font-size: 2rem;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .user i {
-    font-size: 1.5rem;
-  }
-}
 
 /* MENU */
 

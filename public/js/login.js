@@ -36,6 +36,8 @@ location.href = "/menu-aprendiz";
 location.href = "/menu-instructor";
 } else if (rol === "3") {
   location.href = "/rol";
+}  else if (rol === "4") {
+  location.href = "/aprobar";
 }
 
 }

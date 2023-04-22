@@ -1,0 +1,106 @@
+/* MENU USUARIO */
+.container-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .user{
+    position: relative;
+    left: 750px;
+    display: flex;
+  
+  }
+  
+  .user > i{
+    margin: 20px;
+    font-size: 3rem;
+    cursor: pointer;
+  }
+  
+  .user :hover{
+    color: #39a900;
+    transform: scale(0.9);
+  }
+  
+  .menu {
+    position:fixed;
+    top: 90px;
+    right: 20px;
+    background-color: #fff;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    padding: 0.5rem;
+    z-index: 1;
+  }
+  
+  .menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu li {
+    margin: 0.5rem 0;
+  }
+  
+  .menu a {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    text-decoration: none;
+    color:  #39a900;
+    transition:  0.2s ;
+  }
+  
+  .menu a:hover {
+    background-color: #f5f5f5;
+  }
+  /* NOTIFICACIONES */
+  .bell {
+    position: relative;
+   left: 700px;
+  }
+  
+  .bell .badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: red;
+    color: #fff;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .bell :hover{
+    color: #39a900;
+    transform: scale(0.9);
+  }
+  
+  /* FUNCIONALIDAD JS */
+  .hidden {
+    display: none;
+  }
+  
+  .visible {
+    display: block;
+  }
+  
+  
+  /* responsive iconos administrativos */
+  
+  @media screen and (max-width: 768px) {
+    .user i {
+      font-size: 2rem;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .user i {
+      font-size: 1.5rem;
+    }
+  }

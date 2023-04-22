@@ -5,38 +5,6 @@
 	box-sizing: border-box;
 }
 
-/* LOGOS */
-.container-logos {
-  display: flex;
-  justify-content: flex-end;
-}
-.user{
-  position: relative;
-  margin-left: 1600px;
-  display: flex;
-  flex-direction: row;
-}
-
-.user > i{
-  margin: 20px;
-  font-size: 3rem;
-}
-
-
-/* responsive iconos administrativos */
-
-@media screen and (max-width: 768px) {
-  .user i {
-    font-size: 2rem;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .user i {
-    font-size: 1.5rem;
-  }
-}
-
 
 /* MENU */
 
@@ -175,16 +143,6 @@ margin-bottom: 40px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-/* LOGOS */
-.user{
-  position: relative;
-  margin-left: 1600px;
-  cursor: pointer;
-}
-
-.user > i{
-  margin: 20px;
-}
 
 /* FORMULARIO */
 

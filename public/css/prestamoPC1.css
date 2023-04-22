@@ -3,37 +3,7 @@
 	padding: 0;
 	box-sizing: border-box;
 }
-/* LOGOS */
-.container-logos {
-  display: flex;
-  justify-content: flex-end;
-}
-.user{
-  position: relative;
-  margin-left: 1600px;
-  display: flex;
-  flex-direction: row;
-}
 
-.user > i{
-  margin: 20px;
-  font-size: 3rem;
-}
-
-
-/* responsive iconos administrativos */
-
-@media screen and (max-width: 768px) {
-  .user i {
-    font-size: 2rem;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .user i {
-    font-size: 1.5rem;
-  }
-}
 
 /* MENU */
 
@@ -181,14 +151,6 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   background-color: #888686;
 }
 
-/* LOGOS */
-.user{
-  margin-left: 1400px;
-}
-
-.user > i{
-  margin: 20px;
-}
 
 /* contenedor del aviso */
  .aviso{
