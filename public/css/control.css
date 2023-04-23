@@ -56,33 +56,6 @@ nav ul li a:hover {
   background-color: #fff;
   color: #39a900;
 }
-/* responsive menu*/
- @media screen and (max-width: 768px) {
-    nav {
-      padding: 0 10px;
-      margin-left: 0;
-      margin-right: 0;
-      height: auto;
-    }
-    
-    nav ul {
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    nav ul li {
-      margin-right: 0;
-      margin-top: 10px;
-    }
-    
-    nav ul li:last-child {
-      margin-bottom: 10px;
-    }
-    
-    nav ul li a {
-      font-size: 20px;
-    }
-  }
 
 /* Estilos para el menú desplegable */
 .submenu {
@@ -170,10 +143,8 @@ button.btn.btn-secondary{
   height: 45px;
   width: 50%;
   margin-bottom: 17px;
-  
-/* Boton para ambientes */
-
 }
+
 .items{
   position: absolute;
   top: 25px;
@@ -212,7 +183,7 @@ button.btn.btn-secondary{
 .label {
   position: absolute;
   top: 35px;
-  left: 30px;
+  left: 10px;
   padding: 0 4px;
   font-size: 13px;
   transition: 0.5s;
@@ -228,42 +199,52 @@ button.btn.btn-secondary{
 }
 
 
-/* RESPONSIVE */
-
-@media screen and (max-width: 600px) {
+/* responsive menu*/
+@media screen and (max-width: 768px) {
   nav {
-    flex-direction: column;
+    padding: 0 10px;
+    margin-left: 0;
+    margin-right: 0;
     height: auto;
-    padding: 20px;
   }
-
+  
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
   nav ul li {
     margin-right: 0;
+    margin-top: 10px;
+  }
+  
+  nav ul li:last-child {
     margin-bottom: 10px;
   }
-
-  nav ul li:last-child {
-    margin-bottom: 0;
-  }
-
+  
   nav ul li a {
-    display: block;
-    padding: 10px;
+    font-size: 20px;
   }
+}
 
-  .submenu {
-    position: static;
-    display: none;
-  }
+.contenedor-formulario input:focus ~ label,
+.contenedor-formulario input:not(:placeholder-shown) ~ label {
+top: 0;
+font-size: 12px;
+color: #707070;
+}
 
-  .submenu li a {
-    padding: 5px;
-  }
+.contenedor-formulario input:placeholder-shown ~ label {
+top: 100%;
+transform: translateY(-50%);
+font-size: 16px;
+color: #a0a0a0;
+}
 
-  li:hover .submenu {
-    display: block;
-    position: static;
-  }
+.contenedor-formulario input:not(:placeholder-shown) ~ label {
+  top: calc(100% - 40px);
+  font-size: 12px;
+  color: #707070;
 }
 
 

@@ -54,33 +54,6 @@ nav ul li a:hover {
   background-color: #fff;
   color: #39a900;
 }
-/* responsive menu*/
- @media screen and (max-width: 768px) {
-    nav {
-      padding: 0 10px;
-      margin-left: 0;
-      margin-right: 0;
-      height: auto;
-    }
-    
-    nav ul {
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    nav ul li {
-      margin-right: 0;
-      margin-top: 10px;
-    }
-    
-    nav ul li:last-child {
-      margin-bottom: 10px;
-    }
-    
-    nav ul li a {
-      font-size: 20px;
-    }
-  }
 
 
 /* Estilos para el menú desplegable */
@@ -123,7 +96,7 @@ li:hover .submenu {
 /* CONTENEDORES */
 .fondo{
   margin: 50px;
-  height: 1300px;
+  height: 1600px;
   background-color: #a8a8a8;
 }
 
@@ -159,7 +132,7 @@ margin-bottom: 40px;
   left: 150px;
   width: 600px;
   padding: 40px 40px;
-  margin-top: 300px;
+  margin-top: 600px;
   box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   border-radius: 10px;
@@ -275,43 +248,34 @@ margin-bottom: 40px;
 }
 
 
-/* RESPONSIVE */
-
-@media screen and (max-width: 600px) {
+/* responsive menu*/
+@media screen and (max-width: 768px) {
   nav {
-    flex-direction: column;
+    padding: 0 10px;
+    margin-left: 0;
+    margin-right: 0;
     height: auto;
-    padding: 20px;
   }
-
+  
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
   nav ul li {
     margin-right: 0;
+    margin-top: 10px;
+  }
+  
+  nav ul li:last-child {
     margin-bottom: 10px;
   }
-
-  nav ul li:last-child {
-    margin-bottom: 0;
-  }
-
+  
   nav ul li a {
-    display: block;
-    padding: 10px;
-  }
-
-  .submenu {
-    position: static;
-    display: none;
-  }
-
-  .submenu li a {
-    padding: 5px;
-  }
-
-  li:hover .submenu {
-    display: block;
-    position: static;
+    font-size: 20px;
   }
 }
+
 
 .contenedor-items-formulario input:focus ~ label,
 .contenedor-items-formulario input:not(:placeholder-shown) ~ label {

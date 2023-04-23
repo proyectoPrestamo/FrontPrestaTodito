@@ -80,9 +80,12 @@ botonEnviar.addEventListener("click", function(event) {
 
   // Obtener los valores de los campos del formulario
   const tipo = document.getElementById("tipo").value;
+  const documento = document.getElementById("documento").value;
   const unidad = document.getElementById("unidad").value;
   const cantidad = document.getElementById("cantidad").value;
+  const jornada = document.getElementById("jornada").value;
   const formacion = document.getElementById("formacion").value;
+  const fecha = document.getElementById("fecha").value;
   const ficha = document.getElementById("ficha").value;
 
   // Verificar si los campos están vacíos
@@ -98,4 +101,27 @@ botonEnviar.addEventListener("click", function(event) {
     });
   } 
 });
-// 1
+
+// Obtiene los campos del formulario con los ID
+var campos = document.querySelectorAll("#documento, #ficha,#cantidad");
+
+// Agrega un evento de escucha a los campos del formulario
+campos.forEach(function(campo) {
+campo.addEventListener("input", function() {
+// Verifica si el campo de los que solo utilizan numeros
+if (this.id === "documento","ficha, cantidad") {
+// Reemplaza cualquier caracter que no sea un número con una cadena vacía
+this.value = this.value.replace(/[^0-9]/g, "");
+}
+});
+});
+
+
+var campos = document.querySelectorAll("#formacion");
+campos.forEach(function(campo) {
+campo.addEventListener("input", function() {
+if (this.id === "formacion") {
+this.value = this.value.replace(/[^a-zA-Z]/g, "");
+}
+});
+});
