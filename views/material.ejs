@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/resources/css/iconos.css">
   <link rel="shortcut icon" href="resources/imagenes/logoSena.png">
   <link rel="stylesheet" href="/resources/css/material.css">
   <%- include('./partials/boostrap.ejs') %>
@@ -50,17 +49,44 @@
 
         <div class="contenedor-items-formulario">
           <input type="text" class="items" placeholder="a" id="tipo">
-          <label for="" class="label">Tipo de material</label>
+          <label for="" class="label">N° de documento</label>
         </div>
 
         <div class="contenedor-items-formulario">
-          <input type="text" class="items" placeholder="a" id="unidad">
-          <label for="" class="label">Unidad de medida</label>
+          <input type="text" class="items" placeholder="a" id="jornada">
+          <select class="items" aria-placeholder="Default select example">
+            <option value="0" hidden>-- Seleccione el tipo --</option>
+            <option value="1">Cuero</option>
+            <option value="2">Tela</option>
+            <option value="3">Cuero sintetico</option>
+          </select>
         </div>
+
+
+        <div class="contenedor-items-formulario">
+          <input type="text" class="items" placeholder="a" id="jornada">
+          <select class="items" aria-placeholder="Default select example">
+            <option value="0" hidden>-- Seleccione la unidad de medida --</option>
+            <option value="1">Metro</option>
+            <option value="2">Centimetro</option>
+            <option value="3">Milimetro</option>
+          </select>
+        </div>
+
 
         <div class="contenedor-items-formulario">
           <input type="text" class="items" placeholder="a" id="cantidad">
           <label for="" class="label">Cantidad</label>
+        </div>
+
+        <div class="contenedor-items-formulario">
+          <input type="text" class="items" placeholder="a" id="jornada">
+          <select class="items" aria-placeholder="Default select example">
+            <option value="0" hidden>-- Seleccione la jornada --</option>
+            <option value="1">Diurna</option>
+            <option value="2">Tarde</option>
+            <option value="3">Noche</option>
+          </select>
         </div>
 
         <div class="contenedor-items-formulario">
@@ -70,7 +96,7 @@
 
         <div class="contenedor-items-formulario">
           <input type="text" class="items" placeholder="a" id="ficha">
-          <label for="" class="label">Numero de ficha</label>
+          <label for="" class="label">N° de ficha</label>
         </div>
         <input type="submit" id="Reservar-btn" class="reserva-btn" value="RESERVAR">
         <input type="submit" id="Cancelar-btn" class="cancelar-btn" value="CANCELAR">

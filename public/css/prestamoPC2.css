@@ -143,9 +143,6 @@ margin-bottom: 40px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-
-
-
 /* FORMULARIO */
 
 .formulario {
@@ -237,7 +234,7 @@ margin-bottom: 40px;
 .label {
   position: absolute;
   top: 15px;
-  left: 15px;
+  left: 5px;
   padding: 0 4px;
   background-color: white;
   color: black;
@@ -340,7 +337,7 @@ color: #a0a0a0;
 }
 
 .contenedor-items-formulario input:not(:placeholder-shown) ~ label {
-  top: calc(10% - 6px);
+  top: calc(100% - 60px);
   font-size: 12px;
   color: #707070;
 }
