@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/resources/css/menu-instructor.css">
+    <link rel="stylesheet" href="/resources/css/menu-principal-instructor.css">
     <%- include('./partials/boostrap.ejs') %>
     <title>Menu Prestamos SENA</title>
 </head>
@@ -19,22 +20,7 @@
         </div>
 
         <!-- contenedor del menu -->
-        <nav>
-            <ul>
-              <li><a href="menu-instructor">Inicio</a></li>
-              <li>
-                <a href="controlAula">Control de aulas</a>
-              </li>
-              <li>
-                <a href="#">Préstamo</a>
-                <ul class="submenu">
-                  <li><a href="material">Materiales</a></li>
-        <li><a href="herramientas">Herramientas</a></li>
-        <li><a href="ambientes">Ambientes</a></li>
-                </ul>
-              </li>
-            </ul>
-          </nav>
+        <%- include('./partials/instructor.ejs') %>
             <!-- CONTENEDOR DE EL MENSAJE -->
             <div class="bienvenido text-light rounded-top">
                 <div class="texto">¡Bienvenido!</div>

@@ -36,6 +36,10 @@ router.get('/controlAula', (req,res)=>{
   router.get('/registrocoordinador', (req, res) => {
       res.render('registrocoordinador.ejs');
     });
+
+    router.get('/prestamoPcInstructor', (req,res)=>{
+      res.render('prestamoPcInstructor.ejs');
+  })
   
       // VISTAS COORDINADOR
   router.get('/aprobar', (req, res) => {
