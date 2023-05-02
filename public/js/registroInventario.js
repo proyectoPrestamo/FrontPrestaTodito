@@ -16,7 +16,7 @@
       }
     });
   });
-
+//v4
   // esta función se encarga de eliminar la imagen previamente seleccionada
   function eliminarImagen() {
     // Obtiene el elemento de previsualización y la imagen previa
