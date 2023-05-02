@@ -38,8 +38,10 @@ btnAceptar.addEventListener('click', function(event) {
       Swal.fire({
         icon: 'error',
         confirmButtonColor: '#28A745',
+        confirmButtonText: 'Aceptar',
         title: 'Error',
-        text: 'Por favor, selecciona un rol antes de continuar'
+        text: 'Por favor, selecciona un rol antes de continuar',
+        allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
       });
     }, 0);
   }

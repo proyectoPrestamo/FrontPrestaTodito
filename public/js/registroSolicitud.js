@@ -22,7 +22,9 @@ deleteIcons.forEach(icon => {
       confirmButtonColor: '#28A745',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sí, eliminar',
-      cancelButtonText: 'Cancelar'
+      cancelButtonText: 'Cancelar',
+      allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
+
     }).then((result) => {
       if (result.isConfirmed) {
         // Si el usuario hace clic en "Sí, eliminar", elimina el elemento "tr" del DOM
@@ -32,7 +34,9 @@ deleteIcons.forEach(icon => {
           title: 'Registro eliminado',
           text: `El registro con código ${regiCode} ha sido eliminado correctamente`,
           icon: 'success',
-          confirmButtonColor: '#28A745'
+          confirmButtonColor: '#28A745',
+          confirmButtonText: 'Aceptar',
+          allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
         });
       }
     })
@@ -59,6 +63,7 @@ function searchTable() {
       title: 'Por favor ingresa el nombre del registro a buscar',
       confirmButtonText: 'Aceptar',
       confirmButtonColor: '#28A745',
+      allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
     });
     return;
   }
@@ -85,6 +90,7 @@ function searchTable() {
       title: 'El registro no ha sido encontrado',
       confirmButtonText: 'Aceptar',
       confirmButtonColor: '#28A745',
+      allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
     });
   }
 }
@@ -192,6 +198,7 @@ $(document).ready(function() {
         if (selectedRows.length === 1) {
           title = '¿Estás seguro de aceptar el registro?';
           aceptados = 'Se ha aceptado 1 registro.';
+          
         } else {
           title = '¿Estás seguro de aceptar los registros?';
           aceptados = 'Se han aceptado ' + selectedRows.length + ' registros.';
@@ -203,7 +210,8 @@ $(document).ready(function() {
           confirmButtonText: 'Aceptar',
           confirmButtonColor: '#28A745',
           cancelButtonText: 'Cancelar',
-          cancelButtonColor: '#d33'
+          cancelButtonColor: '#d33',
+          allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
         }).then((result) => {
           // Si se confirma la aceptación de los registros
           if (result.isConfirmed) {
@@ -212,7 +220,8 @@ $(document).ready(function() {
               title: aceptados,
               icon: 'success',
               confirmButtonText: 'Aceptar',
-              confirmButtonColor: '#28A745'
+              confirmButtonColor: '#28A745',
+              allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
             });
           }
         });
@@ -222,7 +231,8 @@ $(document).ready(function() {
           title: 'No hay registros que aceptar.',
           icon: 'error',
           confirmButtonText: 'Aceptar',
-          confirmButtonColor: '#28A745'
+          confirmButtonColor: '#28A745',
+          allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
         });
       } 
     });

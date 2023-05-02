@@ -1,5 +1,3 @@
-
-
   $(document).ready(function() { // Cuando el documento HTML termina de cargarse
     $('.preview-container').on('click', function() { // Al hacer clic en un elemento HTML con la clase "preview-container"
       if (!$(this).find('img').attr('src')) { // Si el elemento HTML dentro del contenedor "preview-container" no tiene un atributo "src" establecido
@@ -8,7 +6,8 @@
           title: 'Error',
           text: 'Inserte una imagen para poder visualizarla',
           confirmButtonColor: '#28A745',
-          confirmButtonText: 'Aceptar'
+          confirmButtonText: 'Aceptar',
+          allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
         });
       } else { // Si el elemento HTML dentro del contenedor "preview-container" tiene un atributo "src" establecido
         var src = $(this).find('img').attr('src'); // Obtiene la URL de la imagen del elemento HTML dentro del contenedor "preview-container"
@@ -20,12 +19,11 @@
 
   // esta función se encarga de eliminar la imagen previamente seleccionada
   function eliminarImagen() {
-    // se obtiene el atributo "src" de la imagen previa
-    var imagenPrev = document.getElementById('preview').getAttribute('src');
-    // se obtiene el atributo "src" de la imagen nueva
-    var imagenNueva = document.getElementById('imagen').value;
+    // Obtiene el elemento de previsualización y la imagen previa
+    const preview = document.querySelector('#preview');
+    const imagenPrev = preview.getAttribute('src');
     
-    // si hay una imagen previa, se muestra un mensaje de confirmación usando la librería Swal
+    // Si hay una imagen previa, se muestra un mensaje de confirmación usando la librería Swal
     if (imagenPrev) {
       Swal.fire({
         icon: 'warning',
@@ -35,41 +33,50 @@
         confirmButtonText: 'Eliminar',
         confirmButtonColor: '#28a745',
         cancelButtonText: 'Cancelar',
-        cancelButtonColor: '#dc3545'
+        cancelButtonColor: '#dc3545',
+        allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
       }).then((result) => {
-        // si el usuario confirma que desea eliminar la imagen
+        // Si el usuario confirma que desea eliminar la imagen
         if (result.isConfirmed) {
-          // se borra el valor del input de imagen
-          document.getElementById('imagen').value = '';
-          // se remueve el atributo "src" de la imagen previa, borrándola del preview
-          document.getElementById('preview').removeAttribute('src');
+          // Borra el valor del input de imagen
+          document.querySelector('#imagen').value = '';
+          // Elimina la imagen previa del preview
+          preview.removeAttribute('src');
           
-          // si se ha insertado una imagen nueva y no ha habido ningún error de extensión, insertamos la imagen previa en el preview de nuevo
-          if (imagenNueva && /\.(jpe?g|png)$/i.test(imagenNueva)) {
-            document.getElementById('preview').setAttribute('src', imagenPrev);
+          // Si se ha insertado una imagen nueva y no ha habido ningún error de extensión, inserta la imagen previa en el preview de nuevo
+          const imagenNueva = document.querySelector('#imagen').files[0];
+          if (imagenNueva && /\.(jpe?g|png)$/i.test(imagenNueva.name)) {
+            const reader = new FileReader();
+            reader.onload = () => {
+              preview.setAttribute('src', reader.result);
+            };
+            reader.readAsDataURL(imagenNueva);
           }
           
-          // se muestra un mensaje indicando que la imagen ha sido eliminada correctamente
+          // Muestra un mensaje indicando que la imagen ha sido eliminada correctamente
           Swal.fire({
             icon: 'success',
             title: 'Imagen eliminada',
             text: 'La imagen ha sido eliminada correctamente',
             confirmButtonColor: '#28a745',
-            confirmButtonText: 'Aceptar'
+            confirmButtonText: 'Aceptar',
+            allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
           });
         }
       });
     } else {
-      // si no hay imagen previa, se muestra un mensaje de error usando la librería Swal
+      // Si no hay imagen previa, se muestra un mensaje de error usando la librería Swal
       Swal.fire({
         icon: 'error',
         title: 'Error',
         text: 'No hay imagen para eliminar',
         confirmButtonColor: '#28a745',
-        confirmButtonText: 'Aceptar'
+        confirmButtonText: 'Aceptar',
+        allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
       });
     }
   }
+  
 
   function previewImage() {
     // Obtiene el elemento de previsualización y el archivo seleccionado en el input de imagen
@@ -95,7 +102,8 @@
         title: 'Error',
         text: 'Solo se permiten imágenes con formato: JPG o PNG',
         confirmButtonColor: '#28A745',
-        confirmButtonText: 'Aceptar'
+        confirmButtonText: 'Aceptar',
+        allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
       });
       // Limpiamos el input de la imagen
       document.querySelector('#imagen').value = '';
@@ -112,7 +120,8 @@
         title: 'Error',
         text: 'La imagen no puede superar 1MB de tamaño',
         confirmButtonColor: '#28A745',
-        confirmButtonText: 'Aceptar'
+        confirmButtonText: 'Aceptar',
+        allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
       });
       // Limpiamos el input de la imagen
       document.querySelector('#imagen').value = '';
@@ -176,7 +185,8 @@
       title: 'Error',
       text: mensaje,
       confirmButtonColor: '#28A745',
-      confirmButtonText: 'Aceptar'
+      confirmButtonText: 'Aceptar',
+      allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
     });
     return false;
   } else {
@@ -186,7 +196,8 @@
       title: 'Insumo registrado',
       text: 'El insumo se ha registrado satisfactoriamente.',
       confirmButtonColor: '#28A745',
-      confirmButtonText: 'Aceptar'
+      confirmButtonText: 'Aceptar',
+      allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
     });
 
     // se limpian los campos del formulario
@@ -231,7 +242,8 @@ function limpiarCampos() {
     confirmButtonColor: '#28a745',
     cancelButtonColor: '#dc3545',
     confirmButtonText: 'Aceptar',
-    cancelButtonText: 'Cancelar'
+    cancelButtonText: 'Cancelar',
+    allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
     }).then((result) => {
     // Si el usuario confirma la acción
     if (result.isConfirmed) {
@@ -250,7 +262,8 @@ function limpiarCampos() {
     title: 'Campos vacíos',
     text: 'No hay campos para limpiar',
     confirmButtonColor: '#28a745',
-    confirmButtonText: 'Aceptar'
+    confirmButtonText: 'Aceptar',
+    allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
     });
     }
     }
