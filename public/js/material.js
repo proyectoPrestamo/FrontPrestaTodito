@@ -10,13 +10,15 @@ $(document).ready(function () {
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
-          confirmButtonText: 'Rechazar'
+          confirmButtonText: 'Rechazar',
+          allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
         }).then((result) => {
           if (result.isConfirmed) {
             Swal.fire(
               'Insumo Rechazado Correctamente',
               '',
               'success',
+              
             )
           }
         }) 
@@ -32,7 +34,8 @@ $(document).ready(function () {
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
-          confirmButtonText: 'Reservar'
+          confirmButtonText: 'Reservar',
+          allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
         }).then((result) => {
           if (result.isConfirmed) {
             Swal.fire(
@@ -53,7 +56,8 @@ $(document).ready(function () {
               showCancelButton: true,
               confirmButtonColor: '#3085d6',
               cancelButtonColor: '#d33',
-              confirmButtonText: 'Reservar'
+              confirmButtonText: 'Reservar',
+              allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
             }).then((result) => {
               if (result.isConfirmed) {
                 Swal.fire(
@@ -97,7 +101,7 @@ botonEnviar.addEventListener("click", function(event) {
       icon: 'error',
       confirmButtonColor: '#dc3545',
       confirmButtonText: 'OK',
-      focusConfirm: false // Evita que el foco se mueva al botón "OK"
+      allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
     });
   } 
 });
