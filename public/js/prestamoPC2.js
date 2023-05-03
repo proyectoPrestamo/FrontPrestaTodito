@@ -79,6 +79,7 @@ cancelarBtn.addEventListener('click', function(event) {
       icon: 'info',
       confirmButtonColor: '#28a745',
       confirmButtonText: 'Aceptar',
+      allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
     })
     return;
   }
@@ -90,7 +91,8 @@ cancelarBtn.addEventListener('click', function(event) {
     confirmButtonColor: '#28a745',
     confirmButtonText: 'Aceptar',
     cancelButtonText: 'Cancelar',
-    cancelButtonColor: 'dc3545'
+    cancelButtonColor: 'dc3545',
+    allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
   }).then(function(value) {
     if (value) {
       // Si se acepta, vaciar los campos y mostrar mensaje
@@ -108,6 +110,7 @@ cancelarBtn.addEventListener('click', function(event) {
         icon: 'success',
         confirmButtonColor: '#28a745',
         confirmButtonText: 'Aceptar',
+        allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
       })
     } else {
       // Si se cancela, no hacer nada
