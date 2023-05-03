@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/resources/css/control.css">
+  <link rel="stylesheet" href="/resources/css/menu-aprendiz.css">
+  <%- include('./partials/boostrap.ejs') %>
+    <title>Control de PC SENA</title>
+</head>
+
+
+
+<body>
+  <!--Contenedor de logos-->
+  <%- include('./partials/iconos.ejs') %>
+  <!--Contenedor de la imagen-->
+  <div class="container">
+    <img src="/resources/img/logoSena.png" width="200px" class="mx-auto d-block">
+  </div>
+  <!-- contenedor del menu -->
+  <nav>
+    <ul>
+      <li><a href="menu-aprendiz">Inicio</a></li>
+      <li>
+        <a href="controlcom">Control de PC</a>
+      </li>
+      <li>
+        <a href="prestamoPC2">Préstamo de PC</a>
+      </li>
+    </ul>
+  </nav>  
+  <!-- CONTENEDOR DEL FONDO Y EL LETRERO -->
+  <div class="fondo rounded-top">
+    <div class="container-letrero rounded-top">
+      Control de PC
+    </div>
+    <div class="container-letrero-control rounded-top">
+      <section class="control-reportes">
+        Reporte de PC
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+          Agregar observacion
+        </button>
+      </section>
+      <!--boton para ingresar al modal -->
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" aria-hidden="true" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Agregue una observacion</h5>
+            </div>
+            <!-- texto de ambientes -->
+            <div class="contenedor-formulario">
+              <input type="text" class="items" placeholder="a">
+              <label for="" class="label">N° de PC</label>
+              <!-- from de seleccionar archivo -->
+              <form>
+                <div class="archivo">
+                  <input type="file">
+                </div>
+              </form>
+            </div>
+            <!-- body del modal -->
+            <div class="modal-body">
+              <textarea required="" class="form-control" id="elcontent" name="content" rows="10" data-rule="required"
+                data-msg="Please write something for us">Describe tus quejas</textarea>
+              <div class="modal-footer">
+                <button type="button"  id="Cerrar-bnt" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button type="button" id="Enviar-bnt" class="btn btn-success">Enviar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+<script src="/resources/js/control.js"></script>
+</html>

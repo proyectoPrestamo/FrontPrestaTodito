@@ -67,6 +67,9 @@ router.get('/controlAula', (req,res)=>{
   router.get('/menu-aprendiz', (req, res) => {
     res.render('menu-aprendiz.ejs');
   });
+  router.get('/controlcom', (req, res) => {
+    res.render('controlcom.ejs');
+  });
 
   // VISTAS ADMINISTRADOR
 
