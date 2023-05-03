@@ -88,57 +88,48 @@
   
     // Verifica si hay un archivo seleccionado
     if (!file) {
-      // Si ya hay una imagen en el preview, no se hace nada
+      // Si no hay un archivo seleccionado, se comprueba si ya hay una imagen en el preview
       if (preview.getAttribute('src')) {
+        // Si ya hay una imagen en el preview, no se hace nada
+        return;
+      } else {
+        // Si no hay una imagen en el preview y no se ha seleccionado un archivo, se muestra una alerta con SweetAlert
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Inserte una imagen para poder visualizarla',
+          confirmButtonColor: '#28A745',
+          confirmButtonText: 'Aceptar',
+          allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
+        });
         return;
       }
     }
   
-    // Verifica si el archivo seleccionado es una imagen con extensión jpg o png
-    if (!/\.(jpe?g|png)$/i.test(file.name)) {
-      // Si el archivo no es una imagen con extensión jpg o png, se muestra una alerta con SweetAlert
+    // Verifica si el archivo seleccionado es una imagen con extensión jpg o png y no supera el tamaño máximo permitido
+    if (!/\.(jpe?g|png)$/i.test(file.name) || file.size > 1048576) {
+      // Si el archivo no cumple con los requisitos, se muestra una alerta con SweetAlert
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: 'Solo se permiten imágenes con formato: JPG o PNG',
+        text: 'El archivo seleccionado no es una imagen con extensión jpg o png o supera el tamaño máximo permitido de 1MB',
         confirmButtonColor: '#28A745',
         confirmButtonText: 'Aceptar',
         allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
       });
-      // Limpiamos el input de la imagen
-      document.querySelector('#imagen').value = '';
-      // Se establece la variable "error" en "true" para que no se cargue la imagen
       error = true;
-      return;
     }
   
-    // Verifica si el tamaño del archivo seleccionado es mayor a 1MB
-    if (file.size > 1048576) { // 1MB = 1048576 bytes
-      // Si el tamaño del archivo es mayor a 1MB, se muestra una alerta con SweetAlert
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'La imagen no puede superar 1MB de tamaño',
-        confirmButtonColor: '#28A745',
-        confirmButtonText: 'Aceptar',
-        allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
-      });
-      // Limpiamos el input de la imagen
-      document.querySelector('#imagen').value = '';
-      // Se establece la variable "error" en "true" para que no se cargue la imagen
-      error = true;
-      return;
-    }
-  
-    // Si no ha ocurrido ningún error, se carga la imagen en el preview
+    // Si no se ha producido ningún error, se carga la imagen en el preview
     if (!error) {
       const reader = new FileReader();
-      reader.onload = function(e) {
-        preview.setAttribute('src', e.target.result);
+      reader.onload = () => {
+        preview.setAttribute('src', reader.result);
       };
       reader.readAsDataURL(file);
     }
   }
+  
 
   
   
@@ -267,5 +258,6 @@ function limpiarCampos() {
     });
     }
     }
+    
 
     //V3
