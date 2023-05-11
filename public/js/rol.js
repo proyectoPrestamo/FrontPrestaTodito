@@ -1,51 +1,38 @@
-
-
-// Obtener el formulario del DOM
-var form = document.querySelector("form");
-
-// Agregar un evento submit al formulario
-form.addEventListener("submit", function(event) {
-// Prevenir el comportamiento predeterminado del formulario
-event.preventDefault();
-
-// Obtener el valor seleccionado del select
-var selectedValue = document.getElementById("select-rol").value;
-
-// Si se ha seleccionado un valor, redirigir a la URL correspondiente
-if (selectedValue) {
-  window.location.replace(selectedValue);
-}
-
-
-});
-
+// Cuando el documento está listo, se ejecuta la función de devolución de llamada.
 $(document).ready(function () {
-// Seleccionar el botón de aceptar
-const btnAceptar = document.querySelector('#btn-aceptar');
+  // Se selecciona el formulario y se guarda en una constante llamada 'form'.
+  const form = $('form');
+  // Se selecciona el elemento de lista desplegable con id 'select-rol' y se guarda en una constante llamada 'selectRol'.
+  const selectRol = $('#select-rol');
+  // Se selecciona el botón con id 'btn-aceptar' y se guarda en una constante llamada 'btnAceptar'.
+  const btnAceptar = $('#btn-aceptar');
 
-// Agregar un evento al hacer clic en el botón de aceptar
-btnAceptar.addEventListener('click', function(event) {
-  // Seleccionar el select
-  const selectRol = document.querySelector('#select-rol');
+  // Se registra la función de devolución de llamada 'handleSubmit' para el evento de envío del formulario.
+  form.submit(handleSubmit);
+  // Se registra la función de devolución de llamada 'handleSubmit' para el evento de clic del botón 'Aceptar'.
+  btnAceptar.click(handleSubmit);
 
-  // Si no se ha seleccionado una opción en el select
-  if (!selectRol.value) {
-    // Prevenir que el formulario se envíe
+  // Definición de la función de devolución de llamada 'handleSubmit'.
+  function handleSubmit(event) {
+    // Se evita el comportamiento predeterminado del evento (en este caso, el envío del formulario).
     event.preventDefault();
 
-    // Mostrar la alerta de SweetAlert con un timeout de 0 segundos
-    setTimeout(function() {
+    // Se obtiene el valor seleccionado de la lista desplegable 'selectRol'.
+    const selectedValue = selectRol.val();
+
+    // Si no se ha seleccionado ningún valor, se muestra un mensaje de error mediante la biblioteca 'SweetAlert2'.
+    if (!selectedValue) {
       Swal.fire({
         icon: 'error',
         confirmButtonColor: '#28A745',
         confirmButtonText: 'Aceptar',
         title: 'Error',
         text: 'Por favor, selecciona un rol antes de continuar',
-        allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
+        allowOutsideClick: false
       });
-    }, 0);
+    } else {
+      // Si se ha seleccionado un valor, se redirige al usuario a la página correspondiente.
+      window.location.replace(selectedValue);
+    }
   }
 });
-});
-
-//V3
