@@ -59,10 +59,6 @@ $(document).ready(function () {
     });
   });
 
-
-
-  // Esta función se ejecuta cuando el documento HTML ha sido completamente cargado
-
   // Evento click para el botón de regresar
   $('#btn-regresar').click(function (e) {
     e.preventDefault(); 
@@ -126,4 +122,3 @@ campos.forEach(function(campo) {
   });
 }); 
 });
-//V3

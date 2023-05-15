@@ -58,10 +58,6 @@ $(document).ready(function () {
       }
     });
   });
-});
-
-$(document).ready(function () {
-  // Esta función se ejecuta cuando el documento HTML ha sido completamente cargado
 
   // Evento click para el botón de regresar
   $('#btn-regresar').click(function (e) {
@@ -86,10 +82,8 @@ $(document).ready(function () {
       } 
     });
   });
-});
 
 
-$(document).ready(function () {
   // Evento click para el botón de nuevo registro
   $('#btn-registro').click(function () {
     // Verificar si todos los campos están llenos
@@ -108,7 +102,6 @@ $(document).ready(function () {
     // Si todos los campos están llenos, seguir con la ejecución del formulario
     return true;
   });
-});
 
 var campos = document.querySelectorAll("#nombre, #apellido, #direccion, #correo_electronico, #telefono, #contraseña, #numero_documento");
 campos.forEach(function(campo) {
@@ -126,5 +119,5 @@ campos.forEach(function(campo) {
     }
   });
 }); 
+});
 
-//V3
