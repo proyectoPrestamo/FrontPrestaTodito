@@ -33,35 +33,24 @@
                 <tr class="bg-success">
                   <th>PRODUCTO</th>
                   <th>CANTIDAD</th>
-                  <th>FECHA ADQUISICIÓN</th>
-                  <th>CÓDIGO</th>
                   <th>ESTADO</th>
                   <th>OPCIONES</th>
                 </tr>
               </thead>
               <tbody>
-                <tr data-id="ABC123">
-                  <td>CUERO</td>
-                  <td>11</td>
-                  <td>11/12/2023</td>
-                  <td>ABC123</td>
-                  <td>ESTADO</td>
-                  <td> 
-                    <i class="fas fa-trash-alt delete-icon trash-icon"></i>  
-                    <i class="fas fa-edit edit-icon mr-1" data-toggle="modal" data-target="#edit-modal"></i>
-                  </td>
-                </tr>
-                <tr data-id="ABC456">
-                  <td>CUERO</td>
-                  <td>11</td>
-                  <td>11/12/2023</td>
-                  <td>ABC123</td>
-                  <td>ESTADO</td>
-                  <td> 
-                    <i class="fas fa-trash-alt delete-icon trash-icon"></i>  
-                    <i class="fas fa-edit edit-icon mr-1" data-toggle="modal" data-target="#edit-modal"></i>
-                  </td>
-                </tr>
+                <% datos.forEach((elemento)=>{ %>
+                  <tr>
+                    <td><%= elemento.NOMBRE %></td>
+                    <td><%= elemento.CANTIDAD %></td>
+                    <td><%= elemento.ESTADO %></td>
+                    <td> 
+                      <i class="fas fa-trash-alt delete-icon trash-icon"></i>  
+                      <i class="fas fa-edit edit-icon mr-1" data-toggle="modal" data-target="#edit-modal"></i>
+                    </td>
+                  </tr>
+                <% }); %>
+                
+                
               </tbody>
             </table>
           </div>
