@@ -43,9 +43,7 @@ router.get('/prestamoPcInstructor', (req, res) => {
 })
 
 // VISTAS COORDINADOR
-router.get('/aprobar', (req, res) => {
-  res.render('aprobar.ejs');
-});
+
 router.get('/reportes', (req, res) => {
   res.render('reportes.ejs');
 });
@@ -98,21 +96,7 @@ router.get('/devolucionInsumos', (req, res) => {
   res.render('devolucionInsumos');
 });
 
-// router.get('/inventario', async (req, res) => {
 
-//      try {
-//        const ruta = 'http://localhost:3000/api/material';
-//        const response = await fetch(ruta);
-//        const data = await response.json();
-//        console.log(data[0])
-
-//        res.render('inventario', { "datos": data });
-//      } catch (error) {
-//        console.error('Error al obtener los datos:', error);
-//        res.render('error');
-//      }
-
-//     });
 
 router.get("/inventario", async (req, res) => {
  
@@ -141,6 +125,35 @@ router.get("/inventario", async (req, res) => {
       }
   
   
+});
+
+router.get("/aprobar", async (req, res) => {
+ 
+  try {
+          
+
+    let ruta = "http://localhost:3000/api/material";
+    let option = {
+        method: "GET",
+    }
+    let datos = {};
+    const result = await fetch(ruta, option)
+        .then(response => response.json())
+        .then(data => {
+            datos = data[0]
+            console.log(data[0]);
+        })
+        .catch(err => console.error("error en peticion" + err))
+
+    res.render('aprobar', {
+        "datos": datos
+    });
+
+} catch (error) {
+    res.redirect("/");
+}
+
+
 });
 
   router.get('/registroInventario', (req, res) => {

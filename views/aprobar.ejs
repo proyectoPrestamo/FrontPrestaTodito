@@ -52,33 +52,39 @@
     </div>
  
 
-    <div class="info rounded-top">
-      <section class="tinfo">
+    <div class="table-wrapper">
+      <table class="table table-borderless" id="tabla-solicitudes">
+        <thead>
         
-        Información Del Insumo
-        <button class="btnAceptar">Aceptar</button>
-        <button  id="btnRechazar" class="btnRechazar">Rechazar</button>
-        <i class="fa-sharp fa-solid fa-eye"></i>
-      </section>
+          <tr class="bg-success">
+            <th>PRODUCTO</th>
+            <th>CANTIDAD</th>
+            <th>ESTADO</th>
+            <th>OPCIONES</th>
+          </tr>
+        </thead>
+        <tbody>
+           <% datos.forEach((elemento)=>{ %>
+            <tr>
+              <td><%= elemento.NOMBRE %></td>
+              <td><%= elemento.CANTIDAD %></td>
+              <td><%= elemento.ESTADO %></td>
+              <td> 
+                <i class="fas fa-trash-alt delete-icon trash-icon"></i>  
+                <i class="fas fa-edit edit-icon mr-1" data-toggle="modal" data-target="#edit-modal"></i>
+              </td>
+            </tr>
+          <% }); %>
+          
+          
+        </tbody>
+      </table>
     </div>
-    <hr>
-    
-
-
-
-    <div class="info rounded-top">
-      <section class="tinfo">
-        Información Del Insumo
-        <button class="btnAceptar">Aceptar</button>
-        <button id="btnRechazar" class="btnRechazar">Rechazar</button>
-        <i class="fa-sharp fa-solid fa-eye"></i>
-    </section>
-    </div>
-
 
 
 
 </body>
+<script src="/resources/js/inventario.js"></script>
 <script src="/resources/js/aprobar.js"></script>
 <script src="/resources/js/iconos.js"></script>
 </html>
