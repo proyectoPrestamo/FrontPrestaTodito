@@ -207,7 +207,7 @@
     z-index: 1;
   }
 
-  ::placeholder {
+  .contenedor-items-formulario1 ::placeholder {
     color: black;
   }
 

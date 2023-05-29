@@ -1,84 +1,118 @@
-$(document).ready(function () {
-
-
-    $('#Cancelar-btn').click(function (e) {
-        e.preventDefault();
-
-        Swal.fire({
-          title: '¿Estas Seguro De Rechazar Este Insumo?',
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Rechazar'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            Swal.fire(
-              'Insumo Rechazado Correctamente',
-              '',
-              'success',
-            )
-          }
-        }) 
-        });
-    });
-
-    $('#Reservar-btn').click(function (e) {
-        e.preventDefault();
-
-        Swal.fire({
-          title: '¿Estas Seguro De Realizar la peticion?',
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Reservar'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            Swal.fire(
-              'Reservado Correctamente',
-              '',
-              'success',
-            )
-          }
-        }) 
-        });
-
-
-const formulario = document.getElementById("formulario");
-const botonEnviar = document.getElementById("Reservar-btn");
-
-
-
-
-
-// Agregar un evento de escucha al botón de envío
-botonEnviar.addEventListener("click", function(event) {
-  // Detener el envío del formulario
-  event.preventDefault();
-
-  // Obtener los valores de los campos del formulario
-  const documento = document.getElementById("documento").value;
-  const herramienta = document.getElementById("herramienta").value;
-  const cantidad = document.getElementById("cantidad").value;
-  const jornada = document.getElementById("jornada").value;
-  const fecha = document.getElementById("fecha").value;
-  const formacion = document.getElementById("formacion").value;
-  const ficha = document.getElementById("ficha").value;
+document.querySelector('.forma-formulario').addEventListener('submit', function(event) {
+  event.preventDefault(); // evita el envío del formulario por defecto
   
-
-  // Verificar si los campos están vacíos
-  if (documento === ""|| herramienta === "" ||  jornada === "" ||cantidad === "" || fecha === "" ||  ficha === "" || formacion === "" ) {
-    // Mostrar un mensaje de alerta
+  const ambiente = document.querySelector('#ambiente').value;
+  const documento = document.querySelector('#documento').value.trim();
+  const ficha = document.querySelector('#ficha').value.trim();
+  const jornada = document.querySelector('#jornada').value;
+  const fecha = document.querySelector('#fecha').value.trim();
+  const formacion = document.querySelector('#formacion').value.trim();
+  const aprendices = document.querySelector('#aprendices').value;
+  
+  if (ambiente === '0' || formacion === '' || documento === '' || ficha === '' || jornada === '0' || fecha === '' || aprendices === '0') {
     Swal.fire({
-      title: 'Error',
-      text: 'Debes llenar todos los campos antes de continuar',
       icon: 'error',
-      confirmButtonColor: '#dc3545',
-      confirmButtonText: 'OK',
-      focusConfirm: false // Evita que el foco se mueva al botón "OK"
+      title: 'Campos incompletos',
+      text: 'Por favor, complete todos los campos para poder reservar un ambiente.',
+      confirmButtonColor: '#28a745',
+      confirmButtonText: 'Aceptar',
+      allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
+    });      
+  } else {
+    Swal.fire({
+      icon: 'warning',
+      title: '¿Está seguro?',
+      text: '¿Desea enviar la solicitud de préstamo del ambiente?',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, enviar',
+      cancelButtonText: 'No, cancelar',
+      confirmButtonColor: '#28a745',
+      cancelButtonColor: '#dc3545',
+      allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // limpiar campos
+        document.querySelector('#ambiente').value = '0';
+        document.querySelector('#formacion').value = '';
+        document.querySelector('#documento').value = '';
+        document.querySelector('#ficha').value = '';
+        document.querySelector('#jornada').value = '0';
+        document.querySelector('#fecha').value = '';
+        document.querySelector('#aprendices').value = '0';
+    
+        Swal.fire({
+          icon: 'success',
+          title: 'Solicitud enviada',
+          text: 'Su solicitud de préstamo del ambiente ha sido enviada satisfactoriamente.',
+          confirmButtonColor: '#28a745',
+          confirmButtonText: 'Aceptar',
+          allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
+        });
+      }
     });
-  } 
+    
+  }
+});
+
+
+const cancelarBtn = document.querySelector('.cancelar-btn');
+
+cancelarBtn.addEventListener('click', function(event) {
+event.preventDefault(); // evita el envío del formulario por defecto
+
+// Obtener los valores de los campos
+const ambiente = document.querySelector('#ambiente').value.trim();
+const formacion = document.querySelector('#formacion').value.trim();
+const documento = document.querySelector('#documento').value.trim();
+const ficha = document.querySelector('#ficha').value.trim();
+const jornada = document.querySelector('#jornada').value.trim();
+const fecha = document.querySelector('#fecha').value.trim();
+const aprendices = document.querySelector('#aprendices').value.trim();
+
+// Verificar si todos los campos están vacíos
+if (ambiente === '0' && formacion === '' && documento === '' && ficha === ''  && jornada === '0' && fecha === '' && aprendices === '0') {
+  swal.fire({
+    title: 'No hay campos que limpiar.',
+    icon: 'info',
+    confirmButtonColor: '#28a745',
+    confirmButtonText: 'Aceptar',
+    allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
+  })
+  return;
+}
+
+// Preguntar si se quiere limpiar los campos
+swal.fire({
+  title: '¿Está seguro de que desea limpiar el o los campos que ha llenado?.',
+  icon: 'warning',
+  confirmButtonColor: '#28a745',
+  confirmButtonText: 'Aceptar',
+  cancelButtonText: 'Cancelar',
+  cancelButtonColor: 'dc3545',
+  allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
+}).then(function(value) {
+  if (value) {
+    // Si se acepta, vaciar los campos y mostrar mensaje
+    document.querySelector('#ambiente').value = '0';
+    document.querySelector('#formacion').value = '';
+    document.querySelector('#documento').value = '';
+    document.querySelector('#ficha').value = '';
+    document.querySelector('#jornada').value = '0';
+    document.querySelector('#fecha').value = '';
+    document.querySelector('#aprendices').value = '0';
+
+    swal.fire({
+      title: 'Campos vaciados satisfactoriamente.',
+      icon: 'success',
+      confirmButtonColor: '#28a745',
+      confirmButtonText: 'Aceptar',
+      allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
+    })
+  } else {
+    // Si se cancela, no hacer nada
+    return;
+  }
+});
 });
 
 // Obtiene los campos del formulario con los ID
