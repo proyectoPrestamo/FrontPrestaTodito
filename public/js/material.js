@@ -1,62 +1,136 @@
-$(document).ready(function () {
+document.querySelector('.forma-formulario').addEventListener('submit', function(event) {
+  event.preventDefault(); // evita el envío del formulario por defecto
+  
+  
+  const documento = document.querySelector('#documento').value.trim();
+  const material = document.querySelector('#material').value;
+  const unidad = document.querySelector('#unidad').value.trim();
+  const cantidad = document.querySelector('#cantidad').value.trim();
+  const jornada = document.querySelector('#jornada').value;
+  const fecha = document.querySelector('#fecha').value.trim();
+  const formacion = document.querySelector('#formacion').value.trim();
+  const ficha = document.querySelector('#ficha').value.trim();
 
-
-    $('#Cancelar-btn').click(function (e) {
-        e.preventDefault();
-
+  
+  if ( documento === '' || material === '0' || unidad === '0' ||  cantidad === '' || jornada === '0' || fecha === '' || formacion === ''|| ficha === '') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Campos incompletos',
+      text: 'Por favor, complete todos los campos para poder reservar una herramienta.',
+      confirmButtonColor: '#28a745',
+      confirmButtonText: 'Aceptar',
+      allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
+    });      
+  } else {
+    Swal.fire({
+      icon: 'warning',
+      title: '¿Está seguro?',
+      text: '¿Desea enviar la solicitud de préstamo de la herramienta?',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, enviar',
+      cancelButtonText: 'No, cancelar',
+      confirmButtonColor: '#28a745',
+      cancelButtonColor: '#dc3545',
+      allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // limpiar campos
+        document.querySelector('#documento').value = '';
+        document.querySelector('#material').value = '0';
+        document.querySelector('#unidad').value = '0';
+        document.querySelector('#cantidad').value = '';
+        document.querySelector('#jornada').value = '0';
+        document.querySelector('#fecha').value = '';
+        document.querySelector('#formacion').value = '';
+        document.querySelector('#ficha').value = '';
+    
         Swal.fire({
-          title: '¿Estas Seguro De Rechazar Este Insumo?',
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Rechazar',
+          icon: 'success',
+          title: 'Solicitud enviada',
+          text: 'Su solicitud de préstamo de la herramienta ha sido enviada satisfactoriamente.',
+          confirmButtonColor: '#28a745',
+          confirmButtonText: 'Aceptar',
           allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
-        }).then((result) => {
-          if (result.isConfirmed) {
-            Swal.fire(
-              'Insumo Rechazado Correctamente',
-              '',
-              'success',
-              
-            )
-          }
-        }) 
         });
+      }
     });
+    
+  }
+});
 
-    $('#Reservar-btn').click(function (e) {
-        e.preventDefault();
 
-        Swal.fire({
-          title: '¿Estas Seguro De Realizar la peticion?',
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Reservar',
-          allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
-        }).then((result) => {
-          if (result.isConfirmed) {
-            Swal.fire(
-              'Reservado Correctamente',
-              '',
-              'success',
-            )
-          }
-        }) 
-        });
+const cancelarBtn = document.querySelector('.cancelar-btn');
 
-        $('#Devolver-btn').click(function (e) {
+cancelarBtn.addEventListener('click', function(event) {
+event.preventDefault(); // evita el envío del formulario por defecto
+
+// Obtener los valores de los campos
+const documento = document.querySelector('#documento').value.trim();
+const material = document.querySelector('#material').value;
+const unidad = document.querySelector('#unidad').value.trim();
+const cantidad = document.querySelector('#cantidad').value.trim();
+const jornada = document.querySelector('#jornada').value;
+const fecha = document.querySelector('#fecha').value.trim();
+const formacion = document.querySelector('#formacion').value.trim();
+const ficha = document.querySelector('#ficha').value.trim();
+
+// Verificar si todos los campos están vacíos
+if (documento === '' && material === '0' && unidad === '0' && cantidad === '' &&  jornada === '0' && fecha === '' && formacion === ''&& ficha === '') {
+  swal.fire({
+    title: 'No hay campos que limpiar.',
+    icon: 'info',
+    confirmButtonColor: '#28a745',
+    confirmButtonText: 'Aceptar',
+    allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
+  })
+  return;
+}
+
+// Preguntar si se quiere limpiar los campos
+swal.fire({
+  title: '¿Está seguro de que desea limpiar el o los campos que ha llenado?.',
+  icon: 'warning',
+  confirmButtonColor: '#28a745',
+  confirmButtonText: 'Aceptar',
+  cancelButtonText: 'Cancelar',
+  cancelButtonColor: 'dc3545',
+  allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
+}).then(function(value) {
+  if (value) {
+    // Si se acepta, vaciar los campos y mostrar mensaje
+    document.querySelector('#documento').value = '';
+    document.querySelector('#material').value = '0';
+    document.querySelector('#unidad').value = '0';
+    document.querySelector('#cantidad').value = '';
+    document.querySelector('#jornada').value = '0';
+    document.querySelector('#fecha').value = '';
+    document.querySelector('#formacion').value = '';
+    document.querySelector('#ficha').value = '';
+
+    swal.fire({
+      title: 'Campos vaciados satisfactoriamente.',
+      icon: 'success',
+      confirmButtonColor: '#28a745',
+      confirmButtonText: 'Aceptar',
+      allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
+    })
+  } else {
+    // Si se cancela, no hacer nada
+    return;
+  }
+});
+});
+
+$('#Devolver-btn').click(function (e) {
             e.preventDefault();
     
             Swal.fire({
               title: '¿Estas Seguro De Realizar la peticion?',
               icon: 'warning',
               showCancelButton: true,
-              confirmButtonColor: '#3085d6',
+              confirmButtonColor: '#28a745',
               cancelButtonColor: '#d33',
-              confirmButtonText: 'Reservar',
+              confirmButtonText: 'Devolver',
               allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
             }).then((result) => {
               if (result.isConfirmed) {
@@ -70,41 +144,7 @@ $(document).ready(function () {
             });
 
 
-            const formulario = document.getElementById("formulario");
-const botonEnviar = document.getElementById("Reservar-btn");
 
-
-
-
-
-// Agregar un evento de escucha al botón de envío
-botonEnviar.addEventListener("click", function(event) {
-  // Detener el envío del formulario
-  event.preventDefault();
-
-  // Obtener los valores de los campos del formulario
-  const tipo = document.getElementById("tipo").value;
-  const documento = document.getElementById("documento").value;
-  const unidad = document.getElementById("unidad").value;
-  const cantidad = document.getElementById("cantidad").value;
-  const jornada = document.getElementById("jornada").value;
-  const formacion = document.getElementById("formacion").value;
-  const fecha = document.getElementById("fecha").value;
-  const ficha = document.getElementById("ficha").value;
-
-  // Verificar si los campos están vacíos
-  if (tipo === ""|| unidad === "" || cantidad === "" ||  formacion === "" || ficha === "" ) {
-    // Mostrar un mensaje de alerta
-    Swal.fire({
-      title: 'Error',
-      text: 'Debes llenar todos los campos antes de continuar',
-      icon: 'error',
-      confirmButtonColor: '#dc3545',
-      confirmButtonText: 'OK',
-      allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
-    });
-  } 
-});
 
 // Obtiene los campos del formulario con los ID
 var campos = document.querySelectorAll("#documento, #ficha,#cantidad");

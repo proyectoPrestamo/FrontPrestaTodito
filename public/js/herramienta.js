@@ -1,19 +1,21 @@
 document.querySelector('.forma-formulario').addEventListener('submit', function(event) {
   event.preventDefault(); // evita el envío del formulario por defecto
   
-  const ambiente = document.querySelector('#ambiente').value;
+  
   const documento = document.querySelector('#documento').value.trim();
-  const ficha = document.querySelector('#ficha').value.trim();
+  const herramienta = document.querySelector('#herramienta').value;
+  const cantidad = document.querySelector('#cantidad').value.trim();
   const jornada = document.querySelector('#jornada').value;
   const fecha = document.querySelector('#fecha').value.trim();
   const formacion = document.querySelector('#formacion').value.trim();
-  const aprendices = document.querySelector('#aprendices').value;
+  const ficha = document.querySelector('#ficha').value.trim();
+
   
-  if (ambiente === '0' || formacion === '' || documento === '' || ficha === '' || jornada === '0' || fecha === '' || aprendices === '0') {
+  if ( documento === '' || herramienta === '0' ||  cantidad === '' || jornada === '0' || fecha === '' || formacion === ''|| ficha === '') {
     Swal.fire({
       icon: 'error',
       title: 'Campos incompletos',
-      text: 'Por favor, complete todos los campos para poder reservar un ambiente.',
+      text: 'Por favor, complete todos los campos para poder reservar una herramienta.',
       confirmButtonColor: '#28a745',
       confirmButtonText: 'Aceptar',
       allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
@@ -22,7 +24,7 @@ document.querySelector('.forma-formulario').addEventListener('submit', function(
     Swal.fire({
       icon: 'warning',
       title: '¿Está seguro?',
-      text: '¿Desea enviar la solicitud de préstamo del ambiente?',
+      text: '¿Desea enviar la solicitud de préstamo de la herramienta?',
       showCancelButton: true,
       confirmButtonText: 'Sí, enviar',
       cancelButtonText: 'No, cancelar',
@@ -32,18 +34,18 @@ document.querySelector('.forma-formulario').addEventListener('submit', function(
     }).then((result) => {
       if (result.isConfirmed) {
         // limpiar campos
-        document.querySelector('#ambiente').value = '0';
-        document.querySelector('#formacion').value = '';
         document.querySelector('#documento').value = '';
-        document.querySelector('#ficha').value = '';
+        document.querySelector('#herramienta').value = '0';
+        document.querySelector('#cantidad').value = '';
         document.querySelector('#jornada').value = '0';
         document.querySelector('#fecha').value = '';
-        document.querySelector('#aprendices').value = '0';
+        document.querySelector('#formacion').value = '';
+        document.querySelector('#ficha').value = '';
     
         Swal.fire({
           icon: 'success',
           title: 'Solicitud enviada',
-          text: 'Su solicitud de préstamo del ambiente ha sido enviada satisfactoriamente.',
+          text: 'Su solicitud de préstamo de la herramienta ha sido enviada satisfactoriamente.',
           confirmButtonColor: '#28a745',
           confirmButtonText: 'Aceptar',
           allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
@@ -61,16 +63,16 @@ cancelarBtn.addEventListener('click', function(event) {
 event.preventDefault(); // evita el envío del formulario por defecto
 
 // Obtener los valores de los campos
-const ambiente = document.querySelector('#ambiente').value.trim();
-const formacion = document.querySelector('#formacion').value.trim();
 const documento = document.querySelector('#documento').value.trim();
-const ficha = document.querySelector('#ficha').value.trim();
+const herramienta = document.querySelector('#herramienta').value.trim();
+const cantidad = document.querySelector('#cantidad').value.trim();
 const jornada = document.querySelector('#jornada').value.trim();
 const fecha = document.querySelector('#fecha').value.trim();
-const aprendices = document.querySelector('#aprendices').value.trim();
+const formacion = document.querySelector('#formacion').value.trim();
+const ficha = document.querySelector('#ficha').value.trim();
 
 // Verificar si todos los campos están vacíos
-if (ambiente === '0' && formacion === '' && documento === '' && ficha === ''  && jornada === '0' && fecha === '' && aprendices === '0') {
+if (documento === '' && herramienta === '0' && cantidad === '' &&  jornada === '0' && fecha === '' && formacion === ''&& ficha === '') {
   swal.fire({
     title: 'No hay campos que limpiar.',
     icon: 'info',
@@ -93,13 +95,13 @@ swal.fire({
 }).then(function(value) {
   if (value) {
     // Si se acepta, vaciar los campos y mostrar mensaje
-    document.querySelector('#ambiente').value = '0';
-    document.querySelector('#formacion').value = '';
     document.querySelector('#documento').value = '';
-    document.querySelector('#ficha').value = '';
+    document.querySelector('#herramienta').value = '0';
+    document.querySelector('#cantidad').value = '';
     document.querySelector('#jornada').value = '0';
     document.querySelector('#fecha').value = '';
-    document.querySelector('#aprendices').value = '0';
+    document.querySelector('#formacion').value = '';
+    document.querySelector('#ficha').value = '';
 
     swal.fire({
       title: 'Campos vaciados satisfactoriamente.',
