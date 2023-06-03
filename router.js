@@ -98,7 +98,7 @@ router.get('/devolucionInsumos', (req, res) => {
 
 
 
-router.get("/inventario", async (req, res) => {
+router.get("/materialAdmin", async (req, res) => {
  
       try {
           
@@ -116,7 +116,7 @@ router.get("/inventario", async (req, res) => {
               })
               .catch(err => console.error("error en peticion" + err))
 
-          res.render('inventario', {
+          res.render('materialAdmin', {
               "datos": datos
           });
 
@@ -193,6 +193,7 @@ router.get("/aprobar", async (req, res) => {
     res.render('registroSolicitud');
   });
 
+  
 
 
   router.post('/registroinstructor', function (req, res) {
