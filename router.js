@@ -127,6 +127,35 @@ router.get("/inventario", async (req, res) => {
   
 });
 
+router.get("/usuariosRegistrados", async (req, res) => {
+ 
+  try {
+      
+
+      let ruta = "http://localhost:3000/api/registro";
+      let option = {
+          method: "GET",
+      }
+      let datos = {};
+      const result = await fetch(ruta, option)
+          .then(response => response.json())
+          .then(data => {
+              datos = data[0]
+              console.log(data[0]);
+          })
+          .catch(err => console.error("error en peticion" + err))
+
+      res.render('usuariosRegistrados', {
+          "datos": datos
+      });
+
+  } catch (error) {
+      res.redirect("/");
+  }
+
+
+});
+
 router.get("/aprobar", async (req, res) => {
  
   try {
