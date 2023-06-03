@@ -161,9 +161,7 @@ $(document).ready(function() {
 $("#guardar-cambios").click(function() {
   guardarCambios();
   
-  // Mostramos los iconos de editar y eliminar después de guardar los cambios
-  const fila = $(`tr[data-id="${idEditar}"]`);
-  fila.find(".edit-icon, .delete-icon").css("visibility", "visible");
+
 });
 
 
