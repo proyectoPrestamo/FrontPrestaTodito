@@ -10,13 +10,13 @@ deleteIcons.forEach(icon => {
     // Obtiene el elemento "tr" padre del ícono de eliminación (que contiene los datos que deseamos eliminar)
     let parentTr = event.target.closest('tr');
 
-    // Obtiene el código del producto (el valor del atributo "data-id" del "tr")
-    let productCode = parentTr.getAttribute('data-id');
+    // Obtiene el código del material (el valor del atributo "data-id" del "tr")
+    let mateCode = parentTr.getAttribute('data-id');
 
     // Utiliza SweetAlert para mostrar un mensaje de confirmación y tomar la acción del usuario
     Swal.fire({
-      title: '¿Estás seguro de que deseas eliminar el producto?',
-      text: `Código de producto: ${productCode}`,
+      title: '¿Estás seguro de que deseas eliminar el material?',
+      text: `Código de material: ${mateCode}`,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#28A745',
@@ -29,8 +29,8 @@ deleteIcons.forEach(icon => {
         parentTr.remove();
         // Muestra una alerta de éxito utilizando SweetAlert
         Swal.fire({
-          title: 'Producto eliminado',
-          text: `El producto con código ${productCode} ha sido eliminado correctamente`,
+          title: 'Material eliminado',
+          text: `El material con código ${mateCode} ha sido eliminado correctamente`,
           icon: 'success',
           confirmButtonColor: '#28A745'
         });
@@ -56,7 +56,7 @@ function searchTable() {
     // Mostrar alerta si el campo está vacío
     Swal.fire({
       icon: 'warning',
-      title: 'Por favor ingresa el nombre o código del insumo a buscar',
+      title: 'Por favor ingresa el nombre del material a buscar',
       confirmButtonText: 'Aceptar',
       confirmButtonColor: '#28A745',
     });
@@ -82,7 +82,7 @@ function searchTable() {
   if (!found) {
     Swal.fire({
       icon: 'warning',
-      title: 'El insumo no ha sido encontrado',
+      title: 'El material no ha sido encontrado',
       confirmButtonText: 'Aceptar',
       confirmButtonColor: '#28A745',
     });
@@ -118,11 +118,12 @@ $(document).ready(function() {
   // Función para guardar los cambios del producto editado
   function guardarCambios() {
     const fila = $(`tr[data-id="${idEditar}"]`);
-    fila.find("td:eq(0)").text($("#edit-producto").val());
-    fila.find("td:eq(1)").text($("#edit-cantidad").val());
-    fila.find("td:eq(2)").text($("#edit-fecha").val());
-    fila.find("td:eq(3)").text($("#edit-codigo").val());
-    fila.find("td:eq(4)").text($("#edit-estado").val() + " ");
+    fila.find("td:eq(0)").text($("#edit-nombre").val());
+    fila.find("td:eq(1)").text($("#edit-tipo").val());
+    fila.find("td:eq(2)").text($("#edit-estado").val() + " ");
+    fila.find("td:eq(3)").text($("#edit-cantidad").val());
+    fila.find("td:eq(4)").text($("#edit-color").val());
+    fila.find("td:eq(5)").text($("#edit-medida").val());
 
     $("#edit-modal").modal("hide");
     fila.find(".edit-icon, .delete-icon").css("visibility", "visible");
@@ -136,11 +137,12 @@ $(document).ready(function() {
     const fila = $(`tr[data-id="${idEditar}"]`);
 
     // Cargamos los valores del producto a editar en el modal
-    $("#edit-producto").val(fila.find("td:eq(0)").text());
-    $("#edit-cantidad").val(fila.find("td:eq(1)").text());
-    $("#edit-fecha").val(fila.find("td:eq(2)").text());
-    $("#edit-codigo").val(fila.find("td:eq(3)").text());
-    $("#edit-estado").val(fila.find("td:eq(4)").text().trim());
+    $("#edit-nombre").val(fila.find("td:eq(0)").text());
+    $("#edit-tipo").val(fila.find("td:eq(1)").text());
+    $("#edit-estado").val(fila.find("td:eq(2)").text().trim());
+    $("#edit-cantidad").val(fila.find("td:eq(3)").text());
+    $("#edit-color").val(fila.find("td:eq(4)").text());
+    $("#edit-medida").val(fila.find("td:eq(5)").text());
 
     // Ocultamos los iconos de editar y eliminar
     fila.find(".edit-icon, .delete-icon").css("visibility", "hidden");
