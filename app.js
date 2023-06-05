@@ -58,5 +58,9 @@ app.get('/registroInventario', (req, res) => {
 app.get('/registroSolicitud', (req, res) => {
   res.render('registroSolicitud');
 });
+
+app.get('/seguimiento', (req, res) => {
+  res.render('seguimiento');
+});
 //V3
 

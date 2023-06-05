@@ -105,7 +105,7 @@ swal.fire({
     document.querySelector('#jornada').value = '0';
     document.querySelector('#fecha').value = '';
     document.querySelector('#formacion').value = '';
-    document.querySelector('#ficha').value = '';
+    document.querySelector('#ficha').value = '';       
 
     swal.fire({
       title: 'Campos vaciados satisfactoriamente.',

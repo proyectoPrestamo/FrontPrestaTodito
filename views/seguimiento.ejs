@@ -15,125 +15,123 @@
 <body>
   <!--Contenedor de logos-->
   <%- include('./partials/iconos.ejs') %>
-  <!--Contenedor de la imagen-->
-  <div class="container">
-    <img src="/resources/img/logoSena.png" width="200px" class="mx-auto d-block">
-  </div>
-  <!-- contenedor del menu -->
-  <nav>
-    <ul>
-      <li><a href="#">Inicio</a></li>
-      <li>
-        <a href="aprobar">Aprobar</a>
-      </li>
-      <li>
-        <a href="seguimiento">Seguimiento</a>
-      </li>
-      <li>
-        <a href="reportes">Reportes</a>
-      </li>
-    </ul>
-  </nav>
-  <table id="tabla-solicitudes">
-    <thead>
-      <tr>
-        <th>Solicitudes Aprobadas</th>
-        <th>Fecha</th>
-        <th>Número de Insumos</th>
-        <th>
-          <div class="buscador">
-            <input type="text" id="buscar-solicitudes" placeholder="Buscar" required>
-            <label for="buscar-solicitudes"><i class="fas fa-search icon" style="color: #faf8f8;;"></i></label>
-          </div>
+    <!--Contenedor de la imagen-->
+    <div class="container">
+      <img src="/resources/img/logoSena.png" width="200px" class="mx-auto d-block">
+    </div>
+    <!-- contenedor del menu -->
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li>
+          <a href="aprobar">Aprobar</a>
+        </li>
+        <li>
+          <a href="seguimiento">Seguimiento</a>
+        </li>
+        <li>
+          <a href="reportes">Reportes</a>
+        </li>
+      </ul>
+    </nav>
+    <table id="tabla-solicitudes">
+      <thead>
+        <tr>
+          <th>Solicitudes Aprobadas</th>
+          <th>Fecha</th>
+          <th>Número de Insumos</th>
+          <th>
+            <div class="buscador">
+              <input type="text" id="buscar-solicitudes" placeholder="Buscar" required>
+              <label for="buscar-solicitudes"><i class="fas fa-search icon" style="color: #faf8f8;;"></i></label>
+            </div>
 
-      </tr>
-    </thead>
-    <tbody class="fondo">
-      <tr>
-
-      <tr class="info">
-        <td>
-          <h4 class="info1">Información del Insumo</h4>
-        </td>
-        <td class="center"><h5 class="info1">dd/mm/aaaa </h5></td>
-        <td class="center">
-          <h5 class="info1">Cantidad</h5>
-        </td>
-        <td>
-          <i class="fa-sharp fa-solid fa-eye fa-2x"></i>
-        </td>
-      </tr>
-
-      <tr>
-
-      <tr>
-        <td>
-          <h4 class="info1">Información del Insumo</h4>
-        </td>
-        <td class="center"><h5 class="info1">dd/mm/aaaa </h5></td>
-        <td class="center">
-          <h5 class="info1">Cantidad</h5>
-        </td>
-        <td>
-          <i class="fa-sharp fa-solid fa-eye fa-2x"></i>
-        </td>
-      </tr>
-
-    
-
-<!-- SOLICITUD NO APROBADAS -->
-    </tbody>
-  </table>
-
-  <table id="tabla-solicitudes">
-    <thead>
-      <tr>
-        <th>Solicitudes No Aprobadas</th>
-        <th>Fecha</th>
-        <th>Número de Insumos</th>
-        <th>Aprobar</th>
-        <th>
-          <div class="buscador">
-            <input type="text" id="buscar-solicitudes" placeholder="Buscar" required>
-            <label for="buscar-solicitudes"><i class="fas fa-search icon" style="color: #faf8f8;;"></i></label>
-          </div>
-
-      </tr>
-    </thead>
-    <tbody class="fondo">
-      <tr class="info">
-      <tr class="info">
-        <td>
-          <h4 class="info1">Información del Insumo</h4>
-        </td>
-
-        <td class="center"><h5 class="info1">dd/mm/aaaa </h5></td>
-        <td>
-          <h4 class="info1">Cantidad</h4>
-        </td>
-        <td>
-          <i class="fa-sharp fa-regular fa-circle-check fa-2x" style="color: #000000;"></i>
-          <i class="fa-sharp fa-regular fa-circle-xmark fa-2x" style="color: #000000;"></i>
-        </td>
-        <td>
-
-          <i class="fa-sharp fa-solid fa-envelope fa-2x" style="color: #8fd14f;"></i>
-          <i class="fa-sharp fa-solid fa-eye fa-2x"></i>
-        </td>
-      </tr>
+        </tr>
+      </thead>
+      
+      <tbody class="fondo">
+       
+          <% datosMaterial.forEach((material, index) => { %>
+            <tr class="info">
+              <td>
+                <h4 class="info1"><%= material.NOMBRE %>, <%= material.TIPO %>, <%= material.COLOR %></h4>
+              </td>
+              <td>
+                <% if (datosHorario[index]) { %>
+                  <h5 class="info1"><%= datosHorario[index].FECHA_HORA %></h5>
+                <% } else { %>
+                  <h5 class="info1">-</h5>
+                <% } %>
+              </td>
+              <td>
+                <h5 class="info1"><%= material.CANTIDAD %>, <%= material.MEDIDA %></h5>
+              </td>
+              <td>
+                <i class="fa-sharp fa-solid fa-eye fa-2x"></i>
+              </td>
+            </tr>
+          <% }); %>
+       
 
 
-    </tbody>
-    <tfoot>
-      <tr>
 
-        </td>
-      </tr>
-    </tfoot>
-  </table>
+        <!-- SOLICITUD NO APROBADAS -->
+      </tbody>
+    </table>
+
+    <table id="tabla-solicitudes">
+      <thead>
+        <tr>
+          <th>Solicitudes No Aprobadas</th>
+          <th>Fecha</th>
+          <th>Número de Insumos</th>
+          <th>Aprobar</th>
+          <th>
+            <div class="buscador">
+              <input type="text" id="buscar-solicitudes" placeholder="Buscar" required>
+              <label for="buscar-solicitudes"><i class="fas fa-search icon" style="color: #faf8f8;;"></i></label>
+            </div>
+
+        </tr>
+      </thead>
+      <tbody class="fondo">
+        <tr class="info">
+        <tr class="info">
+          <td>
+            <h4 class="info1">Información del Insumo</h4>
+          </td>
+
+          <td class="center">
+            <h5 class="info1">dd/mm/aaaa </h5>
+          </td>
+          <td>
+            <h4 class="info1">Cantidad</h4>
+          </td>
+          <td>
+            <i class="fa-sharp fa-regular fa-circle-check fa-2x" style="color: #000000;"></i>
+            <i class="fa-sharp fa-regular fa-circle-xmark fa-2x" style="color: #000000;"></i>
+          </td>
+          <td>
+
+            <i class="fa-sharp fa-solid fa-envelope fa-2x" style="color: #8fd14f;"></i>
+            <i class="fa-sharp fa-solid fa-eye fa-2x"></i>
+          </td>
+        </tr>
+
+
+      </tbody>
+      <tfoot>
+        <tr>
+
+          </td>
+        </tr>
+      </tfoot>
+    </table>
 </body>
+<script src="/resources/js/aprobar.js"></script>
 <script src="/resources/js/iconos.js"></script>
 <footer id="footer-test">
   <p>DERECHOS RESERVADOS SENA</p>
 </footer>
+
 </html>

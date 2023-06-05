@@ -2,77 +2,13 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+  
 }
 
-td:last-child { /*Estilo para la última columna de la tabla.*/
-  position: relative;
+.contenedor1{
+
+  background-color: #a8a8a8;
 }
-
-
-
-td:last-child i.trash-icon { /*Estilo para el icono de eliminación (i.trash-icon) dentro de la última columna de la tabla.*/
-  position: absolute; /*La posición es absoluta para que esté posicionado con respecto a su contenedor.*/
-  left: 30px; /*Se ubica a 5px desde el borde derecho de su contenedor*/
-  top: 50%; /*Se ubica en la mitad de la altura de su contenedor*/
-  transform: translateY(-50%); /*Se ajusta verticalmente*/
-}
-
-td:last-child i.edit-icon { /*Estilo para el icono de eliminación (i.edit-icon) dentro de la última columna de la tabla.*/
-  position: absolute; /*La posición es absoluta para que esté posicionado con respecto a su contenedor.*/
-  left: 60px; /*Se ubica a 5px desde el borde derecho de su contenedor*/
-  top: 50%; /*Se ubica en la mitad de la altura de su contenedor*/
-  transform: translateY(-50%); /*Se ajusta verticalmente*/ 
-}
-
-
-
-
-
-.trash-icon:hover { /*Estilo para el icono de eliminación cuando el cursor está sobre él.*/
-  color: red; /*Se cambia el color a rojo*/
-  cursor: pointer; /*Se establece el cursor como de tipo puntero*/
-}
-
-.edit-icon:hover { /*Estilo para el icono de edición cuando el cursor está sobre él.*/
-  color: #28A745; /*Se cambia el color a verde*/
-  cursor: pointer; /*Se establece el cursor como de tipo puntero*/
-}
-
-
-
-.table-wrapper tbody tr:hover { /*Se aplica a las filas de la tabla cuando el cursor está sobre ellas.*/
-  background-color: #f5f5f5; /*establece el color de fondo de la fila en gris claro.*/
-}
-
-.table-wrapper .delete-icon { /*Estilos para el icono de eliminación de una fila de la tabla*/
-  display: none; /*El icono de eliminación no se muestra por defecto*/
-  position: absolute; /*Posición absoluta para que se pueda posicionar en cualquier parte*/
-  top: 50%; /*Se posiciona en la mitad vertical del contenedor*/
-  right: 5px; /*Se posiciona a 5px del borde derecho del contenedor*/
-  transform: translateY(-50%); /*Se ajusta verticalmente para que quede centrado en la fila*/
-}
-
-.table-wrapper .edit-icon { /*Estilos para el icono de eliminación de una fila de la tabla*/
-  display: none; /*El icono de eliminación no se muestra por defecto*/
-  position: absolute; /*Posición absoluta para que se pueda posicionar en cualquier parte*/
-  top: 50%; /*Se posiciona en la mitad vertical del contenedor*/
-  right: 5px; /*Se posiciona a 5px del borde derecho del contenedor*/
-  transform: translateY(-50%); /*Se ajusta verticalmente para que quede centrado en la fila*/
-}
-
-
-
-
-.table-wrapper tbody tr:hover .delete-icon { /*Cuando se hace hover en una fila de la tabla, se muestra el icono de eliminación*/
-  display: inline-block; /*El icono de eliminación se muestra cuando se hace hover en una fila*/
-}
-
-.table-wrapper tbody tr:hover .edit-icon { /*Cuando se hace hover en una fila de la tabla, se muestra el icono de eliminación*/
-  display: inline-block; /*El icono de eliminación se muestra cuando se hace hover en una fila*/
-}
-
-
-
 
 /* MENU */
 
@@ -157,9 +93,11 @@ nav ul li a:hover {
   }
 
 .fondo{
-  margin: 50px;
-  height: 1300px;
-  background-color: #a8a8a8;
+  margin: 60px;
+ 
+  background-color: #fefefe;
+  max-height: 1000px;
+  overflow-y: auto;
 }
 @media screen and (max-width: 768px) {
   .fondo{
@@ -169,7 +107,7 @@ nav ul li a:hover {
   }
  }
 
-.container-letrero{
+.contenedor-solicitud{
   margin: 0px;
   height: 70px;
   text-align: center;
@@ -178,14 +116,14 @@ nav ul li a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+ 
 }
 /* Solicitudes prestamos */
 .titulo{
-
-  height: 70px;
+  height: 40px;
   text-align: left;
   /* arriba,derecha,abajo,izquierda */
-  padding: 5px 0 0 2em;
+  padding: 5px 0 1.5em 2em;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 }
@@ -227,10 +165,10 @@ nav ul li a:hover {
 
 
 }
-
-.btn{
+/* boton buscar */
+.btnbuscar{
    position: absolute;
-  top: 20px;
+  top: 13px;
   right: 0;
   width: 55px;
   height: 55px;
@@ -319,24 +257,24 @@ nav ul li a:hover {
  margin-left: 300px;
   color: white;
   background-color: #39a900;
-  line-height: 55px;
+  
  border: #39a900;
- border-radius: 2%;
-height: 56px;
-width: 160px;
-font-size: 25px;
+
+height: 40px;
+width: 100px;
+font-size: 15px;
 
 }
 .btnRechazar{
 
   color: white;
   background-color: #a90025;
-  line-height: 55px;
+ 
  border: #a90025;
- border-radius: 2%;
-height: 56px;
-width: 160px;
-font-size: 25px;
+ 
+height: 40px;
+width: 100px;
+font-size: 15px;
 margin-left: 50px;
 
 }
@@ -370,3 +308,36 @@ margin-left: 50px;
     margin-left: 10px;
   }
 }
+
+#tabla1{
+  margin-top: 40px;
+  
+}
+td:last-child { /*Estilo para el ultimo item del contenedor*/
+  position: relative;
+}
+
+
+/* cursor sobre el btn de ojo */
+.fa-sharp:hover { 
+  color: #28A745; /*Se cambia el color a verde*/
+  cursor: pointer; /*Se establece el cursor como de tipo puntero*/
+}
+
+
+
+.table-wrapper tbody tr:hover { /*Se aplica a las filas de la tabla cuando el cursor está sobre ellas.*/
+  background-color: #d2cece; /*establece el color de fondo de la fila en gris claro.*/
+}
+
+.observacion{
+  width: 400px; /* Ancho deseado para el input */
+  height: 100px; /* Altura deseada para el input */
+  resize: vertical; /* Permite redimensionar verticalmente el input */
+  overflow-y: auto; /* Agrega una barra de desplazamiento vertical si el contenido excede el tamaño del input */
+  box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total del input */
+}
+
+ 
+
+
