@@ -83,7 +83,7 @@ const tableRows = document.querySelectorAll('.table tbody tr');
 // Función para buscar en la tabla
 function searchTable() {
   // Obtener el valor de búsqueda
-  const searchValue = searchInput.value.toLowerCase();
+  const searchValue = searchInput.value.toLowerCase().trim()
 
   // Verificar si el campo de búsqueda está vacío
   if (searchValue === '') {

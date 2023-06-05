@@ -42,9 +42,12 @@
           <th>Número de Insumos</th>
           <th>
             <div class="buscador">
-              <input type="text" id="buscar-solicitudes" placeholder="Buscar" required>
-              <label for="buscar-solicitudes"><i class="fas fa-search icon" style="color: #faf8f8;;"></i></label>
+              <input type="text"  placeholder="Buscar" id="search-input" required>
+              <div class="btnbuscar" id="search-button">
+              <label for="search-input"><i class="fas fa-search icon" style="color: #faf8f8;;"></i></label>
             </div>
+          </div>
+        </th>
 
         </tr>
       </thead>
@@ -67,7 +70,7 @@
                 <h5 class="info1"><%= material.CANTIDAD %>, <%= material.MEDIDA %></h5>
               </td>
               <td>
-                <i class="fa-sharp fa-solid fa-eye fa-2x"></i>
+                <i class="fa-sharp fa-solid fa-eye fa-2x" data-toggle="modal" data-target="#edit-modal"></i>
               </td>
             </tr>
           <% }); %>
@@ -114,10 +117,37 @@
           <td>
 
             <i class="fa-sharp fa-solid fa-envelope fa-2x" style="color: #8fd14f;"></i>
-            <i class="fa-sharp fa-solid fa-eye fa-2x"></i>
+            <i class="fa-sharp fa-solid fa-eye fa-2x" data-toggle="modal" data-target="#edit-modal"></i>
           </td>
         </tr>
-
+  <!-- Modal OBSERVACION -->
+  <div class="modal fade" id="edit-modal" tabindex="-1" aria-labelledby="edit-modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="edit-modal-label">OBSERVACIONES</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <p>Agregue Una Observacion</p>
+              <textarea required="" class="form-control" id="elcontent" name="content" rows="10" data-rule="required"
+                  data-msg="Please write something for us" placeholder="El insumo ha sido rechazado ya que..."></textarea>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-success" id="guardar-cambios">Guardar cambios</button>
+        </div>
+      </div>
+    </div>
+    </div>  
+    </body>
 
       </tbody>
       <tfoot>
@@ -128,7 +158,7 @@
       </tfoot>
     </table>
 </body>
-<script src="/resources/js/aprobar.js"></script>
+<script src="/resources/js/seguimiento.js"></script>
 <script src="/resources/js/iconos.js"></script>
 <footer id="footer-test">
   <p>DERECHOS RESERVADOS SENA</p>
