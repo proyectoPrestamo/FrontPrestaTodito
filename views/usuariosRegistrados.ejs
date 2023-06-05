@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/resources/css/usuariosRegistrados.css">
+    <%- include('./partials/boostrap.ejs') %> 
+    <title>Usuarios registrados</title>
+</head>
+
+<body>
+
+  <%- include('./partials/administrador.ejs') %>
+
+
+
+  <div class="container mt-4">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control mr-3" placeholder="Buscar usuario" id="search-input">
+            <div class="input-group-append">
+              <button class="btn btn-outline-success" type="button" id="search-button">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+          <div class="table-wrapper">
+            <table class="table table-borderless" id="tabla-usuario">
+              <thead>
+                <tr class="bg-success">
+                  <th>ID</th>
+                  <th>NOMBRE</th>
+                  <th>APELLIDO</th>
+                  <th>TIPO DE DOCUMENTO</th>
+                  <th>NUMERO DE DOCUMENTO</th>
+                  <th>CORREO</th>
+                  <th>TELEFONO</th>
+                  <th>DIRECCION</th>
+                  <th>JORNADA</th>
+                  <th>PROGRAMA DE FORMACIÓN</th>
+                  <th>NUMERO DE FICHA</th>
+                  <th>GENERO</th>
+                  <th>CONTRASEÑA</th>
+                  <!--<th>ROL</th>-->
+                  <th>OPCIONES</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% datos.forEach((elemento)=>{ %>
+                  <tr data-id= <%= elemento.ID_REGISTRO %>>
+                    <td><%= elemento.ID_REGISTRO %></td>
+                    <td><%= elemento.NOMBRE %></td>
+                    <td><%= elemento.APELLIDO %></td>
+                    <td><%= elemento.TIPO_DOCUMENTO %></td>
+                    <td><%= elemento.NUMERO_DOCUMENTO %></td>
+                    <td><%= elemento.CORREO %></td>
+                    <td><%= elemento.TELEFONO %></td>
+                    <td><%= elemento.DIRECCION %></td>
+                    <td><%= elemento.JORNADA %></td>
+                    <td><%= elemento.PROGRAMA_FORMACION %></td>
+                    <td><%= elemento.NUMERO_FICHA %></td>
+                    <td><%= elemento.GENERO %></td>
+                    <td><%= elemento.CONTRASENA %></td>
+                    <!--<td><%= elemento.ROL %></td>-->
+                    <td> 
+                      <i class="fas fa-trash-alt delete-icon trash-icon"></i>  
+                      <i class="fas fa-edit edit-icon mr-1" data-toggle="modal" data-target="#edit-modal"></i>
+                    </td>
+                  </tr>
+                <% }); %>
+                
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- Modal -->
+<div class="modal fade" id="edit-modal" tabindex="-1" aria-labelledby="edit-modal-label" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="edit-modal-label">Editar usuario</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="edit-nombre" class="col-form-label">Nombre:</label>
+          <input type="text" class="form-control" id="edit-nombre">
+        </div>
+        <div class="form-group">
+          <label for="edit-apellido" class="col-form-label">Apellido:</label>
+          <input type="text" class="form-control" id="edit-apellido">
+        </div>
+        <div class="form-group">
+          <label for="edit-tipo" class="col-form-label">Tipo de documento:</label>
+          <select class="form-control" id="edit-tipo">
+            <option value="" hidden>-- Seleccione un tipo de documento --</option>
+            <option>Tarjeta de identidad</option>
+            <option>Cedula de ciudadanía</option>
+            <option>Tarjeta de extranjería</option>
+            <option>Cedula de extranjería</option>
+            <option>Contraseña</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="edit-documento" class="col-form-label">Numero de documento:</label>
+          <input type="number" class="form-control" id="edit-documento">
+        </div>
+        <div class="form-group">
+          <label for="edit-correo" class="col-form-label">Correo:</label>
+          <input type="email" class="form-control" id="edit-correo">
+        </div>
+        <div class="form-group">
+          <label for="edit-telefono" class="col-form-label">Telefono:</label>
+          <input type="number" class="form-control" id="edit-telefono">
+        </div>
+        <div class="form-group">
+          <label for="edit-direccion" class="col-form-label">Dirección:</label>
+          <input type="text" class="form-control" id="edit-direccion">
+        </div>
+        <div class="form-group">
+          <label for="edit-jornada" class="col-form-label">Jornada:</label>
+          <input type="text" class="form-control" id="edit-jornada">
+        </div>
+        <div class="form-group">
+          <label for="edit-programa" class="col-form-label">Programa de formación:</label>
+          <input type="text" class="form-control" id="edit-programa">
+        </div>
+        <div class="form-group">
+          <label for="edit-ficha" class="col-form-label">Numero de ficha:</label>
+          <input type="number" class="form-control" id="edit-ficha">
+        </div>
+        <div class="form-group">
+          <label for="edit-genero" class="col-form-label">Genero:</label>
+          <select class="form-control" id="edit-genero">
+            <option value="" hidden>-- Seleccione un genero --</option>
+            <option>Masculino</option>
+            <option>Femenino</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="edit-contrasena" class="col-form-label">Contraseña:</label>
+          <input type="password" class="form-control" id="edit-contrasena">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+      <button type="button" class="btn btn-success" id="guardar-cambios">Guardar cambios</button>
+    </div>
+  </div>
+</div>
+</div>  
+</body>
+<%- include('./partials/footer.ejs') %>
+<script src="/resources/js/usuariosRegistrados.js"></script>
+</html>
+<!--V3-->
