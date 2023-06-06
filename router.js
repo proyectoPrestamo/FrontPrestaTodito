@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const fetch = require('node-fetch');
+const axios = require('axios');
+const PDFKit = require('pdfkit');
 
 // vista principal de la pagina
 router.get('/', (req, res) => {
@@ -144,6 +146,56 @@ router.get("/pcAdmin", async (req, res) => {
   }
 
 
+});
+
+router.post("/generarpdf", async (req, res) => {
+  try {
+    // Hacer una solicitud GET a la API para obtener la información
+    const response = await axios.get('http://localhost:3000/api/material');
+    const materialData = response.data[0]; // Obtener el primer elemento del arreglo
+
+    // Mostrar información por consola
+    console.log('Información del material:');
+    materialData.forEach((material) => {
+      console.log(`ID: ${material.ID_MATERIAL}`);
+      console.log(`Nombre del material: ${material.NOMBRE}`);
+      console.log(`Tipo de material: ${material.TIPO}`);
+      console.log(`Estado del material: ${material.ESTADO}`);
+      console.log(`Cantidad del material: ${material.CANTIDAD}`);
+      console.log(`Color del material: ${material.COLOR}`);
+      console.log(`Medida del material: ${material.MEDIDA}`);
+
+    });
+
+    // Crear un nuevo documento PDF
+    const doc = new PDFKit();
+
+    // Stream el contenido PDF a la respuesta HTTP
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', 'attachment; filename=material.pdf');
+    doc.pipe(res);
+
+    // Agregar contenido al PDF
+    doc.fontSize(18).text('Información del material', { align: 'center' });
+    materialData.forEach((material) => {
+      doc.fontSize(12).text(`ID: ${material.ID_MATERIAL}`);
+      doc.fontSize(12).text(`Nombre del material: ${material.NOMBRE}`);
+      doc.fontSize(12).text(`Tipo de material: ${material.TIPO}`);
+      doc.fontSize(12).text(`Estado del material: ${material.ESTADO}`);
+      doc.fontSize(12).text(`Cantidad del material: ${material.CANTIDAD}`);
+      doc.fontSize(12).text(`Color del material: ${material.COLOR}`);
+      doc.fontSize(12).text(`Medida del material: ${material.MEDIDA}`);
+
+      doc.moveDown(); // Agrega un espacio entre cada usuario
+    });
+
+    // Finalizar el PDF
+    doc.end();
+  } catch (error) {
+    // Manejar errores de solicitud o cualquier otro error
+    console.error(error);
+    res.status(500).send('Error al generar el PDF');
+  }
 });
 
 
