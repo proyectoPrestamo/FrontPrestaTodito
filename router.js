@@ -4,6 +4,7 @@ const fetch = require('node-fetch');
 const axios = require('axios');
 const PDFKit = require('pdfkit');
 const excel = require('exceljs');
+const path = require('path');
 
 // vista principal de la pagina
 router.get('/', (req, res) => {
@@ -155,19 +156,6 @@ router.post("/generarpdf", async (req, res) => {
     const response = await axios.get('http://localhost:3000/api/material');
     const materialData = response.data[0]; // Obtener el primer elemento del arreglo
 
-    // Mostrar información por consola
-    console.log('Información del material:');
-    materialData.forEach((material) => {
-      console.log(`ID: ${material.ID_MATERIAL}`);
-      console.log(`Nombre del material: ${material.NOMBRE}`);
-      console.log(`Tipo de material: ${material.TIPO}`);
-      console.log(`Estado del material: ${material.ESTADO}`);
-      console.log(`Cantidad del material: ${material.CANTIDAD}`);
-      console.log(`Color del material: ${material.COLOR}`);
-      console.log(`Medida del material: ${material.MEDIDA}`);
-
-    });
-
     // Crear un nuevo documento PDF
     const doc = new PDFKit();
 
@@ -176,7 +164,24 @@ router.post("/generarpdf", async (req, res) => {
     res.setHeader('Content-Disposition', 'attachment; filename=material.pdf');
     doc.pipe(res);
 
+    // Agregar el logo del proyecto
+    const imagePath = path.join(__dirname, 'public', 'img', 'logoSena.png');
+    const logoWidth = 200;
+    const logoHeight = 100;
+
+    const pageWidth = doc.page.width;
+    const pageHeight = doc.page.height;
+
+    const logoX = (pageWidth - logoWidth) / 2;
+    const logoY = (pageHeight - logoHeight) / 2;
+
+    doc.image(imagePath, logoX, logoY, { width: logoWidth, height: logoHeight });
+
+    // Agregar el encabezado
+    doc.fontSize(24).text('Registro de materiales', { align: 'center' });
+
     // Agregar contenido al PDF
+    doc.moveDown(2); // Espacio adicional entre el encabezado y la información del material
     doc.fontSize(18).text('Información del material', { align: 'center' });
     materialData.forEach((material) => {
       doc.fontSize(12).text(`ID: ${material.ID_MATERIAL}`);
@@ -190,6 +195,12 @@ router.post("/generarpdf", async (req, res) => {
       doc.moveDown(); // Agrega un espacio entre cada material
     });
 
+    // Agregar el pie de página
+    const generador = 'prestaTodito';
+    const fechaImpresion = new Date().toLocaleString();
+    doc.fontSize(10).text(`Generado por: ${generador}`);
+    doc.fontSize(10).text(`Fecha y hora de impresión: ${fechaImpresion}`, { align: 'right' });
+
     // Finalizar el PDF
     doc.end();
   } catch (error) {
@@ -198,7 +209,6 @@ router.post("/generarpdf", async (req, res) => {
     res.status(500).send('Error al generar el PDF');
   }
 });
-
 
 router.post('/generarexcel', async (req, res) => {
   try {
