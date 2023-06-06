@@ -175,4 +175,14 @@ $('#edit-modal').on('hidden.bs.modal', function () {
 });
 })
 
+//FUNCION PARA PDF O EXCEL
+function setAction(formato) {
+  const form = document.getElementById('generarForm');
+  if (formato === 'pdf') {
+    form.action = '/generarpdf';
+  } else if (formato === 'excel') {
+    form.action = '/generarexcel';
+  }
+}
+
 //V3

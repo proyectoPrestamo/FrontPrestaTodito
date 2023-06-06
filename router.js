@@ -3,6 +3,7 @@ const router = express.Router();
 const fetch = require('node-fetch');
 const axios = require('axios');
 const PDFKit = require('pdfkit');
+const excel = require('exceljs');
 
 // vista principal de la pagina
 router.get('/', (req, res) => {
@@ -186,7 +187,7 @@ router.post("/generarpdf", async (req, res) => {
       doc.fontSize(12).text(`Color del material: ${material.COLOR}`);
       doc.fontSize(12).text(`Medida del material: ${material.MEDIDA}`);
 
-      doc.moveDown(); // Agrega un espacio entre cada usuario
+      doc.moveDown(); // Agrega un espacio entre cada material
     });
 
     // Finalizar el PDF
@@ -197,6 +198,68 @@ router.post("/generarpdf", async (req, res) => {
     res.status(500).send('Error al generar el PDF');
   }
 });
+
+
+router.post('/generarexcel', async (req, res) => {
+  try {
+    // Hacer una solicitud GET a la API para obtener la información
+    const response = await axios.get('http://localhost:3000/api/material');
+    const materialData = response.data[0]; // Obtener el primer elemento del arreglo
+
+    // Crear un nuevo libro de Excel
+    const workbook = new excel.Workbook();
+    const worksheet = workbook.addWorksheet('Material');
+
+     // Mostrar información por consola
+     console.log('Información del material:');
+     materialData.forEach((material) => {
+       console.log(`ID: ${material.ID_MATERIAL}`);
+       console.log(`Nombre del material: ${material.NOMBRE}`);
+       console.log(`Tipo de material: ${material.TIPO}`);
+       console.log(`Estado del material: ${material.ESTADO}`);
+       console.log(`Cantidad del material: ${material.CANTIDAD}`);
+       console.log(`Color del material: ${material.COLOR}`);
+       console.log(`Medida del material: ${material.MEDIDA}`);
+     });
+
+    // Agregar encabezados de columna
+    worksheet.columns = [
+      { header: 'ID', key: 'ID_MATERIAL', width: 10 },
+      { header: 'Nombre del material', key: 'NOMBRE', width: 20 },
+      { header: 'Tipo de material', key: 'TIPO', width: 15 },
+      { header: 'Estado del material', key: 'ESTADO', width: 15 },
+      { header: 'Cantidad del material', key: 'CANTIDAD', width: 15 },
+      { header: 'Color del material', key: 'COLOR', width: 15 },
+      { header: 'Medida del material', key: 'MEDIDA', width: 15 },
+    ];
+
+    // Agregar filas con datos
+    materialData.forEach((material) => {
+      worksheet.addRow({
+        ID_MATERIAL: material.ID_MATERIAL,
+        NOMBRE: material.NOMBRE,
+        TIPO: material.TIPO,
+        ESTADO: material.ESTADO,
+        CANTIDAD: material.CANTIDAD,
+        COLOR: material.COLOR,
+        MEDIDA: material.MEDIDA,
+      });
+    });
+
+    // Stream el contenido Excel a la respuesta HTTP
+    res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    res.setHeader('Content-Disposition', 'attachment; filename=material.xlsx');
+    await workbook.xlsx.write(res);
+
+    // Finalizar la escritura del libro de Excel
+    res.end();
+  } catch (error) {
+    // Manejar errores de solicitud o cualquier otro error
+    console.error(error);
+    res.status(500).send('Error al generar el archivo Excel');
+  }
+});
+
 
 
 router.get("/ambienteAdmin", async (req, res) => {
