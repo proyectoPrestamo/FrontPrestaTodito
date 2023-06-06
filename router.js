@@ -122,7 +122,7 @@ router.get("/pcAdmin", async (req, res) => {
   try {
       
 
-      let ruta = "http://localhost:3000/api/computadores";
+      let ruta = "http://localhost:3000/api/pc";
       let option = {
           method: "GET",
       }
@@ -146,6 +146,35 @@ router.get("/pcAdmin", async (req, res) => {
 
 });
 
+
+router.get("/ambienteAdmin", async (req, res) => {
+ 
+  try {
+      
+
+      let ruta = "http://localhost:3000/api/ambientes";
+      let option = {
+          method: "GET",
+      }
+      let datos = {};
+      const result = await fetch(ruta, option)
+          .then(response => response.json())
+          .then(data => {
+              datos = data[0]
+              console.log(data[0]);
+          })
+          .catch(err => console.error("error en peticion" + err))
+
+      res.render('ambienteAdmin', {
+          "datos": datos
+      });
+
+  } catch (error) {
+      res.redirect("/");
+  }
+
+
+});
 router.get("/materialAdmin", async (req, res) => {
  
       try {
