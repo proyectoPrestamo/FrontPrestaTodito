@@ -25,21 +25,50 @@ deleteIcons.forEach(icon => {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        // Si el usuario hace clic en "Sí, eliminar", elimina el elemento "tr" del DOM
-        parentTr.remove();
-        // Muestra una alerta de éxito utilizando SweetAlert
-        Swal.fire({
-          title: 'Material eliminado',
-          text: `El material con código ${mateCode} ha sido eliminado correctamente`,
-          icon: 'success',
-          confirmButtonColor: '#28A745'
-        });
+        // Si el usuario hace clic en "Sí, eliminar", realiza la llamada a la API para eliminar el registro
+        eliminarMaterial(mateCode, parentTr);
       }
     })
   });
-  
- 
 });
+
+// Función para eliminar el material tanto de la vista como de la base de datos
+function eliminarMaterial(mateCode, parentTr) {
+  // Realiza la llamada a la API para eliminar el registro
+  fetch(`http://localhost:3000/api/material/${mateCode}`, {
+    method: 'DELETE'
+  })
+  .then(response => {
+    if (response.ok) {
+      // Si la eliminación en la base de datos fue exitosa, elimina el elemento "tr" del DOM
+      parentTr.remove();
+      // Muestra una alerta de éxito utilizando SweetAlert
+      Swal.fire({
+        title: 'Material eliminado',
+        text: `El material con código ${mateCode} ha sido eliminado correctamente`,
+        icon: 'success',
+        confirmButtonColor: '#28A745'
+      });
+    } else {
+      // Si la eliminación en la base de datos falló, muestra una alerta de error
+      Swal.fire({
+        title: 'Error',
+        text: 'No se pudo eliminar el material. Por favor, inténtalo nuevamente',
+        icon: 'error',
+        confirmButtonColor: '#28A745'
+      });
+    }
+  })
+  .catch(error => {
+    // Si ocurre un error en la llamada a la API, muestra una alerta de error
+    Swal.fire({
+      title: 'Error',
+      text: 'Ocurrió un error al intentar eliminar el material. Por favor, inténtalo nuevamente',
+      icon: 'error',
+      confirmButtonColor: '#28A745'
+    });
+  });
+}
 
 // Seleccionar los elementos HTML necesarios
 const searchInput = document.getElementById('search-input');
