@@ -333,7 +333,6 @@ router.get("/herraAdmin", async (req, res) => {
  
   try {
       
-
       let ruta = "http://localhost:3000/api/herramientas";
       let option = {
           method: "GET",
@@ -416,8 +415,8 @@ router.get("/aprobar", async (req, res) => {
 
 });
 
-  router.get('/registroInventario', (req, res) => {
-    res.render('registroInventario');
+  router.get('/registroMaterial', (req, res) => {
+    res.render('registroMaterial');
   });
 
   router.get('/registroSolicitud', (req, res) => {

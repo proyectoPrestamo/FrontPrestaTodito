@@ -137,38 +137,26 @@
 
  // función para validar el formulario
  function validarDatos() {
-  // se obtienen los valores de los campos del formulario
-  var nombre = document.getElementById('nombre').value;
-  var descripcion = document.getElementById('descripcion').value;
-  var existencias = document.getElementById('existencias').value;
-  var fecha = document.getElementById('fecha').value;
-  var codigo = document.getElementById('codigo').value;
+  var tipo = document.getElementById('tipo').value;
+  var color = document.getElementById('color').value;
+  var medidas = document.getElementById('medidas').value;
   var imagen = document.getElementById('imagen').value;
 
-  // se crea un array para almacenar los campos faltantes
   var camposFaltantes = [];
 
-  // se verifica si los campos tienen un valor
-  if (nombre === '') {
-    camposFaltantes.push('Nombre');
+  if (tipo === '') {
+    camposFaltantes.push('tipo');
   }
-  if (descripcion === '') {
-    camposFaltantes.push('Descripción');
+  if (color === '') {
+    camposFaltantes.push('color');
   }
-  if (existencias === '') {
-    camposFaltantes.push('Existencias');
-  }
-  if (fecha === '') {
-    camposFaltantes.push('Fecha');
-  }
-  if (codigo === '') {
-    camposFaltantes.push('Código');
+  if (medidas === '') {
+    camposFaltantes.push('medidas');
   }
   if (imagen === '') {
     camposFaltantes.push('imagen');
   }
 
-  // si hay campos faltantes, se muestra un mensaje de error con SweetAlert
   if (camposFaltantes.length > 0) {
     var mensaje = 'Los siguientes campos son obligatorios: ' + camposFaltantes.join(', ');
     Swal.fire({
@@ -177,32 +165,60 @@
       text: mensaje,
       confirmButtonColor: '#28A745',
       confirmButtonText: 'Aceptar',
-      allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
+      allowOutsideClick: false
     });
     return false;
   } else {
-    // si todos los campos tienen valor, se muestra un mensaje de éxito con SweetAlert
-    Swal.fire({
-      icon: 'success',
-      title: 'Insumo registrado',
-      text: 'El insumo se ha registrado satisfactoriamente.',
-      confirmButtonColor: '#28A745',
-      confirmButtonText: 'Aceptar',
-      allowOutsideClick: false // No permitir que el usuario cierre la alerta haciendo clic fuera de ella
-    });
+    var data = {
+      tipo: tipo,
+      color: color,
+      medidas: medidas,
+      imagen: imagen
+    };
 
-    // se limpian los campos del formulario
-    document.getElementById('nombre').value = '';
-    document.getElementById('descripcion').value = '';
-    document.getElementById('existencias').value = '';
-    document.getElementById('fecha').value = '';
-    document.getElementById('codigo').value = '';
-    document.getElementById('imagen').value = '';
-    document.getElementById('preview').src = '';
+    // Realizar la petición POST utilizando fetch
+    fetch('http://localhost:3000/api/material', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+      // Mostrar mensaje de éxito
+      Swal.fire({
+        icon: 'success',
+        title: 'Insumo registrado',
+        text: 'El insumo se ha registrado satisfactoriamente.',
+        confirmButtonColor: '#28A745',
+        confirmButtonText: 'Aceptar',
+        allowOutsideClick: false
+      });
+
+      // Limpiar los campos del formulario
+      document.getElementById('tipo').value = '';
+      document.getElementById('color').value = '';
+      document.getElementById('medidas').value = '';
+      document.getElementById('imagen').value = '';
+      document.getElementById('preview').src = '';
+    })
+    .catch(error => {
+      // Mostrar mensaje de error
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ocurrió un error al registrar el insumo.',
+        confirmButtonColor: '#28A745',
+        confirmButtonText: 'Aceptar',
+        allowOutsideClick: false
+      });
+    });
 
     return true;
   }
 }
+
 
 
   
