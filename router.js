@@ -126,7 +126,7 @@ router.get("/pcAdmin", async (req, res) => {
   try {
       
 
-      let ruta = "http://localhost:3000/api/pc";
+      let ruta = "http://localhost:3000/api/computador";
       let option = {
           method: "GET",
       }
@@ -363,7 +363,7 @@ router.get("/usuariosRegistrados", async (req, res) => {
   try {
       
 
-      let ruta = "http://localhost:3000/api/registro";
+      let ruta = "http://localhost:3000/api/usuario";
       let option = {
           method: "GET",
       }

@@ -50,18 +50,17 @@
               </thead>
               <tbody>
                 <% datos.forEach((elemento)=>{ %>
-                  <tr data-id= <%= elemento.ID_REGISTRO %>>
-                    <td><%= elemento.ID_REGISTRO %></td>
+                  <tr data-id= <%= elemento.ID_USUARIO %>>
+                    <td><%= elemento.ID_USUARIO %></td>
                     <td><%= elemento.NOMBRE %></td>
                     <td><%= elemento.APELLIDO %></td>
                     <td><%= elemento.TIPO_DOCUMENTO %></td>
-                    <td><%= elemento.NUMERO_DOCUMENTO %></td>
                     <td><%= elemento.CORREO %></td>
                     <td><%= elemento.TELEFONO %></td>
                     <td><%= elemento.DIRECCION %></td>
                     <td><%= elemento.JORNADA %></td>
                     <td><%= elemento.PROGRAMA_FORMACION %></td>
-                    <td><%= elemento.NUMERO_FICHA %></td>
+                    <td><%= elemento.NUM_FICHA %></td>
                     <td><%= elemento.GENERO %></td>
                     <td><%= elemento.CONTRASENA %></td>
                     <!--<td><%= elemento.ROL %></td>-->

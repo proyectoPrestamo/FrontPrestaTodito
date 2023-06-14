@@ -32,17 +32,18 @@
               <thead>
                 <tr class="bg-success">
                   <th>ID</th>
-                  <th>ESTADO</th>
                   <th>MARCA</th>
-                  <th>OPCIONES</th>
+                  <th>CARGADOR</th>
+                  <th>MOUSE</th>
                 </tr>
               </thead>
               <tbody>
                 <% datos.forEach((elemento)=>{ %>
-                  <tr data-id=<%= elemento.ID_PC %>>
-                    <td><%= elemento.ID_PC %></td>
-                    <td><%= elemento.ESTADO %></td>
+                  <tr data-id=<%= elemento.ID_COMPUTADOR %>>
+                    <td><%= elemento.ID_COMPUTADOR %></td>
                     <td><%= elemento.MARCA %></td>
+                    <td><%= elemento.CARGADOR %></td>
+                    <td><%= elemento.MOUSE %></td>
                     <td> 
                       <i class="fas fa-trash-alt delete-icon trash-icon"></i>  
                       <i class="fas fa-edit edit-icon mr-1" data-toggle="modal" data-target="#edit-modal"></i>
