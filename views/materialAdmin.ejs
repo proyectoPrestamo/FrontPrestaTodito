@@ -41,12 +41,9 @@
               <thead>
                 <tr class="bg-success">
                   <th>ID</th>
-                  <th>NOMBRE</th>
                   <th>TIPO</th>
-                  <th>ESTADO</th>
-                  <th>CANTIDAD</th>
                   <th>COLOR</th>
-                  <th>MEDIDA</th>
+                  <th>MEDIDAS</th>
                   <th>OPCIONES</th>
                 </tr>
               </thead>
@@ -54,12 +51,9 @@
                 <% datos.forEach((elemento)=>{ %>
                   <tr data-id=<%= elemento.ID_MATERIAL %>>
                     <td><%= elemento.ID_MATERIAL %></td>
-                    <td><%= elemento.NOMBRE %></td>
                     <td><%= elemento.TIPO %></td>
-                    <td><%= elemento.ESTADO %></td>
-                    <td><%= elemento.CANTIDAD %></td>
+                    <td><%= elemento.MEDIDAS %></td>
                     <td><%= elemento.COLOR %></td>
-                    <td><%= elemento.MEDIDA %></td>
 
                     <td> 
                       <i class="fas fa-trash-alt delete-icon trash-icon"></i>  
