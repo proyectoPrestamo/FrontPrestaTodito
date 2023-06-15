@@ -145,19 +145,72 @@ $(document).ready(function() {
   let idEditar;
 
   // Función para guardar los cambios del producto editado
+  // Función para guardar los cambios del material editado
   function guardarCambios() {
-    const fila = $(`tr[data-id="${idEditar}"]`);
-    fila.find("td:eq(0)").text($("#edit-nombre").val());
-    fila.find("td:eq(1)").text($("#edit-tipo").val());
-    fila.find("td:eq(2)").text($("#edit-estado").val() + " ");
-    fila.find("td:eq(3)").text($("#edit-cantidad").val());
-    fila.find("td:eq(4)").text($("#edit-color").val());
-    fila.find("td:eq(5)").text($("#edit-medida").val());
-
-    $("#edit-modal").modal("hide");
-    fila.find(".edit-icon, .delete-icon").css("visibility", "visible");
+    const id = $(this).data('id'); // Obtener el ID del material desde el botón
+  
+    // Obtener los valores actualizados del formulario
+    const tipo = $("#edit-tipo").val();
+    const color = $("#edit-color").val();
+    const medidas = $("#edit-medida").val();
+  
+    // Crear el objeto con los datos a enviar
+    const data = {
+      tipo: tipo,
+      color: color,
+      medidas: medidas
+    };
+  
+    // Realizar la llamada a la API para actualizar el material
+    fetch(`http://localhost:3000/api/material/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => {
+      if (response.ok) {
+        // Actualizar los valores en la tabla
+        const fila = $(`tr[data-id="${id}"]`);
+        fila.find("td:eq(1)").text(tipo);
+        fila.find("td:eq(2)").text(color);
+        fila.find("td:eq(3)").text(medidas);
+  
+        // Mostrar una alerta de éxito
+        Swal.fire({
+          title: 'Cambios guardados',
+          text: 'La información del material ha sido actualizada correctamente',
+          icon: 'success',
+          confirmButtonColor: '#28A745'
+        });
+  
+        // Cerrar el modal
+        $("#edit-modal").modal("hide");
+      } else {
+        // Mostrar una alerta de error si la actualización falla
+        Swal.fire({
+          title: 'Error',
+          text: 'No se pudieron guardar los cambios. Por favor, inténtalo nuevamente',
+          icon: 'error',
+          confirmButtonColor: '#28A745'
+        });
+      }
+    })
+    .catch(error => {
+      // Mostrar una alerta de error si ocurre un error en la llamada a la API
+      Swal.fire({
+        title: 'Error',
+        text: 'Ocurrió un error al intentar guardar los cambios. Por favor, inténtalo nuevamente',
+        icon: 'error',
+        confirmButtonColor: '#28A745'
+      });
+    });
   }
-
+  
+  // Asignar el evento click al botón "Guardar cambios"
+  $("#edit-modal").on("click", ".edit-button", guardarCambios);
+  
   
 
   // Función para mostrar el modal y cargar los datos del producto a editar
@@ -166,12 +219,9 @@ $(document).ready(function() {
     const fila = $(`tr[data-id="${idEditar}"]`);
 
     // Cargamos los valores del producto a editar en el modal
-    $("#edit-nombre").val(fila.find("td:eq(0)").text());
     $("#edit-tipo").val(fila.find("td:eq(1)").text());
-    $("#edit-estado").val(fila.find("td:eq(2)").text().trim());
-    $("#edit-cantidad").val(fila.find("td:eq(3)").text());
-    $("#edit-color").val(fila.find("td:eq(4)").text());
-    $("#edit-medida").val(fila.find("td:eq(5)").text());
+    $("#edit-color").val(fila.find("td:eq(2)").text());
+    $("#edit-medida").val(fila.find("td:eq(3)").text());
 
     // Ocultamos los iconos de editar y eliminar
     fila.find(".edit-icon, .delete-icon").css("visibility", "hidden");
