@@ -1,67 +1,134 @@
-$(document).ready(function () {
-  $('#registro-aprendiz').submit(function (e) {
-    e.preventDefault(); // Evitar que se envíe el formulario de manera convencional
+document.getElementById('registro-aprendiz').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevenir el envío del formulario por defecto
 
-    var nombre = $('#nombre').val().trim();
-    var apellido = $('#apellido').val().trim();
-    var tipo_documento = $('#tipo_documento').val().trim();
-    var numero_documento = $('#numero_documento').val().trim();
-    var correo_electronico = $('#correo_electronico').val().trim();
-    var telefono = $('#telefono').val().trim();
-    var direccion = $('#direccion').val().trim();
-    var jornada = $('#jornada').val().trim();
-    var programaformacion = $('#programaformacion').val().trim();
-    var numeroficha = $('#numeroficha').val().trim();
-    var genero = $('#genero').val().trim();
-    var contraseña = $('#contraseña').val().trim();
+  var nombre = document.getElementById('nombre').value;
+  var apellido = document.getElementById('apellido').value;
+  var tipo_documento = document.getElementById('tipo_documento').value;
+  var numero_documento = document.getElementById('numero_documento').value;
+  var correo_electronico = document.getElementById('correo_electronico').value;
+  var telefono = document.getElementById('telefono').value;
+  var direccion = document.getElementById('direccion').value;
+  var jornada = document.getElementById('jornada').value;
+  var programaformacion = document.getElementById('programaformacion').value;
+  var numeroficha = document.getElementById('numeroficha').value;
+  var genero = document.getElementById('genero').value;
+  var contraseña = document.getElementById('contraseña').value;
 
- // Validar que los campos no estén vacíos, excepto el botón de cancelar
- var isValid = true;
- $('#registro-aprendiz input:not(.btn-regresar)').each(function() {
-   if ($(this).val().trim() === '') {
-     isValid = false;
-     $(this).addClass('is-invalid');
-     $(this).siblings('.invalid-feedback').show();
-   } else {
-     $(this).removeClass('is-invalid');
-     $(this).siblings('.invalid-feedback').hide();
-   }
- });
+  // Validar campos faltantes
+  var camposFaltantes = [];
 
- if (!isValid) {
-   return;
- }
+  if (nombre === '') {
+    camposFaltantes.push('nombre');
+  }
+  if (apellido === '') {
+    camposFaltantes.push('apellido');
+  }
 
-    if (nombre === '' || apellido === '' || tipo_documento === '' || numero_documento === '' || correo_electronico === '' || telefono === '' || direccion === '' || jornada === '' || programaformacion === '' || numeroficha === '' || genero === '' || contraseña === '') {
-      return;
-    }
+  if (tipo_documento === '') {
+    camposFaltantes.push('tipo_documento');
+  }
+  
+  if (numero_documento === '') {
+    camposFaltantes.push('numero_documento');
+  }
 
-    $.ajax({
-      type: "POST",
-      url: "/registroaprendiz",
-      data: { nombre: nombre, apellido: apellido, tipo_documento: tipo_documento, numero_documento: numero_documento, correo_electronico: correo_electronico, telefono: telefono, direccion: direccion, jornada: jornada, programaformacion: programaformacion, numeroficha: numeroficha, genero: genero, contraseña: contraseña },
-      success: function (response) {
-        console.log(response);//verificar si hay error en la ventana emergente
-        // Mostrar alerta de éxito si la respuesta del servidor es exitosa
-        Swal.fire({
-          title: 'Registro exitoso',
-          text: 'Los datos se han registrado correctamente',
-          icon: 'success',
-          confirmButtonColor: '#28A745',
-          confirmButtonText: 'Aceptar',
-          background: '#FFFFFF',
-          customClass: {
-            confirmButton: 'btn btn-success'
-          }
-        });
+  if (correo_electronico === '') {
+    camposFaltantes.push('correo_electronico');
+  }
 
-        // Vaciar campos del formulario después de enviar los datos
-        $('#registro-aprendiz')[0].reset();
-      }
+  if (telefono === '') {
+    camposFaltantes.push('telefono');
+  }
+
+  if (direccion === '') {
+    camposFaltantes.push('direccion');
+  }
+
+  if (jornada === '') {
+    camposFaltantes.push('jornada');
+  }
+
+  if (programaformacion === '') {
+    camposFaltantes.push('programaformacion');
+  }
+
+  if (numeroficha === '') {
+    camposFaltantes.push('numeroficha');
+  }
+
+  if (genero === '') {
+    camposFaltantes.push('genero');
+  }
+
+  if (contraseña === '') {
+    camposFaltantes.push('contraseña');
+  }
+
+  if (camposFaltantes.length > 0) {
+    var mensaje = 'Los siguientes campos son obligatorios: ' + camposFaltantes.join(', ');
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: mensaje,
+      confirmButtonColor: '#28A745',
+      confirmButtonText: 'Aceptar',
+      allowOutsideClick: false
     });
+    return false;
+  } else {
+    var data = {
+      id: numero_documento,
+      nombre: nombre,
+      apellido: apellido,
+      tipo_documento: tipo_documento,
+      correo: correo_electronico,
+      telefono: telefono,
+      direccion: direccion,
+      jornada: jornada,
+      programa_formacion: programaformacion,
+      numero_ficha: numeroficha,
+      genero: genero,
+      contrasena: contraseña
+    };
+// Realizar la petición POST utilizando fetch
+fetch('http://localhost:3000/api/usuario', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(data)
+})
+.then(response => response.json())
+.then(result => {
+  // Mostrar mensaje de éxito
+  Swal.fire({
+    icon: 'success',
+    title: '¡Registro exitoso!',
+    text: 'El registro se ha realizado correctamente.',
+    confirmButtonColor: '#28A745',
+    confirmButtonText: 'Aceptar',
+    allowOutsideClick: false
   });
 
-
+  // Limpiar los campos del formulario
+  document.getElementById('nombre').value = '';
+  document.getElementById('color').value = '';
+  document.getElementById('medidas').value = '';
+  document.getElementById('imagen').value = '';
+})
+.catch(error => {
+  // Mostrar mensaje de error
+  Swal.fire({
+    icon: 'error',
+    title: 'Error',
+    text: 'Hubo un error al realizar el registro.',
+    confirmButtonColor: '#28A745',
+    confirmButtonText: 'Aceptar',
+    allowOutsideClick: false
+  });
+});
+}
+});
 
   // Evento click para el botón de regresar
   $('#btn-regresar').click(function (e) {
@@ -87,24 +154,7 @@ $(document).ready(function () {
     });
   });
 
-  // Evento click para el botón de nuevo registro
-  $('#btn-registro').click(function () {
-    // Verificar si todos los campos están llenos
-    if ($('#nombre').val() == '' || $('#apellido').val() == '' || $('#tipo_documento').val() == '' || $('#numero_documento').val() == '' || $('#correo_electronico').val() == '' || $('#telefono').val() == '' || $('#direccion').val() == '' || $('#jornada').val() == '' || $('#programaformacion').val() == '' || $('#numeroficha').val() == '' || $('#genero').val() == '' || $('#contraseña').val() == '') {
-      // Mostrar ventana emergente de SweetAlert
-      Swal.fire({
-        title: 'Error',
-        text: 'Debes llenar todos los campos antes de continuar',
-        icon: 'error',
-        confirmButtonColor: '#dc3545',
-        confirmButtonText: 'OK'
-      });
-      // Detener la ejecución del formulario
-      return false;
-    }
-    // Si todos los campos están llenos, seguir con la ejecución del formulario
-    return true;
-  });
+  
 
 var campos = document.querySelectorAll("#nombre, #apellido, #programaformacion, #direccion, #correo_electronico, #telefono, #numeroficha, #contraseña, #numero_documento");
   campos.forEach(function(campo) {
@@ -122,4 +172,3 @@ var campos = document.querySelectorAll("#nombre, #apellido, #programaformacion, 
       }
     });
   });
-});
