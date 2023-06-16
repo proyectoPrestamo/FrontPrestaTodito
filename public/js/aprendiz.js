@@ -112,21 +112,19 @@ fetch('http://localhost:3000/api/usuario', {
 
   // Limpiar los campos del formulario
   document.getElementById('nombre').value = '';
-  document.getElementById('color').value = '';
-  document.getElementById('medidas').value = '';
-  document.getElementById('imagen').value = '';
+  document.getElementById('apellido').value = '';
+  document.getElementById('tipo_documento').value = '';
+  document.getElementById('numero_documento').value = '';
+  document.getElementById('correo_electronico').value = '';
+  document.getElementById('telefono').value = '';
+  document.getElementById('direccion').value = '';
+  document.getElementById('jornada').value = '';
+  document.getElementById('programaformacion').value = '';
+  document.getElementById('numeroficha').value = '';
+  document.getElementById('genero').value = '';
+  document.getElementById('contraseña').value = '';
+
 })
-.catch(error => {
-  // Mostrar mensaje de error
-  Swal.fire({
-    icon: 'error',
-    title: 'Error',
-    text: 'Hubo un error al realizar el registro.',
-    confirmButtonColor: '#28A745',
-    confirmButtonText: 'Aceptar',
-    allowOutsideClick: false
-  });
-});
 }
 });
 
