@@ -7,7 +7,46 @@ const inventario = (req, res) => {
 const solicitud = (req, res) => {
     res.render('registroSolicitud.ejs');
 };
+
+const herraAdmin = (req, res) => {
+    res.render('herraAdmin.ejs');
+};
+
+const materialAdmin = (req, res) => {
+    res.render('materialAdmin.ejs');
+};
+
+const pcAdmin = (req, res) => {
+    res.render('pcAdmin.ejs');
+};
+
+
+const regiMaterial = (req, res) => {
+    res.render('registroMaterial.ejs');
+};
+
+const ambienteAdmin = async (req, res) => {
+    try {
+      const rutaAmbientes = "http://localhost:3000/api/ambientes";
+  
+      const opciones = {
+        method: "GET",
+      };
+  
+      const [datosAmbientes] = await Promise.all([
+        fetch(rutaAmbientes, opciones).then(response => response.json())
+      ]);
+  
+      res.render('ambienteAdmin', {
+        datosAmbientes: datosAmbientes[0],
+      });
+    } catch (error) {
+      console.error(error);
+      res.redirect("/");
+    }
+    
+  };
 export const registrosController = {
-inventario,solicitud
+inventario,solicitud,herraAdmin,materialAdmin,pcAdmin,regiMaterial,ambienteAdmin
 };
  

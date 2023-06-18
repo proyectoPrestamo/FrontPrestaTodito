@@ -13,7 +13,7 @@ import login from './routes/login.routes.js';
 import coordi from './routes/coordinador.routes.js';
 import registros from './routes/registros.routes.js';
 import registrosUsers from './routes/registroUsers.routes.js';
-
+import administrador from './routes/administrador.routes.js';
 
 
 // const router = Router();
@@ -37,9 +37,13 @@ app.use(json());
 app.use('/', aprendiz);
 app.use('/', administrador);
 app.use('/', instructor);
-app.use('/', pc)
-app.use('/', login)
-app.use('/', coordi)
+app.use('/', pc);
+app.use('/', login);
+app.use('/', coordi);
+app.use('/', registros);
+app.use('/', registrosUsers);
+app.use('/', administrador);
+
 
 
 
