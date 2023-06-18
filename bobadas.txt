@@ -1,0 +1,18 @@
+rutina del login:
+
+DELIMITER $$
+CREATE DEFINER=`` PROCEDURE `spFindUser`(
+    IN _id_usuario INT,
+    IN _contrasena VARCHAR(100),
+    IN _id_rol VARCHAR(100)
+)
+BEGIN
+    -- Aquí va el cuerpo del procedimiento almacenado
+    SELECT ID_USUARIO, CONTRASENA, ID_ROL
+    FROM usuario
+    WHERE ID_USUARIO = _id_usuario
+        AND CONTRASENA = _contrasena
+        AND ID_ROL = _id_rol;
+    -- Resto del código...
+END$$
+DELIMITER ;

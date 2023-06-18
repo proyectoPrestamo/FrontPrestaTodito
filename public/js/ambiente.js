@@ -143,5 +143,6 @@ this.value = this.value.replace(/[^a-zA-Z]/g, "");
 });
 });
 
-import { validarDatos } from "../../controllers/ambientes.controller";
+
+
 
