@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import * as url from "url";
 
 //import rutas
+import administrador from './routes/administrador.routes.js';
 import aprendiz from './routes/aprendiz.routes.js';
 import instructor from './routes/instructor.routes.js';
 import pc from './routes/prestamopc.routes.js';
@@ -12,6 +13,7 @@ import login from './routes/login.routes.js';
 import coordi from './routes/coordinador.routes.js';
 import registros from './routes/registros.routes.js';
 import registrosUsers from './routes/registroUsers.routes.js';
+
 
 
 // const router = Router();
@@ -33,6 +35,7 @@ app.use(json());
 
 // Usar las rutas definidas en routes
 app.use('/', aprendiz);
+app.use('/', administrador);
 app.use('/', instructor);
 app.use('/', pc)
 app.use('/', login)

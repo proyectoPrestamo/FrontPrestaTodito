@@ -1,21 +1,21 @@
 document.getElementById('registro-aprendiz').addEventListener('submit', function(event) {
   event.preventDefault(); // Prevenir el envío del formulario por defecto
 
-  var nombre = document.getElementById('nombre').value;
-  var apellido = document.getElementById('apellido').value;
-  var tipo_documento = document.getElementById('tipo_documento').value;
-  var numero_documento = document.getElementById('numero_documento').value;
-  var correo_electronico = document.getElementById('correo_electronico').value;
-  var telefono = document.getElementById('telefono').value;
-  var direccion = document.getElementById('direccion').value;
-  var jornada = document.getElementById('jornada').value;
-  var programaformacion = document.getElementById('programaformacion').value;
-  var numeroficha = document.getElementById('numeroficha').value;
-  var genero = document.getElementById('genero').value;
-  var contraseña = document.getElementById('contraseña').value;
+  const nombre = document.getElementById('nombre').value;
+  const apellido = document.getElementById('apellido').value;
+  const tipo_documento = document.getElementById('tipo_documento').value;
+  const numero_documento = document.getElementById('numero_documento').value;
+  const correo_electronico = document.getElementById('correo_electronico').value;
+  const telefono = document.getElementById('telefono').value;
+  const direccion = document.getElementById('direccion').value;
+  const jornada = document.getElementById('jornada').value;
+  const programaformacion = document.getElementById('programaformacion').value;
+  const numeroficha = document.getElementById('numeroficha').value;
+  const genero = document.getElementById('genero').value;
+  const contraseña = document.getElementById('contraseña').value;
 
   // Validar campos faltantes
-  var camposFaltantes = [];
+  const camposFaltantes = [];
 
   if (nombre === '') {
     camposFaltantes.push('nombre');
@@ -65,7 +65,7 @@ document.getElementById('registro-aprendiz').addEventListener('submit', function
   }
 
   if (camposFaltantes.length > 0) {
-    var mensaje = 'Los siguientes campos son obligatorios: ' + camposFaltantes.join(', ');
+    const mensaje = 'Los siguientes campos son obligatorios: ' + camposFaltantes.join(', ');
     Swal.fire({
       icon: 'error',
       title: 'Error',
@@ -76,7 +76,7 @@ document.getElementById('registro-aprendiz').addEventListener('submit', function
     });
     return false;
   } else {
-    var data = {
+    const data = {
       id: numero_documento,
       nombre: nombre,
       apellido: apellido,
@@ -154,7 +154,7 @@ fetch('http://localhost:3000/api/usuario', {
 
   
 
-var campos = document.querySelectorAll("#nombre, #apellido, #programaformacion, #direccion, #correo_electronico, #telefono, #numeroficha, #contraseña, #numero_documento");
+const campos = document.querySelectorAll("#nombre, #apellido, #programaformacion, #direccion, #correo_electronico, #telefono, #numeroficha, #contraseña, #numero_documento");
   campos.forEach(function(campo) {
     campo.addEventListener("input", function() {
       if (this.id === "nombre" || this.id === "apellido" || this.id === "programaformacion") {
