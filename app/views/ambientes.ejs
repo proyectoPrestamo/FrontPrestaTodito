@@ -36,16 +36,11 @@
 
 <div class="contenedor-items-formulario">
   <select class="items" aria-placeholder="Default select example" id="ambiente">
-    <% if (datos && datos.length > 0) { %>
-      <% datos.forEach((elemento) => { %>
-        <option value="<%= elemento.id_ambiente %>"><%= elemento.ID_AMBIENTE %></option>
-      <% }); %>
-    <% } %>
+    <% datosAmbiente.forEach((elemento) => { %>
+      <option value="<%= elemento.ID %>"><%= elemento.ID %></option>
+    <% }); %>
   </select>
 </div>
-
-
-
 
 
 <div class="contenedor-items-formulario">
