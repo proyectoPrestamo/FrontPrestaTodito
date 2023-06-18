@@ -40,13 +40,12 @@
                 </tr>
               </thead>
               <tbody>
-                <% datos.forEach((elemento)=>{ %>
+                <% datosHerramientas.forEach((elemento)=>{ %>
                   <tr data-id=<%= elemento.ID_HERRAMIENTA %>>
                     <td><%= elemento.ID_HERRAMIENTA %></td>
-                    <td><%= elemento.NOMBRE %></td>
-                    <td><%= elemento.ESTADO %></td>
                     <td><%= elemento.TIPO %></td>
-                    <td><%= elemento.CANTIDAD %></td>
+                    <td><%= elemento.COLOR %></td>
+
                     <td> 
                       <i class="fas fa-trash-alt delete-icon trash-icon"></i>  
                       <i class="fas fa-edit edit-icon mr-1" data-toggle="modal" data-target="#edit-modal"></i>

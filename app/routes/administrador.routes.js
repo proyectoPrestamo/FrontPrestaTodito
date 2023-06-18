@@ -3,6 +3,7 @@ import { administradorController } from "../controller/administrador.controller.
 const administrador = Router();
 
 administrador.get('/rol', administradorController.rolAdmin)
+administrador.get('/ambienteAdmin', administradorController.ambienteAdmin)
 administrador.get('/devolucionInsumos', administradorController.devolucionInsumos)
 administrador.get('/herraAdmin', administradorController.herraAdmin)
 administrador.get('/materialAdmin', administradorController.materialAdmin)
