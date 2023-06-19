@@ -1,39 +1,42 @@
 <div class="container-logos">
-    <!-- menu de notificaciones -->
-    <div class="bell">
-      <i class="fa-solid fa-bell fa-3x"></i>
-      <span class="badge">0</span>
-    </div>
-    <!-- Menu de usuario -->
-    <div class="user" onclick="toggleMenu()">
-      <i class="fa-solid fa-user-gear fa-3x"></i>
-    </div>
-    <div id="menu" class="menu hidden">
-      <ul>
-        <div class="icono-contenedor">
-        <li><a href="#"><i class="fas fa-lock"></i> Cambiar contraseña</a></li>
+  <!-- menu de notificaciones -->
+  <div class="bell">
+    <i class="fa-solid fa-bell fa-3x"></i>
+    <span class="badge">0</span>
+  </div>
+  <!-- Menu de usuario -->
+  <div class="user" onclick="toggleMenu()">
+    <i class="fa-solid fa-user-gear fa-3x"></i>
+  </div>
+  <div id="menu" class="menu hidden">
+    <ul>
+      <div class="icono-contenedor">
+        <li><a href="#" id="cambiar-contrasena"><i class="fas fa-lock"></i> Cambiar contraseña</a></li>
       </div>
-        <div>
-          <div id="mi-modal" class="modal">
-            <div class="modal-contenido">
-              <span class="modal-cerrar fa fa-sign-out"></span>
-              <h2>Cambio de contraseña</h2>
-              <p>  <div class="contenedor-items-formulario1">
-                <input type="text" class="items4" placeholder="Contraseña anterior" >
+      <div>
+        <div id="mi-modal" class="modal">
+          <div class="modal-contenido">
+            <span class="modal-cerrar fa fa-sign-out"></span>
+            <h2>Cambio de contraseña</h2>
+            <p>
+              <div class="contenedor-items-formulario1">
+                <input type="password" class="items4" id="contrasena-antigua" placeholder="Contraseña anterior">
               </div>
               <div class="contenedor-items-formulario1">
-                <input type="text" class="items4" placeholder="Nueva contraseña">
+                <input type="password" class="items4" id="nueva-contrasena" placeholder="Nueva contraseña">
               </div>
               <div class="contenedor-items-formulario1">
-                <input type="text" class="items4" placeholder="Verificar contraseña">
-              </div></p>
-            </div>
+                <input type="password" class="items4" id="verificar-contrasena" placeholder="Verificar contraseña">
+              </div>
+            </p>
+            <button id="btn-guardar-contrasena">Guardar</button>
           </div>
         </div>
-        <li><a href="/salir"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
-      </ul>
-    </div>
+      </div>
+      <li><a href="/salir"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
+    </ul>
   </div>
-
-
   
+</div>
+
+

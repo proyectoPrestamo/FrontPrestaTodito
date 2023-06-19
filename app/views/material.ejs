@@ -36,28 +36,28 @@
 
         <div class="contenedor-items-formulario">
           <input type="text" class="items" placeholder="a" id="documento">
-          <label for="" class="label">N° de documento</label>
+          <label for="" class="label">Nombre del material</label>
         </div>
 
         <div class="contenedor-items-formulario">
           <select class="items" aria-placeholder="Default select example" id="material">
-            <option value="0" hidden>-- Seleccione el tipo --</option>
-            <option value="1">Cuero</option>
-            <option value="2">Tela</option>
-            <option value="3">Cuero sintetico</option>
-          </select>
+            <% datosMaterial.forEach((material,index)=>{ %>
+              <option value="0" hidden>-- Seleccione el tipo --</option>
+            <option value="<%= material.TIPO %>"><%= material.TIPO %></option>
+          <% }); %>
+        </select>
         </div>
 
 
         <div class="contenedor-items-formulario">
           <select class="items" aria-placeholder="Default select example" id="unidad">
-            <option value="0" hidden>-- Seleccione la unidad de medida --</option>
-            <option value="1">Metro</option>
-            <option value="2">Centimetro</option>
-            <option value="3">Milimetro</option>
-          </select>
+            <% datosMaterial.forEach((material,index)=>{ %>
+              <option value="0" hidden>-- Seleccione la medida --</option>
+              <option value="<%= material.MEDIDAS %>"><%= material.MEDIDAS %></option>
+          <% }); %>
+        </select>
         </div>
-
+      
 
         <div class="contenedor-items-formulario">
           <input type="text" class="items" placeholder="a" id="cantidad">

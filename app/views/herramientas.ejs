@@ -69,10 +69,10 @@
 
 <div class="contenedor-items-formulario">
   <select class="items" aria-placeholder="Default select example" id="herramienta">
-    <option value="0" hidden>-- Seleccione la herramienta --</option>
-    <option value="1">Metro</option>
-    <option value="2">Cerrucho</option>
-    <option value="3">Martillo</option>
+    <% datosHerramienta.forEach((herramientas,index)=>{ %>
+      <option value="0" hidden>-- Seleccione el tipo --</option>
+    <option value="<%= herramientas.TIPO %>"><%= herramientas.TIPO %></option>
+  <% }); %>
   </select>
 </div>
 

@@ -13,6 +13,7 @@ import login from './routes/login.routes.js';
 import coordi from './routes/coordinador.routes.js';
 import registros from './routes/registros.routes.js';
 import registrosUsers from './routes/registroUsers.routes.js';
+import iconos from './routes/iconos.routes.js';
 
 
 
@@ -42,6 +43,7 @@ app.use('/', login);
 app.use('/', coordi);
 app.use('/', registros);
 app.use('/', registrosUsers);
+app.use('/', iconos);
 
 
 

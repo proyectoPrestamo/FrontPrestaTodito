@@ -44,17 +44,22 @@
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Agregue una observacion</h5>
             </div>
+
             <!-- texto de ambientes -->
             <div class="contenedor-formulario" id="numero">
-              <input type="text" class="items" placeholder="a" id="ambiente">
-              <label for="" class="label">N° de ambiente</label>
+              <select class="items" aria-placeholder="Default select example" id="ambiente">
+                <% datosAmbientes.forEach((ambientes,index)=>{ %>
+                  <option value="0" hidden>-- Seleccione El ambiente --</option>
+                <option value="<%= ambientes.ID_AMBIENTES %>"><%= ambientes.ID_AMBIENTES %></option>
+              <% }); %>
+            </select>
+
               <!-- from de seleccionar archivo -->
-              <form id="foto">
-                <div class="archivo" >
-                  <input type="file" >
-                </div>
-              </form>
+            <div class="archivo" >
+              <input type="file" >
             </div>
+            </div>
+            
             <!-- body del modal -->
             <div class="modal-body">
               <textarea required="" class="form-control" id="elcontent" name="content" rows="10" data-rule="required"

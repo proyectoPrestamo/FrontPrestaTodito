@@ -190,11 +190,14 @@ nav ul li a:hover {
 }
 
 .info1 {
+  align-items: center;
   color: #888888;
   font-size: 100%;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
- 
+  display: flex;
+  justify-content: center;
 }
+
 
 .fondo{
   

@@ -59,15 +59,18 @@
               <td>
                 <h4 class="info1"><%= material.NOMBRE %>, <%= material.TIPO %>, <%= material.COLOR %></h4>
                </td>
-              <td>
+               <td>
                 <% if (datosPrestamos[index]) { %>
-                  <h5 class="info1"><%= datosPrestamos[index].FECHA_PRESTAMO %></h5>
+                  <% const fechaPrestamo = new Date(datosPrestamos[index].FECHA_PRESTAMO); %>
+                  <h5 class="info1"><%= fechaPrestamo.toLocaleDateString() %></h5>
                 <% } else { %>
                   <h5 class="info1">-</h5> 
                 <% } %>
               </td>
+              
+              </td>
               <td>
-                <h5 class="info1"><%= material.CANTIDAD %>, <%= material.MEDIDAS %></h5>
+                <h5 class="info1"><%= material.CANTIDAD %> <%= material.MEDIDAS %></h5>
               </td>
               <td>
                 <i class="fa-sharp fa-solid fa-eye fa-2x" data-toggle="modal" data-target="#edit-modal"></i>
