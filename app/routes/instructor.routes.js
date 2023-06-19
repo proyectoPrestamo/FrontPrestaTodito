@@ -13,7 +13,7 @@ instructor.get('/ambientes', instructorController.formularioAmbiente)
   
   instructor.get('/menu-instructor', instructorController.menuInstructor);
 
-  instructor.get('/insertarAmbientes', instructorController.insertarAmbiente);
+  //instructor.get('/insertarAmbientes', instructorController.insertarAmbiente);
 
   export default instructor;
   

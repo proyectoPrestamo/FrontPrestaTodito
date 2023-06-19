@@ -7,20 +7,45 @@ const reportes =  (req, res) => {
 const segumiento = async (req, res) => {
     try {
       const rutaMaterial = "http://localhost:3000/api/material";
-      // const rutaHorario = "http://localhost:3000/api/horario";
+       const rutaPrestamos = "http://localhost:3000/api/prestamos";
   
       const opciones = {
         method: "GET",
       };
   
-      const [datosMaterial] = await Promise.all([
+      const [datosMaterial, datosPrestamos] = await Promise.all([
         fetch(rutaMaterial, opciones).then(response => response.json()),
-        // fetch(rutaHorario, opciones).then(response => response.json())
+        fetch(rutaPrestamos, opciones).then(response => response.json())
       ]);
   
       res.render('seguimiento', {
         datosMaterial: datosMaterial[0],
-        // datosHorario: datosHorario[0]
+        datosPrestamos: datosPrestamos[0]
+      });
+    } catch (error) {
+      console.error(error);
+      res.redirect("/aprobar");
+    }
+    
+  };
+
+  const aprobar = async (req, res) => {
+    try {
+      const rutaMaterial = "http://localhost:3000/api/material";
+      const rutaInventario = "http://localhost:3000/api/inventario";
+  
+      const opciones = {
+        method: "GET",
+      };
+  
+      const [datosMaterial, datosInventario] = await Promise.all([
+        fetch(rutaMaterial, opciones).then(response => response.json()),
+        fetch(rutaInventario, opciones).then(response => response.json())
+      ]);
+  
+      res.render('aprobar', {
+        datosMaterial: datosMaterial[0],
+        datosInventario: datosInventario[0]
       });
     } catch (error) {
       console.error(error);
@@ -29,30 +54,9 @@ const segumiento = async (req, res) => {
     
   };
 
-  const aprobar = async (req, res) => {
  
-    try {
-      let ruta = "http://localhost:3000/api/material";
-      let option = {
-          method: "GET",
-      }
-      let datos = {};
-      const result = await fetch(ruta, option)
-          .then(response => response.json())
-          .then(data => {
-              datos = data[0]
-              console.log(data[0]);
-          })
-          .catch(err => console.error("error en peticion" + err))
+
   
-      res.render('aprobar', {
-          "datos": datos
-      });
-  
-  } catch (error) {
-      res.redirect("/");
-  }
-  };
 
   export const coordinadorController = {
     segumiento, reportes,aprobar

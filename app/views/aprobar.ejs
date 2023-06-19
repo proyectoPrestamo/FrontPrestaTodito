@@ -15,107 +15,125 @@
 <body>
   <!--Contenedor de logos-->
   <%- include('./partials/iconos.ejs') %>
-  <!--Contenedor de la imagen-->
-  <div class="container">
-    <img src="/resources/img/logoSena.png" width="200px" class="mx-auto d-block">
-  </div>
-  <!-- contenedor del menu -->
-  <nav>
-    <ul>
-      <li><a href="#">Inicio</a></li>
-      <li>
-        <a href="aprobar">Aprobar</a>
-      </li>
-      <li>
-        <a href="seguimiento">Seguimiento</a>
-      </li>
-      <li>
-        <a href="reportes">Reportes</a>
-      </li>
-    </ul>
-  </nav>
-  
-
-
-
-  <div class="fondo rounded-top">
-    <div class="contenedor-solicitud">
-      <div class="titulo"> Solicitudes De Prestamos</div>
-
-      <div class="buscador">
-        <input type="text" placeholder="Buscar" id="search-input" required>
-        <div class="btnbuscar" id="search-button">
-          <i class="fas fa-search icon"></i>
-
-        </div>
-      </div>  
+    <!--Contenedor de la imagen-->
+    <div class="container">
+      <img src="/resources/img/logoSena.png" width="200px" class="mx-auto d-block">
     </div>
-    <div class="contenedor1">
+    <!-- contenedor del menu -->
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li>
+          <a href="aprobar">Aprobar</a>
+        </li>
+        <li>
+          <a href="seguimiento">Seguimiento</a>
+        </li>
+        <li>
+          <a href="reportes">Reportes</a>
+        </li>
+      </ul>
+    </nav>
 
-    <div class="table-wrapper">
-      <table class="table table-borderless" id="tabla1">
-        <thead>
-        
-          <tr class="bg-success">
-            <th>CODIGO</th>
-            <th>PRODUCTO</th>
-            <th>CANTIDAD</th>
-             <th>TIPO/MEDIDA</th>
-             <th></th>
-            
-          </tr>
-        </thead>
-        <tbody>
-           <% datos.forEach((elemento)=>{ %>
-            <tr>
-              <td><%= elemento.ID_MATERIAL %></td>
-              <td><%= elemento.NOMBRE %></td>
-              <td><%= elemento.CANTIDAD %></td>
-              <td><%= elemento.TIPO %> /    <%= elemento.MEDIDA %></td>
-              <td> 
-                <button id="btnAceptar" class="btnAceptar">Aceptar</button>
-                <button  id="btnRechazar" class="btnRechazar">Rechazar</button>
-                <i class="fa-sharp fa-solid fa-eye fa-lg"  data-toggle="modal" data-target="#edit-modal"></i>
-  
-              </td>
-            </tr>
-          <% }); %>
-          
-          
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-  <!-- Modal -->
-<div class="modal fade" id="edit-modal" tabindex="-1" aria-labelledby="edit-modal-label" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="edit-modal-label">OBSERVACIONES</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <p>Agregue Una Observacion</p>
-            <textarea required="" class="form-control" id="elcontent" name="content" rows="10" data-rule="required"
-                data-msg="Please write something for us" placeholder="El insumo ha sido rechazado ya que..."></textarea>
-            </select>
+
+
+
+    <div class="fondo rounded-top">
+      <div class="contenedor-solicitud">
+        <div class="titulo"> Solicitudes De Prestamos</div>
+
+        <div class="buscador">
+          <input type="text" placeholder="Buscar" id="search-input" required>
+          <div class="btnbuscar" id="search-button">
+            <i class="fas fa-search icon"></i>
+
           </div>
-        </form>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-success" id="guardar-cambios">Guardar cambios</button>
+      <div class="contenedor1">
+
+        <div class="table-wrapper">
+          <table class="table table-borderless" id="tabla1">
+            <thead>
+
+              <tr class="bg-success">
+                <th>CODIGO</th>
+                <th>PRODUCTO</th>
+                <th>CANTIDAD</th>
+                <th>TIPO/MEDIDA</th>
+                <th></th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <% datosMaterial.forEach((material,index)=>{ %>
+                <tr>
+                  <td>
+                    <%= material.ID_MATERIAL %>
+                  </td>
+                    <td>
+                      <%= material.NOMBRE %>
+                    </td>
+                    <% if (datosInventario[index]) { %>
+                    <td>
+                      <%= datosInventario[index].CANTIDAD %>
+                    </td>
+                    <% } else { %>
+                      <td class="info1">-</td>
+                      <% } %>
+                        <td>
+                          <%= material.TIPO %>
+                            <%= material.MEDIDA %>
+                        </td>
+                       
+                        <td>
+                          <button id="btnAceptar" class="btnAceptar">Aceptar</button>
+                          <button id="btnRechazar" class="btnRechazar">Rechazar</button>
+                          <i class="fa-sharp fa-solid fa-eye fa-lg" data-toggle="modal" data-target="#edit-modal"></i>
+
+                        </td>
+                        <% }); %>
+                </tr>
+               
+               
+
+
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-  </div>
-  </div>  
-  </body>
+    <!-- Modal -->
+    <div class="modal fade" id="edit-modal" tabindex="-1" aria-labelledby="edit-modal-label" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="edit-modal-label">OBSERVACIONES</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <p>Agregue Una Observacion</p>
+                <textarea required="" class="form-control" id="elcontent" name="content" rows="10" data-rule="required"
+                  data-msg="Please write something for us"
+                  placeholder="El insumo ha sido rechazado ya que..."></textarea>
+                </select>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-success" id="guardar-cambios">Guardar cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
 
 <script src="/resources/js/aprobar.js"></script>
 <script src="/resources/js/iconos.js"></script>
+
 </html>

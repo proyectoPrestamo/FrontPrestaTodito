@@ -1,9 +1,9 @@
 import fetch from "node-fetch";
 
 
-function formularioAmbiente(req, res) {
-  res.render('ambientes.ejs');
-}
+// function formularioAmbiente(req, res) {
+//   res.render('ambientes.ejs');
+// }
 
 const formularioControlAula =  (req, res) => {
     res.render('controlAula.ejs');
@@ -23,20 +23,20 @@ const menuInstructor =  (req, res) => {
 
 
 
-  const insertarAmbiente = async (req, res) => {
+  const formularioAmbiente = async (req, res) => {
     try {
-      const rutaAmbiente = "http://localhost:3000/api/ambientes";
+      const rutaAmbientes = "http://localhost:3000/api/ambientes";
   
       const opciones = {
         method: "GET",
       };
   
       const [datosAmbientes] = await Promise.all([
-        fetch(rutaAmbiente, opciones).then(response => response.json())
+        fetch(rutaAmbientes, opciones).then(response => response.json())
       ]);
   
       res.render('ambientes', {
-        datosAmbientes: datosAmbientes[0],
+        datosAmbientes: datosAmbientes[0]
       });
     } catch (error) {
       console.error(error);
@@ -51,6 +51,5 @@ const menuInstructor =  (req, res) => {
     formularioControlAula,
     formularioHerramientas,
     formularioMateriales,
-    menuInstructor,
-    insertarAmbiente
+    menuInstructor
   };

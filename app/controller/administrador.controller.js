@@ -15,9 +15,7 @@ const devolucionInsumos = (req, res) => {
 
 
 export const administradorController = {
-    rolAdmin, devolucionInsumos, herraAdmin, 
-    materialAdmin, pcAdmin, 
-    regiMaterial,
-    ambienteAdmin
+    rolAdmin, devolucionInsumos
 };
+
 

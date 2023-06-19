@@ -6,6 +6,9 @@ login.get('/', (req, res) => {
     res.render('index.ejs');
   });
 
+  login.post('/login', loginController.login)
+
+
 
 //   login.post("/guardar", (req,res)=>{
 //     if(req.body.name){
