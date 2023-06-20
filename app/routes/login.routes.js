@@ -6,7 +6,7 @@ login.get('/', (req, res) => {
     res.render('index.ejs');
   });
 
-  login.post('/login', loginController.login)
+  login.post('/login', loginController.validacionLogin)
 
 
 
