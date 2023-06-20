@@ -1,7 +1,7 @@
 import express, { Router, urlencoded, json } from 'express';
 import path from 'path';
 import fs from 'fs';
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 import * as url from "url";
 import bodyParser from 'body-parser';
 
