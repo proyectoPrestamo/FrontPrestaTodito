@@ -7,5 +7,10 @@ registrosUsers.get('/registroadministrador', registroUsersController.administrad
 registrosUsers.get('/registroaprendiz', registroUsersController.aprendiz)
 registrosUsers.get('/registroinstructor', registroUsersController.instructor)
 
+
+//POST
+registrosUsers.post('/registrarUsuario', registroUsersController.registrarUsuarios);
+
+
 export default registrosUsers;
 
