@@ -16,3 +16,4 @@ iconoContenedor.addEventListener('click', function() {
 modalCerrar.addEventListener('click', function() {
   modal.style.display = 'none';
 });
+

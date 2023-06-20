@@ -1,5 +1,4 @@
 document.querySelector('.forma-formulario').addEventListener('submit', function(event) {
-  event.preventDefault(); // evita el envío del formulario por defecto
   
   
   const documento = document.querySelector('#documento').value.trim();

@@ -31,16 +31,16 @@
     </div>
     <!-- CONTENEDOR DEL FORMULARIO -->
     <div class="formulario">
-      <form class="forma-formulario"id="formulario">
+      <form class="forma-formulario"id="formulario" action="/insertarmaterial" method="post">
         <h1 class="titulo">Prestamo de materiales</h1>
 
         <div class="contenedor-items-formulario">
-          <input type="text" class="items" placeholder="a" id="documento">
+          <input type="text" class="items" placeholder="a" id="documento" name="NOMBRE_MATERIAL">
           <label for="" class="label">Nombre del material</label>
         </div>
 
         <div class="contenedor-items-formulario">
-          <select class="items" aria-placeholder="Default select example" id="material">
+          <select class="items" aria-placeholder="Default select example" id="material" name="TIPO">
             <% datosMaterial.forEach((material,index)=>{ %>
               <option value="0" hidden>-- Seleccione el tipo --</option>
             <option value="<%= material.TIPO %>"><%= material.TIPO %></option>
@@ -50,7 +50,7 @@
 
 
         <div class="contenedor-items-formulario">
-          <select class="items" aria-placeholder="Default select example" id="unidad">
+          <select class="items" aria-placeholder="Default select example" id="unidad" name="UNIDAD">
             <% datosMaterial.forEach((material,index)=>{ %>
               <option value="0" hidden>-- Seleccione la medida --</option>
               <option value="<%= material.MEDIDAS %>"><%= material.MEDIDAS %></option>
@@ -60,12 +60,12 @@
       
 
         <div class="contenedor-items-formulario">
-          <input type="text" class="items" placeholder="a" id="cantidad">
+          <input type="text" class="items" placeholder="a" id="cantidad" name="CANTIDAD">
           <label for="" class="label">Cantidad</label>
         </div>
 
         <div class="contenedor-items-formulario">
-          <select class="items" aria-placeholder="Default select example" id="jornada">
+          <select class="items" aria-placeholder="Default select example" id="jornada" name="JORNADA">
             <option value="0" hidden>-- Seleccione la jornada --</option>
             <option value="1">Diurna</option>
             <option value="2">Tarde</option>
@@ -74,17 +74,17 @@
         </div>
 
         <div class="contenedor-items-formulario">
-          <input type="date" class="items" placeholder="a" id="fecha">
+          <input type="date" class="items" placeholder="a" id="fecha" name="FECHA_RES">
           <label for="" class="label"></label>
         </div>
 
         <div class="contenedor-items-formulario">
-          <input type="text" class="items" placeholder="a" id="formacion">
+          <input type="text" class="items" placeholder="a" id="formacion" name="FORMACION">
           <label for="" class="label">Programa de formacion</label>
         </div>
 
         <div class="contenedor-items-formulario">
-          <input type="text" class="items" placeholder="a" id="ficha">
+          <input type="text" class="items" placeholder="a" id="ficha" name="FICHA">
           <label for="" class="label">N° de ficha</label>
         </div>
         <input type="submit" id="Reservar-btn" class="reserva-btn" value="RESERVAR">

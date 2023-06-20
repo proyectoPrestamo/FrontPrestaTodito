@@ -20,6 +20,7 @@
   "homepage": "https://github.com/camilagv1/Proyectoprestamo#readme",
   "dependencies": {
     "axios": "^1.4.0",
+    "body-parser": "^1.20.2",
     "colors": "^1.4.0",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",

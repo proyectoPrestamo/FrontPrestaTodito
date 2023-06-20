@@ -3,6 +3,7 @@ import path from 'path';
 import fs from 'fs';
 import dotenv from 'dotenv'
 import * as url from "url";
+import bodyParser from 'body-parser';
 
 //import rutas
 import administrador from './routes/administrador.routes.js';
@@ -28,6 +29,7 @@ app.set("port", process.env.PORT || 9999);
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use('/resources', express.static('public'));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 
 // Middleware para procesar datos de formulario

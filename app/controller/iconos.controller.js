@@ -22,7 +22,33 @@ const cambiarContrasena = (req, res) => {
 };
 
 
+// notificarBtn.addEventListener('click', () => {
+//   Notification.requestPermission().then(resultado => {
+//     console.log('Respuesta: ', resultado);
+//   });
+// });
 
+// const badge = document.getElementById('badge');
+
+// function mostrarNotificacion() {
+//   if (Notification.permission === 'granted') {
+//     const notificacion = new Notification('¡Nueva Notificación!', {
+//       icon: '/img/sena.jpg',
+//       body: 'Solicitud de prestmo de insumos'
+//     });
+
+//     notificacion.onclick = function() {
+//       window.open('http://google.com');
+//     };
+//   }
+// }
+
+// badge.addEventListener('click', () => {
+//   Notification.requestPermission().then(resultado => {
+//     console.log('Respuesta: ', resultado);
+//     mostrarNotificacion();
+//   });
+// });
 
 export const iconosController = {
     cambiarContrasena
