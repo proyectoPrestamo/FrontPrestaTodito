@@ -104,61 +104,51 @@ const formularioHerramientas = async (req, res) => {
   }
 };
 
-
 // Rutas post
 
 const InsertarMateriales = async (req, res) => {
- 
 
-  // const Obj_Material = {
-  //   NOMBRE_MATERIAL:req.body.NOMBRE_MATERIAL,
-  //   TIPO: req.body.TIPO,
-  //   UNIDAD: req.body.UNIDAD,
-  //   CANTIDAD:req.body.CANTIDAD,
-  //   JORNADA: req.body.JORNADA,
-  //   FECHA_RES:req.body.FECHA_RES,
-  //   FORMACION:req.body.FORMACION,
-  //   FICHA:req.body.FICHA,
-  // }
-
- const Obj_Material ={
-    
-      "nombre" :req.body.NOMBRE_MATERIAL,
-      "tipo" :req.body.TIPO,
-      "color": req.body.CANTIDAD,
-      "medidas" :req.body.UNIDAD
-  }
-
+  
   try {
-  const url = "http://localhost:3000/api/material";
-  const option = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(Obj_Material)
-  }
-  await fetch(url, option) 
-  .then(response => response.json())
-  .then(InsertarMateriales =>{
-console.log(InsertarMateriales[0])
-    // Codigo de api
-    switch (InsertarMateriales[0].affectedRows) {
-      case 0:
-     return res.redirect("/?alerta=0")
+    let data = {
+      nombre: req.body.NOMBRE_MATERIAL,
+      tipo: req.body.TIPO,
+      color: req.body.CANTIDAD,
+      medidas: req.body.UNIDAD
+    };
 
-      case 1:
-         return res.redirect("/material?alerta=1")
+    const url = "http://localhost:3000/api/material";
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      
+      body: JSON.stringify(data)
+      
+    };
+    console.log(data);
+    const response = await fetch(url, options)
+    .then(response => response.json())
+    .then(data =>{
+      console.log(data);
+    })
+    .catch(error => console.log(error))
 
-      default:
-         return res.redirect("/?alerta=2")
+    // Inspeccionar la respuesta del servidor
+   
+
+    if (data && data > 0) {
+    } else {
+      // Manejar la respuesta del servidor cuando si es valida
+      return res.redirect("/?alerta=1");
+    }
+  } catch (error) {
+    console.error(error);
+     // Manejar la respuesta del servidor cuando no es válida
+    return res.redirect("/?alerta=2");
   }
-  })
-} catch (error) {
-    console.error(error)
-}
 };
-
 
 
 
