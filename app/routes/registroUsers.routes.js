@@ -9,7 +9,7 @@ registrosUsers.get('/registroinstructor', registroUsersController.instructor)
 
 
 //POST
-registrosUsers.post('/registrarUsuario', registroUsersController.registrarUsuarios);
+registrosUsers.post('/registrarUsuarios', registroUsersController.registrarUsuarios);
 
 
 export default registrosUsers;

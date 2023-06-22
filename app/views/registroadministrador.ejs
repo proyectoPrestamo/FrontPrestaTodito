@@ -16,7 +16,7 @@
 <body class="d-flex justify-content-center align-items-center vh-100">
     <div class="container border shadow p-4 mt-3">
         <h1 class="text-center mb-4">ADMINISTRADOR</h1>
-        <form id="registro-administrador" action="/registrarUsuario">
+        <form id="registro-administrador" action="/registrarUsuarios" method="post">
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="nombre" class="form-label">Nombre <span class="text-danger">*</span></label>
@@ -61,10 +61,10 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="genero" class="form-label">Genero <span class="text-danger">*</span></label>
-                    <select class="form-control" id="genero" required>
+                    <select class="form-control" id="genero" name="genero" required>
                         <option value="option1" hidden>-- Seleccione un genero --</option>
-                        <option value="option1">Masculino</option>
-                        <option value="option2">Femenino</option>
+                        <option>Masculino</option>
+                        <option>Femenino</option>
                       </select>
                 </div>
                 <div class="col-md-6 mb-3">
