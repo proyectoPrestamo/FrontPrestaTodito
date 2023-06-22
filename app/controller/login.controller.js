@@ -21,10 +21,10 @@ const validacionLogin = async (req,res) =>{
 
             await fetch(url, options)
             .then((response)=> response.json())
-            .then((datosUsuario)=> {
-                // res.send(datosUsuario)
-                if (datosUsuario[0] ==! undefined) {
-                    payload = datosUsuario[0];
+            .then((datos)=> {
+                // res.send(datos)
+                if (!datos[0] ==! undefined) {
+                    payload = datos[0];
         
                     if (contrasena === payload.contrasena) {
                       // Validación de inicio de sesión exitosa

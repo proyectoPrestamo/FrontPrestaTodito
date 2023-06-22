@@ -39,19 +39,6 @@ const formularioMateriales = async (req, res) => {
     const getResponse = await fetch(rutaMaterial, getOptions);
     const datosMaterial = await getResponse.json();
 
-    // Realizar solicitud POST para insertar nuevos datos
-    const postOptions = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-
-      }),
-    };
-    const postResponse = await fetch(rutaMaterial, postOptions);
-    const datosMaterialPost = await postResponse.json();
-
     res.render('material', {
       datosMaterial: datosMaterial[0], // Datos existentes
       // datosMaterialPost: datosMaterialPost // Datos insertados
@@ -141,7 +128,7 @@ const InsertarMateriales = async (req, res) => {
     if (data && data > 0) {
     } else {
       // Manejar la respuesta del servidor cuando si es valida
-      return res.redirect("/?alerta=1");
+      return res.redirect("/material?alerta=1");
     }
   } catch (error) {
     console.error(error);
