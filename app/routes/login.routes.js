@@ -6,11 +6,17 @@ login.get('/', (req, res) => {
     res.render('index.ejs');
   });
 
-  login.post('/login', loginController.validacionLogin)
+login.post("/autentificacion",loginController.validacionLogin )
+
+  login.get('/salir', (req, res) => {
+    res.send('ruta de salida');
+  });
+
+  export default login;
 
 
 
-//   login.post("/guardar", (req,res)=>{
+  //   login.post("/guardar", (req,res)=>{
 //     if(req.body.name){
 
 //         let data = {
@@ -49,10 +55,3 @@ login.get('/', (req, res) => {
        
 //     }
 // })
-
-
-  login.get('/salir', (req, res) => {
-    res.send('ruta de salida');
-  });
-
-  export default login;
