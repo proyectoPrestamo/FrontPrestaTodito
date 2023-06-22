@@ -67,7 +67,7 @@ const validacionLogin = async (req,res) =>{
         
 
 
-// const login = async (req, res) => {
+// const login = async (req, res) => 
 //     try {
         
         
