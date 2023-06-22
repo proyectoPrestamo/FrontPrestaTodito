@@ -44,7 +44,7 @@ const usuariosRegistrados = async (req, res) => {
   };
 
   const registrarUsuarios = async (req, res) => {
-    const Obj_Material = {
+    const Obj_Usuario = {
       nombre: req.body.nombre,
         apellido: req.body.apellido,
         tipo_documento: req.body.tipo_documento,
@@ -64,7 +64,7 @@ const usuariosRegistrados = async (req, res) => {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(Obj_Material)
+        body: JSON.stringify(Obj_Usuario)
       };
   
       await fetch(url, option)
@@ -105,11 +105,33 @@ const usuariosRegistrados = async (req, res) => {
       res.redirect("/?alerta=2");
     }
   };  
+
+  const registrarRol = async (req, res) => {
+    const nombre_rol = req.body.nombre_rol;
+    const estado = "activo";
+  
+    try {
+      const url = "http://localhost:3000/api/rol";
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ nombre_rol, estado })
+      };
+  
+      await fetch(url, options);
+      res.redirect("/rol?alerta=1");
+    } catch (error) {
+      console.error(error);
+      res.redirect("/?alerta=2");
+    }
+  };
   
 
   
 
 export const registroUsersController = {
-    coordinador, administrador, aprendiz, instructor, usuariosRegistrados, registrarUsuarios
+    coordinador, administrador, aprendiz, instructor, usuariosRegistrados, registrarUsuarios, registrarRol
 };
 

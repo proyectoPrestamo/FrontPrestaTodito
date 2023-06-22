@@ -14,15 +14,15 @@
   <div class="form-container">
     <img src="/resources/img/logo.png" class="rounded-circle mx-auto d-block" alt="User Image">
     <h2 class="text-center mb-4">Seleccione un rol</h2>
-    <form>
+    <form action="/registrarRol" method="POST">
       <div class="form-group mb-3">
         <label for="rol">Rol:</label>
-        <select class="form-control" id="select-rol" name="rol">
+        <select class="form-control" id="select-rol" name="nombre_rol">
           <option hidden value="">-- Seleccione un rol --</option>
-          <option value="/registroaprendiz">Aprendiz</option>
-          <option value="/registroinstructor">Instructor</option>
-          <option value="/registrocoordinador">Coordinador</option>
-          <option value="/registroadministrador">Administrador</option>
+          <option value="aprendiz">Aprendiz</option>
+          <option value="instructor">Instructor</option>
+          <option value="coordinador">Coordinador</option>
+          <option value="administrador">Administrador</option>
         </select>
       </div>
       <button id="btn-aceptar" type="submit" class="btn btn-success btn-block">Aceptar</button>
