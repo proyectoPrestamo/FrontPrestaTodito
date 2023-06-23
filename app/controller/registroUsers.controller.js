@@ -46,65 +46,43 @@ const usuariosRegistrados = async (req, res) => {
   const registrarUsuarios = async (req, res) => {
     const Obj_Usuario = {
       nombre: req.body.nombre,
-        apellido: req.body.apellido,
-        tipo_documento: req.body.tipo_documento,
-        id: req.body.numero_documento,
-        correo: req.body.correo_electronico,
-        telefono: req.body.telefono,
-        direccion: req.body.direccion,
-        jornada: req.body.jornada,
-        genero: req.body.genero,
-        contrasena: req.body.contraseña
+      apellido: req.body.apellido,
+      tipo_documento: req.body.tipo_documento,
+      id: req.body.numero_documento,
+      correo: req.body.correo_electronico,
+      telefono: req.body.telefono,
+      direccion: req.body.direccion,
+      jornada: req.body.jornada,
+      genero: req.body.genero,
+      contrasena: req.body.contraseña
     };
   
     try {
-      const url = "http://localhost:3000/api/usuario";
+      const url = 'http://localhost:3000/api/usuario';
       const option = {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json"
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(Obj_Usuario)
       };
   
-      await fetch(url, option)
-        .then(response => response.json())
-        .then(registrarUsuarios => {
-          switch (registrarUsuarios[0].affectedRows) {
-            case 0:
-              Swal.fire({
-                icon: "error",
-                title: "Error",
-                text: "No se pudo insertar el material."
-              }).then(() => {
-                res.redirect("/?alerta=0");
-              });
-              break;
-            case 1:
-              Swal.fire({
-                icon: "success",
-                title: "Éxito",
-                text: "Material insertado correctamente."
-              }).then(() => {
-                res.redirect("/rol?alerta=1");
-              });
-              break;
-            default:
-              Swal.fire({
-                icon: "error",
-                title: "Error",
-                text: "Ocurrió un error al insertar el material."
-              }).then(() => {
-                res.redirect("/?alerta=2");
-              });
-              break;
-          }
-        });
+      const response = await fetch(url, option);
+      const data = await response.json();
+  
+      if (data[0].affectedRows === 1) {
+        res.redirect('/rol');
+      } else {
+        res.redirect('/?alerta=0');
+      }
     } catch (error) {
       console.error(error);
-      res.redirect("/?alerta=2");
+      res.redirect('/?alerta=2');
     }
-  };  
+  };
+  
+  
+  
 
   const registrarRol = async (req, res) => {
     const nombre_rol = req.body.nombre_rol;

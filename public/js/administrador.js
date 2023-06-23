@@ -1,67 +1,18 @@
 $(document).ready(function () {
-  $('#registro-administrador').submit(function (e) {
-    e.preventDefault(); // Evitar que se envíe el formulario de manera convencional
-
-    var nombre = $('#nombre').val().trim();
-    var apellido = $('#apellido').val().trim();
-    var tipo_documento = $('#tipo_documento').val().trim();
-    var numero_documento = $('#numero_documento').val().trim();
-    var correo_electronico = $('#correo_electronico').val().trim();
-    var telefono = $('#telefono').val().trim();
-    var direccion = $('#direccion').val().trim();
-    var jornada = $('#jornada').val().trim();
-    var genero = $('#genero').val().trim();
-    var contraseña = $('#contraseña').val().trim();
-
- // Validar que los campos no estén vacíos, excepto el botón de cancelar
- var isValid = true;
- $('#registro-administrador input:not(.btn-regresar)').each(function() {
-   if ($(this).val().trim() === '') {
-     isValid = false;
-     $(this).addClass('is-invalid');
-     $(this).siblings('.invalid-feedback').show();
-   } else {
-     $(this).removeClass('is-invalid');
-     $(this).siblings('.invalid-feedback').hide();
-   }
- });
-
- if (!isValid) {
-   return;
- }
-
-    if (nombre === '' || apellido === '' || tipo_documento === '' || numero_documento === '' || correo_electronico === '' || telefono === '' || direccion === '' || jornada === '' || genero === '' || contraseña === '') {
-      return;
+  // Validar que los campos no estén vacíos, excepto el botón de cancelar
+  $('#registro-administrador input:not(.btn-regresar)').each(function() {
+    if ($(this).val().trim() === '') {
+      $(this).removeClass('is-valid').addClass('is-invalid');
+      $(this).siblings('.invalid-feedback').show();
+    } else {
+      $(this).removeClass('is-invalid').addClass('is-valid');
+      $(this).siblings('.invalid-feedback').hide();
     }
-
-    $.ajax({
-      type: "POST",
-      url: "/registroadministrador",
-      data: { nombre: nombre, apellido: apellido, tipo_documento: tipo_documento, numero_documento: numero_documento, correo_electronico: correo_electronico, telefono: telefono, direccion: direccion, jornada: jornada, genero: genero, contraseña: contraseña },
-      success: function (response) {
-        console.log(response);//verificar si hay error en la ventana emergente
-        // Mostrar alerta de éxito si la respuesta del servidor es exitosa
-        Swal.fire({
-          title: 'Registro exitoso',
-          text: 'Los datos se han registrado correctamente',
-          icon: 'success',
-          confirmButtonColor: '#28A745',
-          confirmButtonText: 'Aceptar',
-          background: '#FFFFFF',
-          customClass: {
-            confirmButton: 'btn btn-success'
-          }
-        });
-
-        // Vaciar campos del formulario después de enviar los datos
-        $('#registro-administrador')[0].reset();
-      }
-    });
   });
 
   // Evento click para el botón de regresar
   $('#btn-regresar').click(function (e) {
-    e.preventDefault(); 
+    e.preventDefault();
     // Esta función se ejecuta cuando se hace clic en el botón de regresar
 
     // Mostrar ventana emergente de SweetAlert
@@ -78,47 +29,70 @@ $(document).ready(function () {
       // Si se hace clic en el botón de confirmación, redirigir a la vista anterior
       if (result.isConfirmed) {
         window.location.href = "/rol";
-                // Redirige a la ruta /rol
-      } 
+        // Redirige a la ruta /rol
+      }
     });
   });
 
+  // Evento submit para el formulario de registro
+  $('#registro-administrador').submit(function (e) {
+    e.preventDefault();
+    // Esta función se ejecuta cuando se envía el formulario
 
+    // Validar que todos los campos estén completos
+    var camposVacios = [];
+    $('#registro-administrador input:not(.btn-regresar)').each(function() {
+      if ($(this).val().trim() === '') {
+        camposVacios.push($(this).siblings('label').text().trim());
+        $(this).removeClass('is-valid').addClass('is-invalid');
+        $(this).siblings('.invalid-feedback').show();
+      } else {
+        $(this).removeClass('is-invalid').addClass('is-valid');
+        $(this).siblings('.invalid-feedback').hide();
+      }
+    });
 
-  // Evento click para el botón de nuevo registro
-  $('#btn-registro').click(function () {
-    // Verificar si todos los campos están llenos
-    if ($('#nombre').val() == '' || $('#apellido').val() == '' || $('#tipo_documento').val() == '' || $('#numero_documento').val() == '' || $('#correo_electronico').val() == '' || $('#telefono').val() == '' || $('#direccion').val() == '' || $('#jornada').val() == '' || $('#genero').val() == '' || $('#contraseña').val() == '') {
-      // Mostrar ventana emergente de SweetAlert
+    if (camposVacios.length > 0) {
+      // Mostrar ventana emergente de SweetAlert con los campos vacíos
       Swal.fire({
-        title: 'Error',
-        text: 'Debes llenar todos los campos antes de continuar',
+        title: 'Campos incompletos',
+        html: 'Los siguientes campos son obligatorios:<br><strong>' + camposVacios.join(', ') + '</strong>',
         icon: 'error',
-        confirmButtonColor: '#dc3545',
-        confirmButtonText: 'OK'
+        confirmButtonColor: '#28a745',
+        confirmButtonText: 'Aceptar'
       });
-      // Detener la ejecución del formulario
-      return false;
-    }
-    // Si todos los campos están llenos, seguir con la ejecución del formulario
-    return true;
-  });
+    } else {
+      // Mostrar ventana emergente de SweetAlert para confirmar el registro
+      Swal.fire({
+        title: 'Confirmar registro',
+        text: '¿Desea realizar este registro?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#28a745',
+        cancelButtonColor: '#dc3545',
+        confirmButtonText: 'Aceptar',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Enviar el formulario
+          $(this).unbind('submit').submit();
 
-
-var campos = document.querySelectorAll("#nombre, #apellido, #direccion, #correo_electronico, #telefono, #contraseña, #numero_documento");
-campos.forEach(function(campo) {
-  campo.addEventListener("input", function() {
-    if (this.id === "nombre" || this.id === "apellido") {
-      this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚ\s]/g, "");
-    } else if (this.id === "direccion") {
-      this.value = this.value.replace(/[^a-zA-Z0-9.,#\/\-\_\s]/g, "");
-    } else if (this.id === "correo_electronico") {
-      this.value = this.value.replace(/[^a-zA-Z0-9.\-\_\@]/g, "");
-    } else if (this.id === "telefono" || this.id === "numero_documento") {
-      this.value = this.value.replace(/[^0-9]/g, "");
-    } else if (this.id === "contraseña") {
-      this.value = this.value.replace(/[^a-zA-Z0-9.]/g, "");
+          // Mostrar ventana emergente de SweetAlert de registro exitoso
+          Swal.fire({
+            title: 'Registro exitoso',
+            text: 'Se ha registrado exitosamente el usuario',
+            icon: 'success',
+            confirmButtonColor: '#28a745',
+            confirmButtonText: 'Aceptar'
+          }).then((result) => {
+            // Redirigir a la vista "rol"
+            if (result.isConfirmed) {
+              window.location.href = "/rol";
+              // Redirige a la ruta /rol
+            }
+          });
+        }
+      });
     }
   });
-}); 
 });

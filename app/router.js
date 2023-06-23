@@ -172,32 +172,6 @@ router.get("/usuariosRegistrados", async (req, res) => {
   });
 
   
-  router.post('/registroinstructor', function (req, res) {
-    // Código para registrar el instructor
-    // ...
-    // Enviar respuesta al cliente
-    res.send('Registro exitoso');
-  });
 
-  router.post('/registrocoordinador', function (req, res) {
-    // Código para registrar el coordinador
-    // ...
-    // Enviar respuesta al cliente
-    res.send('Registro exitoso');
-  });
-
-  router.post('/registroaprendiz', function (req, res) {
-    // Código para registrar el coordinador
-    // ...
-    // Enviar respuesta al cliente
-    res.send('Registro exitoso');
-  });
-
-  router.post('/registroadministrador', function (req, res) {
-    // Código para registrar el coordinador
-    // ...
-    // Enviar respuesta al cliente
-    res.send('Registro exitoso');
-  });
 
   module.exports = router;
