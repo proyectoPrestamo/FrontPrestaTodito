@@ -7,6 +7,8 @@ import bodyParser from 'body-parser';
 
 //import rutas
 import administrador from './routes/administrador.routes.js';
+import materiales from './routes/materiales.routes.js';
+import herraAdmin from './routes/herraAdmin.routes.js';
 import aprendiz from './routes/aprendiz.routes.js';
 import instructor from './routes/instructor.routes.js';
 import pc from './routes/prestamopc.routes.js';
@@ -15,7 +17,6 @@ import coordi from './routes/coordinador.routes.js';
 import registros from './routes/registros.routes.js';
 import registrosUsers from './routes/registroUsers.routes.js';
 import iconos from './routes/iconos.routes.js';
-
 
 
 // const router = Router();
@@ -39,6 +40,8 @@ app.use(json());
 // Usar las rutas definidas en routes
 app.use('/', aprendiz);
 app.use('/', administrador);
+app.use('/', materiales);
+app.use('/', herraAdmin);
 app.use('/', instructor);
 app.use('/', pc);
 app.use('/', login);

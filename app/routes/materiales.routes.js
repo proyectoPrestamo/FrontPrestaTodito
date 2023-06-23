@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { administradorController } from "../controller/administrador.controller.js";
+import { materialesController } from "../controller/materiales.controller.js";
 const router = Router();
 
-router.get('/rol', administradorController.rolAdmin);
+
+router.get('/materialAdmin',materialesController.materiales);
 
 
 
@@ -10,7 +11,6 @@ router.get('/rol', administradorController.rolAdmin);
 
 
 // administrador.get('/ambienteAdmin', administradorController.ambienteAdmin)
-router.get('/devolucionInsumos',administradorController.devolucionInsumos);
 // administrador.get('/herraAdmin', administradorController.herraAdmin)
 // administrador.get('/materialAdmin', administradorController.materialAdmin)
 // administrador.get('/pcAdmin', administradorController.pcAdmin)
