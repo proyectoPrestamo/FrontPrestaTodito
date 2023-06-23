@@ -1,75 +1,74 @@
+// Selecciona todos los elementos con la clase "delete-icon"
+const deleteIcons = document.querySelectorAll('.delete-icon');
 
-    // Selecciona todos los elementos con la clase "delete-icon"
-    const deleteIcons = document.querySelectorAll('.delete-icon');
-  
-    // Itera sobre cada elemento seleccionado y agrega un "listener" al evento "click"
-    deleteIcons.forEach(icon => {
-      icon.addEventListener('click', (event) => {
-        // Evita que el evento de clic se propague (para evitar que se haga clic en el elemento padre)
-        event.stopPropagation();
-  
-        // Obtiene el elemento "tr" padre del ícono de eliminación (que contiene los datos que deseamos eliminar)
-        let parentTr = event.target.closest('tr');
-  
-        // Obtiene el código del material (el valor del atributo "data-id" del "tr")
-        let mateCode = parentTr.getAttribute('data-id');
-  
-        // Utiliza SweetAlert para mostrar un mensaje de confirmación y tomar la acción del usuario
-        Swal.fire({
-          title: '¿Estás seguro de que deseas eliminar el material?',
-          text: `Código de material: ${mateCode}`,
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#28A745',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Sí, eliminar',
-          cancelButtonText: 'Cancelar'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            // Si el usuario hace clic en "Sí, eliminar", realiza la llamada a la API para eliminar el registro
-            eliminarMaterial(mateCode, parentTr);
-          }
-        })
+// Itera sobre cada elemento seleccionado y agrega un "listener" al evento "click"
+deleteIcons.forEach(icon => {
+  icon.addEventListener('click', (event) => {
+    // Evita que el evento de clic se propague (para evitar que se haga clic en el elemento padre)
+    event.stopPropagation();
+
+    // Obtiene el elemento "tr" padre del ícono de eliminación (que contiene los datos que deseamos eliminar)
+    let parentTr = event.target.closest('tr');
+
+    // Obtiene el código del material (el valor del atributo "data-id" del "tr")
+    let mateCode = parentTr.getAttribute('data-id');
+
+    // Utiliza SweetAlert para mostrar un mensaje de confirmación y tomar la acción del usuario
+    Swal.fire({
+      title: '¿Estás seguro de que deseas eliminar el material?',
+      text: `Código de material: ${mateCode}`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#28A745',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Si el usuario hace clic en "Sí, eliminar", realiza la llamada a la API para eliminar el registro
+        eliminarMaterial(mateCode, parentTr);
+      }
+    })
+  });
+});
+
+// Función para eliminar el material tanto de la vista como de la base de datos
+function eliminarMaterial(mateCode, parentTr) {
+  // Realiza la llamada a la API para eliminar el registro
+  fetch(`http://localhost:3000/api/material/${mateCode}`, {
+    method: 'DELETE'
+  })
+  .then(response => {
+    if (response.ok) {
+      // Si la eliminación en la base de datos fue exitosa, elimina el elemento "tr" del DOM
+      parentTr.remove();
+      // Muestra una alerta de éxito utilizando SweetAlert
+      Swal.fire({
+        title: 'Material eliminado',
+        text: `El material con código ${mateCode} ha sido eliminado correctamente`,
+        icon: 'success',
+        confirmButtonColor: '#28A745'
       });
-    });
-  
-    // Función para eliminar el material tanto de la vista como de la base de datos
-    function eliminarMaterial(mateCode, parentTr) {
-      // Realiza la llamada a la API para eliminar el registro
-      fetch(`http://localhost:3000/api/material/${mateCode}`, {
-        method: 'DELETE'
-      }) 
-        .then(response => {
-          if (response.ok) {
-            // Si la eliminación en la base de datos fue exitosa, elimina el elemento "tr" del DOM
-            parentTr.remove();
-            // Muestra una alerta de éxito utilizando SweetAlert
-            Swal.fire({
-              title: 'Material eliminado',
-              text: `El material con código ${mateCode} ha sido eliminado correctamente`,
-              icon: 'success',
-              confirmButtonColor: '#28A745'
-            });
-          } else {
-            // Si la eliminación en la base de datos falló, muestra una alerta de error
-            Swal.fire({
-              title: 'Error',
-              text: 'No se pudo eliminar el material. Por favor, inténtalo nuevamente',
-              icon: 'error',
-              confirmButtonColor: '#28A745'
-            });
-          }
-        })
-        .catch(error => {
-          // Si ocurre un error en la llamada a la API, muestra una alerta de error
-          Swal.fire({
-            title: 'Error',
-            text: 'Ocurrió un error al intentar eliminar el material. Por favor, inténtalo nuevamente',
-            icon: 'error',
-            confirmButtonColor: '#28A745'
-          });
-        });
+    } else {
+      // Si la eliminación en la base de datos falló, muestra una alerta de error
+      Swal.fire({
+        title: 'Error',
+        text: 'No se pudo eliminar el material. Por favor, inténtalo nuevamente',
+        icon: 'error',
+        confirmButtonColor: '#28A745'
+      });
     }
+  })
+  .catch(error => {
+    // Si ocurre un error en la llamada a la API, muestra una alerta de error
+    Swal.fire({
+      title: 'Error',
+      text: 'Ocurrió un error al intentar eliminar el material. Por favor, inténtalo nuevamente',
+      icon: 'error',
+      confirmButtonColor: '#28A745'
+    });
+  });
+}
   
     // Seleccionar los elementos HTML necesarios
     const searchInput = document.getElementById('search-input');

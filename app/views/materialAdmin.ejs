@@ -41,6 +41,7 @@
               <thead>
                 <tr class="bg-success">
                   <th>ID</th>
+                  <th>NOMBRE</th>
                   <th>TIPO</th>
                   <th>COLOR</th>
                   <th>MEDIDAS</th>
@@ -51,6 +52,7 @@
                 <% datos.forEach((elemento)=>{ %>
                   <tr data-id=<%= elemento.ID_MATERIAL %>>
                     <td><%= elemento.ID_MATERIAL %></td>
+                    <td><%= elemento.NOMBRE %></td>
                     <td><%= elemento.TIPO %></td>
                     <td><%= elemento.MEDIDAS %></td>
                     <td><%= elemento.COLOR %></td>
