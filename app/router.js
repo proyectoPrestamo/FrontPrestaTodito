@@ -109,9 +109,7 @@ router.get("/usuariosRegistrados", async (req, res) => {
 });
 
 
-  router.get('/registroMaterial', (req, res) => {
-    res.render('registroMaterial');
-  });
+  
 
   router.get('/registroSolicitud', (req, res) => {
     res.render('registroSolicitud');
