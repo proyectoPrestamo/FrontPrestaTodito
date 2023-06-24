@@ -16,16 +16,15 @@
       }
     });
   });
-//v4
+//v4 
   // esta función se encarga de eliminar la imagen previamente seleccionada
   function eliminarImagen() {
     // Obtiene el elemento de previsualización y la imagen previa
     const preview = document.querySelector('#preview');
     const imagenPrev = preview.getAttribute('src');
-    
-    // Si hay una imagen previa, se muestra un mensaje de confirmación usando la librería Swal
+// Si hay una imagen previa, se muestra un mensaje de confirmación usando la librería Swal
     if (imagenPrev) {
-      Swal.fire({
+      Swal.fire({ 
         icon: 'warning',
         title: 'Eliminar imagen',
         text: '¿Seguro que desea eliminar esta imagen?',
@@ -81,7 +80,7 @@
   function previewImage() {
     // Obtiene el elemento de previsualización y el archivo seleccionado en el input de imagen
     const preview = document.querySelector('#preview');
-    const file = document.querySelector('#imagen').files[0];
+    const file = document.querySelector('#imagen').files[0]; 
   
     // Variable para verificar si se ha producido un error al cargar la imagen nueva
     let error = false;
@@ -137,6 +136,7 @@
 
  // función para validar el formulario
  function validarDatos() {
+  var nombre = document.getElementById('nombre').value;
   var tipo = document.getElementById('tipo').value;
   var color = document.getElementById('color').value;
   var medidas = document.getElementById('medidas').value;
@@ -144,6 +144,9 @@
 
   var camposFaltantes = [];
 
+  if (nombre === '') {
+    camposFaltantes.push('nombre');
+  }
   if (tipo === '') {
     camposFaltantes.push('tipo');
   }
@@ -170,8 +173,9 @@
     return false;
   } else {
     var data = {
+      nombre: nombre,
       tipo: tipo,
-      color: color,
+      color: color, 
       medidas: medidas,
       imagen: imagen
     };
@@ -197,6 +201,7 @@
       });
 
       // Limpiar los campos del formulario
+      document.getElementById('nombre').value = '';
       document.getElementById('tipo').value = '';
       document.getElementById('color').value = '';
       document.getElementById('medidas').value = '';
