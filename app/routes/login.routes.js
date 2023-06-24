@@ -1,12 +1,12 @@
 import { Router } from "express";
-import * as controllers from "../controller/login.controller.js"
+import {loginController} from "../controller/login.controller.js"
 const login = Router();
 
 login.get('/', (req, res) => {
     res.render('index.ejs');
   });
 
-login.post("/autentificacion",controllers.validacionLogin)
+login.post("/autentificacion",loginController.validacionLogin)
 
   login.get('/salir', (req, res) => {
     res.send('ruta de salida');

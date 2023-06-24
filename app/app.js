@@ -52,36 +52,4 @@ app.use('/', registrosUsers);
 app.use('/', iconos);
 
 
-
-
-
-
-
-
-
-
-
-// router.get('/rol', (req, res) => {
-//   const title = "Selección de Rol";
-//   res.render('Rol', { title });
-// });
-
-// app.get('/', function(req, res) {
-//   res.render('rol');
-// });
-
-
-
-// app.get('/devolucionInsumos', function(req, res) {
-//   res.render('devolucionInsumos');
-// });
-
-// app.get('/inventario', function(req, res) {
-//   res.render('inventario');
-// });
-
-
-
-
-
 export default app;
