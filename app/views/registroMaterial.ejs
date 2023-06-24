@@ -24,23 +24,29 @@
           <h3>REGISTRO DE MATERIAL</h3>
         </div>
         <div class="mt-4">
-          <form>
+          <form action="guardar" method="post">
+            <div class="form-group row">
+              <label for="tipo" class="col-sm-2 col-form-label">Nombre <span class="text-danger">*</span></label>
+              <div class="col-sm-4">
+                <input type="text" name="NOMBRE" class="form-control" id="nombre" placeholder="Introduca el nombre del material">
+              </div>
+            </div>
             <div class="form-group row">
               <label for="tipo" class="col-sm-2 col-form-label">Tipo <span class="text-danger">*</span></label>
               <div class="col-sm-4">
-                <input type="text" class="form-control" id="tipo" placeholder="Introduca el tipo del material">
+                <input type="text" name="TIPO" class="form-control" id="tipo" placeholder="Introduca el tipo del material">
               </div>
             </div>
             <div class="form-group row">
               <label for="color" class="col-sm-2 col-form-label">Color <span class="text-danger">*</span></label>
               <div class="col-sm-4">
-                <input type="text" class="form-control" id="color" placeholder="Introduzca el color del material">
+                <input type="text" name="COLOR" class="form-control" id="color" placeholder="Introduzca el color del material">
               </div>
             </div>
             <div class="form-group row">
               <label for="medidas" class="col-sm-2 col-form-label">Medidas <span class="text-danger">*</span></label>
               <div class="col-sm-4">
-                <input type="text" class="form-control" id="medidas" placeholder="Introduzca las medidas">
+                <input type="text" class="form-control" name="MEDIDAS" id="medidas" placeholder="Introduzca las medidas">
               </div>
             </div>
             <div class="form-group row">
@@ -53,9 +59,9 @@
                       <span class="mx-1"></span>
                       <button class="btn btn-outline-danger" type="button" onclick="eliminarImagen()"><i class="fas fa-trash"></i></button>
                     </div>
-                  </div>
+                  </div> 
                   <div class="ml-3">
-                    <input type="file" id="imagen" style="display: none;" accept=".jpg,.png" onchange="previewImage()">
+                    <input type="file" name="IMAGEN" id="imagen" style="display: none;" accept=".jpg,.png" onchange="previewImage()">
                   </div>
                 </div>
               </div> 
@@ -75,7 +81,7 @@
             <div class="form-group row">
               <div class="col-sm-2"></div>
               <div class="col-sm-4">
-                <button type="button" class="btn btn-success" onclick="validarDatos()">Nuevo registro</button>
+                <button type="submit" class="btn btn-success">Nuevo registro</button>
                 <button type="button" class="btn btn-danger" onclick="limpiarCampos()">Limpiar campos</button>
               </div>
             </div>
@@ -90,7 +96,6 @@
 
 </body>
 
-<script src="/resources/js/registroInventario.js"></script>
 <%- include('./partials/footer.ejs') %>
 
 </html>
