@@ -1,9 +1,10 @@
 import { Router } from "express";
+import middle from "../middleware/middleware.js";
 import { materialesController } from "../controller/materiales.controller.js";
-const router = Router();
+const materiales = Router();
 
 
-router.get('/materialAdmin',materialesController.materiales);
+materiales.get('/materialAdmin',middle,materialesController.materiales);
 
 
 
@@ -27,4 +28,4 @@ router.get('/materialAdmin',materialesController.materiales);
 
 
 
-export default router;
+export default materiales;

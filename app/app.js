@@ -8,18 +8,21 @@ import cookieParser from 'cookie-parser';
 
 //import rutas
 import administrador from './routes/administrador.routes.js';
-import materiales from './routes/materiales.routes.js';
-import herraAdmin from './routes/herraAdmin.routes.js';
-import pcAdmin from './routes/pcAdmin.routes.js';
 import ambienteAdmin from './routes/ambienteAdmin.routes.js';
 import aprendiz from './routes/aprendiz.routes.js';
-import instructor from './routes/instructor.routes.js';
-import pc from './routes/prestamopc.routes.js';
-import login from './routes/login.routes.js';
+import comprobante from './routes/comprobante.routes.js';
 import coordi from './routes/coordinador.routes.js';
+import herraAdmin from './routes/herraAdmin.routes.js';
+import iconos from './routes/iconos.routes.js';
+import instructor from './routes/instructor.routes.js';
+import login from './routes/login.routes.js';
+import materiales from './routes/materiales.routes.js';
+import pcAdmin from './routes/pcAdmin.routes.js';
+import pc from './routes/prestamopc.routes.js';
 import registros from './routes/registros.routes.js';
 import registrosUsers from './routes/registroUsers.routes.js';
-import iconos from './routes/iconos.routes.js';
+import respuestaPrestamo from './routes/respuestaPrestamo.routes.js';
+
 
 
 // const router = Router();
@@ -36,24 +39,31 @@ app.use('/resources', express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// Middleware para procesar datos de formulario
+// middleware para procesar datos de formulario
 app.use(urlencoded({ extended: false }));
 app.use(json());
 
 // Usar las rutas definidas en routes
-app.use('/', aprendiz);
 app.use('/', administrador);
+app.use('/', ambienteAdmin);
+app.use('/', aprendiz);
+app.use('/', herraAdmin);
+app.use('/', comprobante);
+app.use('/', coordi);
+app.use('/', herraAdmin);
+app.use('/', pcAdmin);
+app.use('/', aprendiz);
+app.use('/', instructor);
+app.use('/', iconos);
+app.use('/', instructor);
+app.use('/', login);
 app.use('/', materiales);
 app.use('/', pcAdmin);
-app.use('/', herraAdmin);
-app.use('/', ambienteAdmin);
-app.use('/', instructor);
 app.use('/', pc);
-app.use('/', login);
-app.use('/', coordi);
 app.use('/', registros);
 app.use('/', registrosUsers);
-app.use('/', iconos);
+app.use('/', respuestaPrestamo);
+
 
 
 export default app;

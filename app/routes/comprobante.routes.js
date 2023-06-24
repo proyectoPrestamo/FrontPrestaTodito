@@ -1,10 +1,11 @@
 import { Router } from "express";
+import middle from "../middleware/middleware.js";
 import { comprobanteController } from "../controller/comprobante.controller.js";
 const comprobante = Router();
 
-comprobante.get('/generarPdf', comprobanteController.generarPdf)
+comprobante.get('/generarPdf',middle,comprobanteController.generarPdf)
 
-comprobante.get('/generarexcel', comprobanteController.generarexcel)
+comprobante.get('/generarexcel',middle,comprobanteController.generarexcel)
 
 
 export default comprobante;

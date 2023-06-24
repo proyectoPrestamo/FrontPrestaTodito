@@ -1,8 +1,9 @@
 import { Router } from "express";
+import middle from "../middleware/middleware.js";
 import { administradorController } from "../controller/administrador.controller.js";
-const router = Router();
+const administrador = Router();
 
-router.get('/rol', administradorController.rolAdmin);
+administrador.get('/rol',middle,administradorController.rolAdmin);
 
 
 
@@ -10,7 +11,7 @@ router.get('/rol', administradorController.rolAdmin);
 
 
 // administrador.get('/ambienteAdmin', administradorController.ambienteAdmin)
-router.get('/devolucionInsumos',administradorController.devolucionInsumos);
+administrador.get('/devolucionInsumos',middle,administradorController.devolucionInsumos);
 // administrador.get('/herraAdmin', administradorController.herraAdmin)
 // administrador.get('/materialAdmin', administradorController.materialAdmin)
 // administrador.get('/pcAdmin', administradorController.pcAdmin)
@@ -27,4 +28,4 @@ router.get('/devolucionInsumos',administradorController.devolucionInsumos);
 
 
 
-export default router;
+export default administrador;

@@ -1,16 +1,17 @@
 import { Router } from "express";
+import middle from "../middleware/middleware.js";
 import { registroUsersController } from "../controller/registroUsers.controller.js";
 const registrosUsers = Router();
 
-registrosUsers.get('/registrocoordinador', registroUsersController.coordinador)
-registrosUsers.get('/registroadministrador', registroUsersController.administrador)
-registrosUsers.get('/registroaprendiz', registroUsersController.aprendiz)
-registrosUsers.get('/registroinstructor', registroUsersController.instructor)
+registrosUsers.get('/registrocoordinador',middle,registroUsersController.coordinador)
+registrosUsers.get('/registroadministrador',middle,registroUsersController.administrador)
+registrosUsers.get('/registroaprendiz',middle,registroUsersController.aprendiz)
+registrosUsers.get('/registroinstructor',middle,registroUsersController.instructor)
 
 
 //POST
-registrosUsers.post('/registrarUsuarios', registroUsersController.registrarUsuarios);
-registrosUsers.post('/registrarRol', registroUsersController.registrarRol);
+registrosUsers.post('/registrarUsuarios',middle,registroUsersController.registrarUsuarios);
+registrosUsers.post('/registrarRol',middle,registroUsersController.registrarRol);
 
 
 

@@ -1,7 +1,8 @@
 import { Router } from "express";
+import middle from "../middleware/middleware.js";
 import { pcAdminController } from "../controller/pcAdmin.controller.js";
-const router = Router();
+const pcAdmin = Router();
 
-router.get('/pcAdmin',pcAdminController.pcAdmin);
+pcAdmin.get('/pcAdmin',middle,pcAdminController.pcAdmin);
 
-export default router;
+export default pcAdmin;

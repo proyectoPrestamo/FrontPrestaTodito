@@ -12,5 +12,9 @@ login.post("/autentificacion",loginController.validacionLogin)
     res.send('ruta de salida');
   });
 
+  login.get('/denegado', (req, res) => {
+    res.send('ruta denegado');
+  });
+
   export default login;
 
