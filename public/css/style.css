@@ -1,0 +1,36 @@
+body {
+  margin: 0px;
+  background-image: url('/resources/img/sena.jpg');
+  background-size: cover;
+}
+
+.logo {
+  transform: scale(0.7);
+  margin-top: 45px;
+  
+}
+
+.logo-title {
+  font-size: 90px;
+  margin-left: 90px;
+  color: white;
+  position: relative;
+  top: -150px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
+}
+.logo-subtitle {
+  font-size: 30px;
+  color: white;
+  margin-left: 550px;
+  margin-top: -100px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.vi{
+  font-size: 30px;
+  /* color: white; */
+  margin-left: 590px;
+  margin-top: -97px;
+  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+}
+

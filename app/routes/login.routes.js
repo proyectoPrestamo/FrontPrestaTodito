@@ -8,9 +8,13 @@ login.get('/', (req, res) => {
 
 login.post("/autentificacion",loginController.validacionLogin)
 
-  login.get('/salir', (req, res) => {
-    res.send('ruta de salida');
-  });
+login.get('/cerrarsesion',loginController.cerrarsesion);
+
+login.get('/index',loginController.index);
+
+  // login.get('/salir', (req, res) => {
+  //   res.send('cerrarsesion.ejs');
+  // });
 
   login.get('/denegado', (req, res) => {
     res.send('ruta denegado');

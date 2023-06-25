@@ -97,7 +97,14 @@ export const validacionLogin = async (req, res) => {
   }
 };
 
+const cerrarsesion = (req, res) => {
+  res.render('cerrarsesion.ejs');
+}
+
+const index = (req, res) => {
+  res.render('index.ejs');
+}
 
 export const loginController = {
-  validacionLogin
+  validacionLogin, cerrarsesion, index
   };
