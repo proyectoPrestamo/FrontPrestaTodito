@@ -157,11 +157,12 @@ function eliminarMaterial(mateCode, parentTr) {
   
         // Crear el objeto con los datos a enviar
         const data = {
-          nombre: nombre,
-          tipo: tipo,
-          color: color,
-          medidas: medidas
+          nombre: req.body.nombre,
+          tipo: req.body.tipo,
+          color: req.body.color,
+          medidas: req.body.UNIDAD
         };
+
   
         // Realizar la llamada a la API para actualizar el material
         fetch(`http://localhost:3000/api/material/${id}`, {

@@ -54,7 +54,7 @@ const usuariosRegistrados = async (req, res) => {
       direccion: req.body.direccion,
       jornada: req.body.jornada,
       genero: req.body.genero,
-      contrasena: req.body.contraseña
+      contrasena: req.body.contrasena
     };
   
     try {

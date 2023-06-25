@@ -8,6 +8,7 @@ import cookieParser from 'cookie-parser';
 
 //import rutas
 import administrador from './routes/administrador.routes.js';
+import registroMaterial from './routes/registroMaterial.routes.js';
 import ambienteAdmin from './routes/ambienteAdmin.routes.js';
 import aprendiz from './routes/aprendiz.routes.js';
 import comprobante from './routes/comprobante.routes.js';
@@ -48,6 +49,7 @@ app.use('/', administrador);
 app.use('/', ambienteAdmin);
 app.use('/', aprendiz);
 app.use('/', herraAdmin);
+app.use('/', registroMaterial);
 app.use('/', comprobante);
 app.use('/', coordi);
 app.use('/', herraAdmin);
