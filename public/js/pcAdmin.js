@@ -10,13 +10,13 @@ deleteIcons.forEach(icon => {
     // Obtiene el elemento "tr" padre del ícono de eliminación (que contiene los datos que deseamos eliminar)
     let parentTr = event.target.closest('tr');
 
-    // Obtiene el código del PC (el valor del atributo "data-id" del "tr")
+    // Obtiene el código del computador (el valor del atributo "data-id" del "tr")
     let pcCode = parentTr.getAttribute('data-id');
 
     // Utiliza SweetAlert para mostrar un mensaje de confirmación y tomar la acción del usuario
     Swal.fire({
-      title: '¿Estás seguro de que deseas eliminar el equipo?',
-      text: `Código de equipo: ${pcCode}`,
+      title: '¿Estás seguro de que deseas eliminar el computador?',
+      text: `Código de computador: ${pcCode}`,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#28A745',
@@ -25,21 +25,50 @@ deleteIcons.forEach(icon => {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        // Si el usuario hace clic en "Sí, eliminar", elimina el elemento "tr" del DOM
-        parentTr.remove();
-        // Muestra una alerta de éxito utilizando SweetAlert
-        Swal.fire({
-          title: 'Equipo eliminado',
-          text: `El equipo con código ${pcCode} ha sido eliminado correctamente`,
-          icon: 'success',
-          confirmButtonColor: '#28A745'
-        });
+        // Si el usuario hace clic en "Sí, eliminar", realiza la llamada a la API para eliminar el registro
+        eliminarPC(pcCode, parentTr);
       }
     })
   });
-  
- 
 });
+
+// Función para eliminar el computador tanto de la vista como de la base de datos
+function eliminarPC(pcCode, parentTr) {
+  // Realiza la llamada a la API para eliminar el registro
+  fetch(`http://localhost:3000/api/computador/${pcCode}`, {
+    method: 'DELETE'
+  })
+  .then(response => {
+    if (response.ok) {
+      // Si la eliminación en la base de datos fue exitosa, elimina el elemento "tr" del DOM
+      parentTr.remove();
+      // Muestra una alerta de éxito utilizando SweetAlert
+      Swal.fire({
+        title: 'computador eliminado',
+        text: `El computador con código ${pcCode} ha sido eliminado correctamente`,
+        icon: 'success',
+        confirmButtonColor: '#28A745'
+      });
+    } else {
+      // Si la eliminación en la base de datos falló, muestra una alerta de error
+      Swal.fire({
+        title: 'Error',
+        text: 'No se pudo eliminar el computador. Por favor, inténtalo nuevamente',
+        icon: 'error',
+        confirmButtonColor: '#28A745'
+      });
+    }
+  })
+  .catch(error => {
+    // Si ocurre un error en la llamada a la API, muestra una alerta de error
+    Swal.fire({
+      title: 'Error',
+      text: 'Ocurrió un error al intentar eliminar el computador. Por favor, inténtalo nuevamente',
+      icon: 'error',
+      confirmButtonColor: '#28A745'
+    });
+  });
+}
 
 // Seleccionar los elementos HTML necesarios
 const searchInput = document.getElementById('search-input');

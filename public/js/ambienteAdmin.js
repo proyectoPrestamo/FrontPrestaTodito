@@ -15,7 +15,7 @@ deleteIcons.forEach(icon => {
 
     // Utiliza SweetAlert para mostrar un mensaje de confirmación y tomar la acción del usuario
     Swal.fire({
-      title: '¿Estás seguro de que deseas eliminar el ambiente registrado?',
+      title: '¿Estás seguro de que deseas eliminar el ambiente?',
       text: `Código de ambiente: ${ambienteCode}`,
       icon: 'warning',
       showCancelButton: true,
@@ -25,21 +25,50 @@ deleteIcons.forEach(icon => {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        // Si el usuario hace clic en "Sí, eliminar", elimina el elemento "tr" del DOM
-        parentTr.remove();
-        // Muestra una alerta de éxito utilizando SweetAlert
-        Swal.fire({
-          title: 'ambiente eliminado',
-          text: `El ambiente con código ${ambienteCode} ha sido eliminado correctamente`,
-          icon: 'success',
-          confirmButtonColor: '#28A745'
-        });
+        // Si el usuario hace clic en "Sí, eliminar", realiza la llamada a la API para eliminar el registro
+        eliminarAmbiente(ambienteCode, parentTr);
       }
     })
   });
-  
- 
 });
+
+// Función para eliminar el ambiente tanto de la vista como de la base de datos
+function eliminarAmbiente(ambienteCode, parentTr) {
+  // Realiza la llamada a la API para eliminar el registro
+  fetch(`http://localhost:3000/api/ambientes/${ambienteCode}`, {
+    method: 'DELETE'
+  })
+  .then(response => {
+    if (response.ok) {
+      // Si la eliminación en la base de datos fue exitosa, elimina el elemento "tr" del DOM
+      parentTr.remove();
+      // Muestra una alerta de éxito utilizando SweetAlert
+      Swal.fire({
+        title: 'Ambiente eliminado',
+        text: `El ambiente con código ${ambienteCode} ha sido eliminado correctamente`,
+        icon: 'success',
+        confirmButtonColor: '#28A745'
+      });
+    } else {
+      // Si la eliminación en la base de datos falló, muestra una alerta de error
+      Swal.fire({
+        title: 'Error',
+        text: 'No se pudo eliminar el ambiente. Por favor, inténtalo nuevamente',
+        icon: 'error',
+        confirmButtonColor: '#28A745'
+      });
+    }
+  })
+  .catch(error => {
+    // Si ocurre un error en la llamada a la API, muestra una alerta de error
+    Swal.fire({
+      title: 'Error',
+      text: 'Ocurrió un error al intentar eliminar el ambiente. Por favor, inténtalo nuevamente',
+      icon: 'error',
+      confirmButtonColor: '#28A745'
+    });
+  });
+}
 
 // Seleccionar los elementos HTML necesarios
 const searchInput = document.getElementById('search-input');
@@ -130,7 +159,7 @@ $(document).ready(function() {
 
   
 
-  // Función para mostrar el modal y cargar los datos del equipo a editar
+  // Función para mostrar el modal y cargar los datos del ambiente a editar
   $(".edit-icon").click(function() {
     idEditar = $(this).closest("tr").data("id");
     const fila = $(`tr[data-id="${idEditar}"]`);
@@ -149,7 +178,7 @@ $(document).ready(function() {
     $("#edit-modal").modal("show");
   });
 
-  // Función para cancelar la edición del equipo
+  // Función para cancelar la edición del ambiente
   $(".cancelar-edicion").click(function() {
     const fila = $(`tr[data-id="${idEditar}"]`);
     fila.find(".edit-icon, .delete-icon").css("visibility", "visible");
@@ -157,7 +186,7 @@ $(document).ready(function() {
     $("#edit-modal").modal("hide"); 
   });
 
- // Función para guardar los cambios de la herramienta editada al presionar el botón "Guardar"
+ // Función para guardar los cambios del ambiente editada al presionar el botón "Guardar"
 $("#guardar-cambios").click(function() {
   guardarCambios();
   

@@ -10,13 +10,13 @@ deleteIcons.forEach(icon => {
     // Obtiene el elemento "tr" padre del ícono de eliminación (que contiene los datos que deseamos eliminar)
     let parentTr = event.target.closest('tr');
 
-    // Obtiene el código del material (el valor del atributo "data-id" del "tr")
+    // Obtiene el código de la herramienta (el valor del atributo "data-id" del "tr")
     let herraCode = parentTr.getAttribute('data-id');
 
     // Utiliza SweetAlert para mostrar un mensaje de confirmación y tomar la acción del usuario
     Swal.fire({
-      title: '¿Estás seguro de que deseas eliminar el material?',
-      text: `Código de material: ${herraCode}`,
+      title: '¿Estás seguro de que deseas eliminar la herramienta?',
+      text: `Código de herramienta: ${herraCode}`,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#28A745',
@@ -26,14 +26,14 @@ deleteIcons.forEach(icon => {
     }).then((result) => {
       if (result.isConfirmed) {
         // Si el usuario hace clic en "Sí, eliminar", realiza la llamada a la API para eliminar el registro
-        eliminarMaterial(herraCode, parentTr);
+        eliminarHerramienta(herraCode, parentTr);
       }
     })
   });
 });
 
-// Función para eliminar el material tanto de la vista como de la base de datos
-function eliminarMaterial(herraCode, parentTr) {
+// Función para eliminar la herramienta tanto de la vista como de la base de datos
+function eliminarHerramienta(herraCode, parentTr) {
   // Realiza la llamada a la API para eliminar el registro
   fetch(`http://localhost:3000/api/herramientas/${herraCode}`, {
     method: 'DELETE'
@@ -44,8 +44,8 @@ function eliminarMaterial(herraCode, parentTr) {
       parentTr.remove();
       // Muestra una alerta de éxito utilizando SweetAlert
       Swal.fire({
-        title: 'Material eliminado',
-        text: `El material con código ${herraCode} ha sido eliminado correctamente`,
+        title: 'herramienta eliminado',
+        text: `La herramienta con código ${herraCode} ha sido eliminada correctamente`,
         icon: 'success',
         confirmButtonColor: '#28A745'
       });
@@ -53,7 +53,7 @@ function eliminarMaterial(herraCode, parentTr) {
       // Si la eliminación en la base de datos falló, muestra una alerta de error
       Swal.fire({
         title: 'Error',
-        text: 'No se pudo eliminar el material. Por favor, inténtalo nuevamente',
+        text: 'No se pudo eliminar la herramienta. Por favor, inténtalo nuevamente',
         icon: 'error',
         confirmButtonColor: '#28A745'
       });
@@ -63,7 +63,7 @@ function eliminarMaterial(herraCode, parentTr) {
     // Si ocurre un error en la llamada a la API, muestra una alerta de error
     Swal.fire({
       title: 'Error',
-      text: 'Ocurrió un error al intentar eliminar el material. Por favor, inténtalo nuevamente',
+      text: 'Ocurrió un error al intentar eliminar la herramienta. Por favor, inténtalo nuevamente',
       icon: 'error',
       confirmButtonColor: '#28A745'
     });
@@ -112,7 +112,7 @@ function searchTable() {
   if (!found) {
     Swal.fire({
       icon: 'warning',
-      title: 'La herramienta no ha sido encontrado',
+      title: 'La herramienta no ha sido encontrada',
       confirmButtonText: 'Aceptar',
       confirmButtonColor: '#28A745',
     });
@@ -145,7 +145,7 @@ searchButton.addEventListener('click', handleSearchButtonClick);
 $(document).ready(function() {
   let idEditar;
 
-  // Función para guardar los cambios del producto editado
+  // Función para guardar los cambios de la herramienta editada
   function guardarCambios() {
     const fila = $(`tr[data-id="${idEditar}"]`);
     fila.find("td:eq(1)").text($("#edit-nombre").val());
@@ -160,7 +160,7 @@ $(document).ready(function() {
 
   
 
-  // Función para mostrar el modal y cargar los datos del producto a editar
+  // Función para mostrar el modal y cargar los datos de la herramienta a editar
   $(".edit-icon").click(function() {
     idEditar = $(this).closest("tr").data("id");
     const fila = $(`tr[data-id="${idEditar}"]`);

@@ -26,8 +26,8 @@ const generarPdf = async (req, res) => {
     // Agregar el logo del proyecto
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = dirname(__filename);
-    const logoHeight = 100;
-    const logoWidth = 200;
+    const logoHeight = 50;
+    const logoWidth = 50;
     const imagePath = 'D:/Users/lenovo/Documents/FRONT Y BACK TODITO/FRONT-TODITO/public/img/logoSena.png';
     //const imagePath = path.join(__dirname, '..', 'public', 'img', 'logoSena.png');
 
@@ -35,7 +35,7 @@ const generarPdf = async (req, res) => {
     const pageHeight = doc.page.height;
 
     const logoX = (pageWidth - logoWidth) / 2;
-    const logoY = (pageHeight - logoHeight) / 2;
+    const logoY = (pageHeight - logoHeight) / 50;
 
     doc.image(imagePath, logoX, logoY, { width: logoWidth, height: logoHeight });
 
@@ -46,7 +46,7 @@ const generarPdf = async (req, res) => {
     doc.moveDown(2); // Espacio adicional entre el encabezado y la información del material
     doc.fontSize(18).text('Información del material', { align: 'center' });
     materialData.forEach((material) => {
-      doc.fontSize(12).text(`ID: ${material.ID_MATERIAL}`);
+      doc.fontSize(12).text(`Id del material: ${material.ID_MATERIAL}`);
       doc.fontSize(12).text(`Nombre del material: ${material.NOMBRE}`);
       doc.fontSize(12).text(`Tipo de material: ${material.TIPO}`);
       doc.fontSize(12).text(`Color del material: ${material.COLOR}`);
