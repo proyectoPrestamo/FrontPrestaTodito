@@ -20,7 +20,7 @@ import materiales from './routes/materiales.routes.js';
 import pcAdmin from './routes/pcAdmin.routes.js';
 import pc from './routes/prestamopc.routes.js';
 import registros from './routes/registros.routes.js';
-import registrosUsers from './routes/registroUsers.routes.js';
+// import registrosUsers from './routes/registroUsers.routes.js';
 
 
 
@@ -60,7 +60,7 @@ app.use('/', materiales);
 app.use('/', pcAdmin);
 app.use('/', pc);
 app.use('/', registros);
-app.use('/', registrosUsers);
+// app.use('/', registrosUsers);
 
 
 

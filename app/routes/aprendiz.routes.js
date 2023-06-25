@@ -7,5 +7,7 @@ aprendiz.get('/menu-aprendiz',middle,aprendizController.menuAprendiz)
 
 aprendiz.get('/controlcom',middle,aprendizController.controlCompu)
 
+aprendiz.post('/insertareporte',aprendizController.Insertareportepc);
+
 
 export default aprendiz;
