@@ -3,7 +3,6 @@ import axios from "axios";
 import { registroMaterialController } from "../controller/registroMaterial.controller.js";
 const router = Router();
 
-//ya me dio sueño, mañana  sigo con la imagen tirate el push
 
 router.get('/registroMaterial', registroMaterialController.registroMaterial);
 

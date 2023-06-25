@@ -150,12 +150,14 @@ function eliminarMaterial(mateCode, parentTr) {
         const id = $(this).data('id'); // Obtener el ID del material desde el botón
   
         // Obtener los valores actualizados del formulario
+        const nombre = $("#edit-nombre").val();
         const tipo = $("#edit-tipo").val();
         const color = $("#edit-color").val();
         const medidas = $("#edit-medida").val();
   
         // Crear el objeto con los datos a enviar
         const data = {
+          nombre: nombre,
           tipo: tipo,
           color: color,
           medidas: medidas
@@ -173,9 +175,10 @@ function eliminarMaterial(mateCode, parentTr) {
             if (response.ok) {
               // Actualizar los valores en la tabla
               const fila = $(`tr[data-id="${id}"]`);
-              fila.find("td:eq(1)").text(tipo);
-              fila.find("td:eq(2)").text(color);
-              fila.find("td:eq(3)").text(medidas);
+              fila.find("td:eq(1)").text(nombre);
+              fila.find("td:eq(2)").text(tipo);
+              fila.find("td:eq(3)").text(color);
+              fila.find("td:eq(4)").text(medidas);
   
               // Mostrar una alerta de éxito
               Swal.fire({
@@ -219,9 +222,10 @@ function eliminarMaterial(mateCode, parentTr) {
         const fila = $(`tr[data-id="${idEditar}"]`);
   
         // Cargamos los valores del producto a editar en el modal
-        $("#edit-tipo").val(fila.find("td:eq(1)").text());
-        $("#edit-color").val(fila.find("td:eq(2)").text());
-        $("#edit-medida").val(fila.find("td:eq(3)").text());
+        $("#edit-nombre").val(fila.find("td:eq(1)").text());
+        $("#edit-tipo").val(fila.find("td:eq(2)").text());
+        $("#edit-color").val(fila.find("td:eq(3)").text());
+        $("#edit-medida").val(fila.find("td:eq(4)").text());
   
         // Ocultamos los iconos de editar y eliminar
         fila.find(".edit-icon, .delete-icon").css("visibility", "hidden");
