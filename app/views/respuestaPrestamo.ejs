@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/resources/css/menu-instructor.css">
   <%- include('./partials/boostrap.ejs') %>
-  <title>AdminLTE 3 | Bandeja de entrada</title>
+  <title>PRESTAMOS | Bandeja de entrada</title>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -21,28 +21,29 @@
 </head>
 <body class="hold-transition sidebar-mini">
 
-      <!--Contenedor de logos-->
-      <%- include('./partials/iconos.ejs') %>
-            <!--Contenedor de la imagen-->
-            <div class="container">
-                <img src="/resources/img/logoSena.png" width="200px" class="mx-auto d-block">
-            </div>
-    
-            <!-- contenedor del menu -->
-            <%- include('./partials/instructor.ejs') %>
+  <!--Contenedor de logos-->
+  <%- include('./partials/iconos.ejs') %>
+
+  <!--Contenedor de la imagen-->
+  <div class="container">
+    <img src="/resources/img/logoSena.png" width="200px" class="mx-auto d-block">
+  </div>
+
+  <!-- contenedor del menu -->
+  <%- include('./partials/instructor.ejs') %>
 
   <div class="wrapper">
     <!-- Navbar -->
-    <div class="row justify-content-center"> <!-- Centrar el div row -->
+    <div class="row justify-content-center mt-9"> <!-- Centrar el div row -->
       <div class="col-md-9">
-        <div class="card card-primary card-outline">
+        <div class="card card-success card-outline">
           <div class="card-header">
             <h3 class="card-title">PRESTAMOS</h3>
             <div class="card-tools">
               <div class="input-group input-group-sm">
                 <input type="text" class="form-control" placeholder="Buscar correo">
                 <div class="input-group-append">
-                  <button class="btn btn-primary" type="button">
+                  <button class="btn btn-success" type="button">
                     <i class="fas fa-search"></i>
                   </button>
                 </div>
@@ -58,27 +59,9 @@
                 <button type="button" class="btn btn-default btn-sm">
                   <i class="far fa-trash-alt"></i>
                 </button>
-                <button type="button" class="btn btn-default btn-sm">
-                  <i class="fas fa-reply"></i>
-                </button>
-                <button type="button" class="btn btn-default btn-sm">
-                  <i class="fas fa-share"></i>
-                </button>
               </div>
-              <button type="button" class="btn btn-default btn-sm">
-                <i class="fas fa-sync-alt"></i>
-              </button>
-              <div class="float-right">
-                1-50/200
-                <div class="btn-group">
-                  <button type="button" class="btn btn-default btn-sm">
-                    <i class="fas fa-chevron-left"></i>
-                  </button>
-                  <button type="button" class="btn btn-default btn-sm">
-                    <i class="fas fa-chevron-right"></i>
-                  </button>
-                </div>
-              </div>
+             
+              
             </div>
             <div class="table-responsive mailbox-messages">
               <table class="table table-hover table-striped">
@@ -90,28 +73,23 @@
                         <label for="check1"></label>
                       </div>
                     </td>
-                    <td class="mailbox-star">
-                      <a href="#"><i class="fas fa-star text-warning"></i></a>
-                    </td>
+                   
                     <td class="mailbox-name">
-                      <a href="read-mail.html">Alexander Pierce</a>
+                      <a href="comprobante.ejs">El insumo ..... fue rechazado </a>
                     </td>
                     <td class="mailbox-subject">
                       <b>Problema con AdminLTE 3.0</b> - Intentando encontrar una solución a este problema...
                     </td>
                     <td class="mailbox-attachment"></td>
-                    <td class="mailbox-date">Hace 5 minutos</td>
                   </tr>
                   <tr>
                     <td>
-                      <div class="icheck-primary">
+                      <div class="icheck-sucess">
                         <input type="checkbox" value="" id="check2">
                         <label for="check2"></label>
                       </div>
                     </td>
-                    <td class="mailbox-star">
-                      <a href="#"><i class="fas fa-star-o text-warning"></i></a>
-                    </td>
+                  
                     <td class="mailbox-name">
                       <a href="read-mail.html">Alexander Pierce</a>
                     </td>
@@ -119,9 +97,9 @@
                       <b>Problema con AdminLTE 3.0</b> - Intentando encontrar una solución a este problema...
                     </td>
                     <td class="mailbox-attachment">
-                      <i class="fas fa-paperclip"></i>
+         
                     </td>
-                    <td class="mailbox-date">Hace 28 minutos</td>
+                   
                   </tr>
                 </tbody>
               </table>
