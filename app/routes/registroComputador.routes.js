@@ -1,26 +1,26 @@
 import { Router } from "express";
 import axios from "axios";
-import { registroMaterialController } from "../controller/registroMaterial.controller.js";
+import { registroComputadorController } from "../controller/registroComputador.controller.js";
 const router = Router();
 
 
-router.get('/registroMaterial', registroMaterialController.registroMaterial);
+router.get('/registroComputador', registroComputadorController.registroComputador);
 
-router.post('/guardarMaterial', (req, res)=>{
+router.post('/guardarEquipo', (req, res)=>{
     const registro = {
-        nombre: req.body.NOMBRE,
-        tipo: req.body.TIPO,
-        color: req.body.COLOR,
-        medidas: req.body.MEDIDAS,
-        imagen: req.body.IMAGEN,
+        marca: req.body.MARCA,
+        cargador: req.body.CARGADOR,
+        mouse: req.body.MOUSE
+
        
       };
     
-      axios.post('http://localhost:3000/api/material', registro)
+      axios.post('http://localhost:3000/api/Computador', registro)
         .then(response => {
           console.log(response.data);
           // Aquí puedes realizar alguna acción adicional o mostrar un mensaje de éxito.
-          res.redirect("/materialAdmin");      })
+          res.redirect("/pcAdmin");      
+        })
         .catch(error => {
           console.error(error);
           // Aquí puedes manejar el error de alguna manera o mostrar un mensaje de error.

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Registro de material</title>
+    <title>Registro de computador</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/resources/css/registroInventario.css">
     <%- include('./partials/boostrap.ejs') %> 
@@ -21,32 +21,26 @@
     <div class="row">
       <div class="col-md-12">
         <div class="bg-success p-3 text-center mt-4">
-          <h3>REGISTRO DE MATERIAL</h3>
+          <h3>REGISTRO DE COMPUTADOR</h3>
         </div>
         <div class="mt-4">
-          <form action="guardarMaterial" method="post">
+          <form action="guardarEquipo" method="post">
             <div class="form-group row">
-              <label for="tipo" class="col-sm-2 col-form-label">Nombre <span class="text-danger">*</span></label>
+              <label for="tipo" class="col-sm-2 col-form-label">Marca <span class="text-danger">*</span></label>
               <div class="col-sm-4">
-                <input type="text" name="NOMBRE" class="form-control" id="nombre" placeholder="Introduca el nombre del material">
+                <input type="text" name="MARCA" class="form-control" id="matrca" placeholder="Introduca la marca del equipo">
               </div>
             </div>
             <div class="form-group row">
-              <label for="tipo" class="col-sm-2 col-form-label">Tipo <span class="text-danger">*</span></label>
+              <label for="color" class="col-sm-2 col-form-label">tiene cargador? <span class="text-danger">*</span></label>
               <div class="col-sm-4">
-                <input type="text" name="TIPO" class="form-control" id="tipo" placeholder="Introduca el tipo del material">
+                <input type="text" name="CARGADOR" class="form-control" id="cargador" placeholder="Cuenta con cargador?">
               </div>
             </div>
             <div class="form-group row">
-              <label for="color" class="col-sm-2 col-form-label">Color <span class="text-danger">*</span></label>
+              <label for="color" class="col-sm-2 col-form-label">tiene mouse? <span class="text-danger">*</span></label>
               <div class="col-sm-4">
-                <input type="text" name="COLOR" class="form-control" id="color" placeholder="Introduzca el color del material">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="medidas" class="col-sm-2 col-form-label">Medidas <span class="text-danger">*</span></label>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" name="MEDIDAS" id="medidas" placeholder="Introduzca las medidas">
+                <input type="text" name="MOUSE" class="form-control" id="mouse" placeholder="Cuenta con mouse?">
               </div>
             </div>
             <div class="form-group row">
