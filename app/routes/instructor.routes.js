@@ -7,6 +7,10 @@ const instructor = Router();
 
 instructor.get('/menu-instructor',middle,instructorController.menuInstructor);
 
+instructor.get('/prestamoPcInstructor',middle,instructorController.formularioComputador)
+
+instructor.get('/respuestaPrestamo',middle,instructorController.respuestaPrestamo)
+
 instructor.get('/ambientes',middle,instructorController.formularioAmbiente)
 
 instructor.get('/herramientas',middle,instructorController.formularioHerramientas);
@@ -18,9 +22,15 @@ instructor.get('/controlAula',middle,instructorController.formularioControlAula)
 // RUTAS POST
 
 instructor.post('/insertarMaterial',instructorController.InsertarMateriales);
+
+instructor.post('/insertarHerramientas',instructorController.InsertarHerramientas);
+
+instructor.post('/insertarAmbientes',instructorController.InsertarAmbientes);
+
+instructor.post('/insertarComputador',instructorController.InsertarComputadores);
   
 
-  
+
 
   
 

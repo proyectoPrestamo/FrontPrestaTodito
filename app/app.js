@@ -8,11 +8,6 @@ import cookieParser from 'cookie-parser';
 
 //import rutas
 import administrador from './routes/administrador.routes.js';
-import registroMaterial from './routes/registroMaterial.routes.js';
-import registroHerramienta from './routes/registroHerramienta.routes.js';
-import registroComputador from './routes/registroComputador.routes.js';
-import registroAmbiente from './routes/registroAmbiente.routes.js';
-import registroAdministrador from './routes/registroAdministrador.routes.js';
 import ambienteAdmin from './routes/ambienteAdmin.routes.js';
 import aprendiz from './routes/aprendiz.routes.js';
 import comprobante from './routes/comprobante.routes.js';
@@ -25,7 +20,7 @@ import materiales from './routes/materiales.routes.js';
 import pcAdmin from './routes/pcAdmin.routes.js';
 import pc from './routes/prestamopc.routes.js';
 import registros from './routes/registros.routes.js';
-import respuestaPrestamo from './routes/respuestaPrestamo.routes.js';
+import registrosUsers from './routes/registroUsers.routes.js';
 
 
 
@@ -52,11 +47,6 @@ app.use('/', administrador);
 app.use('/', ambienteAdmin);
 app.use('/', aprendiz);
 app.use('/', herraAdmin);
-app.use('/', registroMaterial);
-app.use('/', registroHerramienta);
-app.use('/', registroComputador);
-app.use('/', registroAmbiente);
-app.use('/', registroAdministrador);
 app.use('/', comprobante);
 app.use('/', coordi);
 app.use('/', herraAdmin);
@@ -70,7 +60,7 @@ app.use('/', materiales);
 app.use('/', pcAdmin);
 app.use('/', pc);
 app.use('/', registros);
-app.use('/', respuestaPrestamo);
+app.use('/', registrosUsers);
 
 
 

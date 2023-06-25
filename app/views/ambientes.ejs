@@ -30,61 +30,52 @@
     </div>
     <!-- CONTENEDOR DEL FORMULARIO -->
     <div class="formulario">
-      <form class="forma-formulario" id="formulario">
+      <form class="forma-formulario" id="formulario" action="/insertarAmbientes" method="post" onsubmit="validarFormulario(e)">
         <h1 class="titulo">Prestamo de ambientes</h1>
 <!-- CONTENEDOR FORMULARIO -->
 
 <div class="contenedor-items-formulario">
-  <select class="items" aria-placeholder="Default select example" id="ambiente">
+  <input type="text" class="items" placeholder="a" id="hora" name="DOCUMENTO">
+  <label for="" class="label">Documento</label>
+</div>
+
+<div class="contenedor-items-formulario">
+  <select class="items" aria-placeholder="Default select example" id="ambiente" name="ID_AMBIENTES">
       <% datosAmbientes.forEach((ambientes,index)=>{ %>
         <option value="0" hidden>-- Seleccione El ambiente --</option>
       <option value="<%= ambientes.ID_AMBIENTES %>"><%= ambientes.ID_AMBIENTES %></option>
     <% }); %>
-
-
   </select>
 </div>
 
-
-<div class="contenedor-items-formulario">
-  <input type="text" class="items" placeholder="a" id="documento">
-  <label for="" class="label">N° de documento</label>
-</div>
-
- 
         <div class="contenedor-items-formulario">
-          <input type="text" class="items" placeholder="a" id="ficha">
-          <label for="" class="label">N° de ficha</label>
-        </div>
-
-        <div class="contenedor-items-formulario">
-          <select class="items" aria-placeholder="Default select example" id="jornada">
+          <select class="items" aria-placeholder="Default select example" id="jornada" name="JORNADA">
             <option value="0" hidden>-- Seleccione la jornada --</option>
-            <option value="1">Diurna</option>
-            <option value="2">Tarde</option>
-            <option value="3">Noche</option>
+            <option value="Diurna">Diurna</option>
+            <option value="Tarde">Tarde</option>
+            <option value="Noche">Noche</option>
           </select>
         </div>
         
 
         <div class="contenedor-items-formulario">
-          <input type="date" class="items" placeholder="a" id="fecha">
+          <input type="date" class="items" placeholder="a" id="fecha" name="FECHA">
           <label for="" class="label"></label>
         </div>
 
         <div class="contenedor-items-formulario">
-          <input type="text" class="items" placeholder="a" id="formacion">
-          <label for="" class="label">Programa de formacion</label>
+          <input type="time" class="items" placeholder="a" id="hora" name="HORA">
+          <label for="" class="label"></label>
         </div>
 
         <div class="contenedor-items-formulario">
-            <input type="text" class="items-2" placeholder="a" disabled >
+            <input type="text" class="items-2" placeholder="a" disabled>
             <label for="" class="label">N° de aprendices</label>
           </div>
   
 
         <div class="contenedor-items-formulario">
-            <select class="items-3" aria-placeholder="Default select example" id="aprendices">
+            <select class="items-3" aria-placeholder="Default select example" id="aprendices" name="NUMERO_APRENDICES">
               <option value="0"hidden>Seleccione</option>
               <option value="1">10/15</option>
               <option value="2">20/25</option>
@@ -93,8 +84,8 @@
             </select>
           </div>
 
-        <input type="submit"  class="reserva-btn" value="RESERVAR">
-        <input type="submit"  class="cancelar-btn" value="CANCELAR">
+        <input type="submit" class="reserva-btn" value="RESERVAR">
+        <input type="reset" class="cancelar-btn" value="CANCELAR">
       </form>
     </div>
   </div>
