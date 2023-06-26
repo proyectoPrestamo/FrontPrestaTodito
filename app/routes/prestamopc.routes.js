@@ -5,4 +5,6 @@ const pc = Router()
 
 pc.get('/prestamoPC2',middle,prestamoPcController.formularioPC);
 
+pc.post('/insertarComputador',middle,prestamoPcController.InsertarComputadores);
+
   export default pc;

@@ -36,54 +36,69 @@
       PRESTAMO
     </div>
     <!-- CONTENEDOR DEL FORMULARIO -->
-    <div class="formulario">
-      <form class="forma-formulario">
-        <h1 class="titulo">Prestamo de PC</h1>
-<!-- CONTENEDOR FORMULARIO -->
-<div class="contenedor-items-formulario">
-    <input type="text" class="items" placeholder="a" id="nombres">
-    <label for="" class="label">Nombres:</label>
-  </div>
+      <div class="formulario">
+        <form class="forma-formulario" action="/insertarComputador" method="post" onsubmit="validarFormulario(e)">
+          <h1 class="titulo">Prestamo de PC</h1>
+  <!-- CONTENEDOR FORMULARIO -->
   <div class="contenedor-items-formulario">
-    <input type="text" class="items" placeholder="a" id="apellidos">
-    <label for="" class="label">Apellidos:</label>
-  </div>
+      <input type="text" class="items" placeholder="a" id="documento" name="DOCUMENTO">
+      <label for="" class="label">N° de documento</label>
+    </div>
+  
+    <div class="contenedor-items-formulario">
+      <select class="items" aria-placeholder="Default select example" id="material" name="ID_COMPUTADOR">
+        <% datosComputador.forEach((computador,index)=>{ %>
+          <option value="0" hidden>-- Seleccione el equipo --</option>
+        <option value="<%= computador.ID_COMPUTADOR %>"><%= computador.ID_COMPUTADOR %></option>
+      <% }); %>
+    </select>
+    </div>
+  
+    <div class="contenedor-items-formulario">
+      <select class="items" aria-placeholder="Default select example" id="material" name="MARCA">
+        <% datosComputador.forEach((computador,index)=>{ %>
+          <option value="0" hidden>-- Seleccione la marca --</option>
+        <option value="<%= computador.MARCA %>"><%= computador.MARCA %></option>
+      <% }); %>
+    </select>
+    </div>
+    
+    <div class="contenedor-items-formulario">
+      <select class="items" aria-placeholder="Default select example" id="jornada" name="JORNADA">
+        <option value="0" hidden>-- Seleccione la jornada --</option>
+        <option value="Diurna">Diurna</option>
+        <option value="Tarde">Tarde</option>
+        <option value="Noche">Noche</option>
+      </select>
+    </div>
+    
+    <div class="contenedor-items-formulario">
+      <input type="date" class="items" placeholder="a" id="fecha" name="FECHA">
+      <label for="" class="label"></label>
+    </div>
+  
+    <div class="contenedor-items-formulario">
+      <input type="time" class="items" placeholder="a" id="jornada" name="HORA">
+      <label for="" class="label"></label>
+    </div>
+  
+    <div class="contenedor-items-formulario">
+      <input type="text" class="items-2" placeholder="a" disabled>
+      <label for="" class="label">Tiempo Requerido</label>
+    </div>
+  
   <div class="contenedor-items-formulario">
-    <input type="text" class="items" placeholder="a" id="documento">
-    <label for="" class="label">N° de documento</label>
+    <select class="items-3" aria-placeholder="Default select example" id="tiempo" name="TIEMPO">
+      <option hidden value="0">Tiempo</option>
+      <option value="1 hora">1 hora</option>
+      <option value="2 horas">2 horas</option>
+      <option value="3 horas">3 horas</option>
+      <option value="4 horas">4 horas</option>
+    </select>
   </div>
-  <div class="contenedor-items-formulario">
-    <input type="text" class="items" placeholder="a" id="ficha">
-    <label for="" class="label">N° de ficha</label>
-  </div>
-  <div class="contenedor-items-formulario">
-    <input type="text" class="items" placeholder="a" id="programa">
-    <label for="" class="label">Programa de formacion</label>
-  </div>
-  <div class="contenedor-items-formulario">
-    <input type="text" class="items" placeholder="a" id="jornada">
-    <label for="" class="label">Jornada</label>
-  </div>
-  <div class="contenedor-items-formulario">
-    <input type="date" class="items" placeholder="a" id="fecha">
-    <label for="" class="label"></label>
-  </div>
-  <div class="contenedor-items-formulario">
-    <input type="text" class="items-2" placeholder="a" disabled>
-    <label for="" class="label">Tiempo Requerido</label>
-  </div>
-<div class="contenedor-items-formulario">
-  <select class="items-3" aria-placeholder="Default select example" id="tiempo">
-    <option hidden value="0">Tiempo</option>
-    <option value="1">1 hora</option>
-    <option value="2">2 horas</option>
-    <option value="3">3 horas</option>
-    <option value="4">4 horas</option>
-  </select>
-</div>
-        <input type="submit" class="reserva-btn" value="RESERVAR">
-        <input type="submit" class="cancelar-btn" value="CANCELAR">
-      </form>
+          <input type="submit" class="reserva-btn" value="RESERVAR">
+          <input type="reset" class="cancelar-btn" value="CANCELAR">
+        </form>
     </div>
   </div>
 </body>

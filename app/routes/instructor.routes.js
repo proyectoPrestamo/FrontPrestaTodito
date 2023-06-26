@@ -28,6 +28,8 @@ instructor.post('/insertarHerramientas',instructorController.InsertarHerramienta
 instructor.post('/insertarAmbientes',instructorController.InsertarAmbientes);
 
 instructor.post('/insertarComputador',instructorController.InsertarComputadores);
+
+instructor.post('/insertaReportes',instructorController.Insertareportepc);
   
 
 
