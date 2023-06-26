@@ -34,7 +34,7 @@ export const validacionLogin = async (req, res) => {
       console.log(datos);
       console.log(credenciales);
     if (datos && credenciales) {
-      if (datos.ID_USUARIO === credenciales.id_usuario && datos.CONTRASENA === credenciales.contrasena) {
+      if (datos.ID_USUARIO.toString() === credenciales.id_usuario && datos.CONTRASENA === credenciales.contrasena) {
         const token = jwt.sign(datos, process.env.SECRET_KEY, {
           expiresIn: process.env.EXPIRE_TOKEN
         });
@@ -43,7 +43,7 @@ export const validacionLogin = async (req, res) => {
 
 
         const verificarCredenciales = () => {
-          if (credenciales.id_usuario !== datos.ID_USUARIO {
+          if (credenciales.id_usuario !== datos.ID_USUARIO.toString() {
             res.send("Usuario incorrecto");
             return false;
           }  console.log("se validaron credenciales1")
