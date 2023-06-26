@@ -27,7 +27,7 @@ const regiMaterial = (req, res) => {
 
 const ambienteAdmin = async (req, res) => {
     try {
-      const rutaAmbientes = "http://localhost:3000/api/ambientes";
+      const rutaAmbientes = process.env.ENDPOINT + "/api/ambientes";
   
       const opciones = {
         method: "GET",

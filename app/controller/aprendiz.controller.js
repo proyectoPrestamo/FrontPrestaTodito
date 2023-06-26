@@ -18,7 +18,7 @@ const Insertareportepc = async (req, res) => {
         observaciones : req.body.observaciones,
       };
   
-      const url = "http://localhost:3000/api/prestamos";
+      const url = process.env.ENDPOINT + "/api/prestamos";
       const options = {
         method: "POST",
         headers: {

@@ -9,7 +9,7 @@ const ambienteAdmin = async (req, res) => {
     try {
         
   
-        let ruta = "http://localhost:3000/api/ambientes";
+        let ruta = process.env.ENDPOINT + "/api/ambientes";
         let option = {
             method: "GET",
         }

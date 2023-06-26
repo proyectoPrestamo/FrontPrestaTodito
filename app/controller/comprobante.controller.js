@@ -12,7 +12,7 @@ import excel from "exceljs"
 const generarPdf = async (req, res) => {
   try {
     // Hacer una solicitud GET a la API para obtener la información
-    const response = await axios.get('http://localhost:3000/api/material');
+    const response = await axios.get(process.env.ENDPOINT + '/api/material');
     const materialData = response.data[0]; // Obtener el primer elemento del arreglo
 
     // Crear un nuevo documento PDF
@@ -74,7 +74,7 @@ const generarPdf = async (req, res) => {
   const generarexcel = async (req, res) => {
     try {
       // Hacer una solicitud GET a la API para obtener la información
-      const response = await axios.get('http://localhost:3000/api/material');
+      const response = await axios.get(process.env.ENDPOINT + '/api/material');
       const materialData = response.data[0]; // Obtener el primer elemento del arreglo
   
       // Crear un nuevo libro de Excel

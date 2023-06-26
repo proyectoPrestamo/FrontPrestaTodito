@@ -9,7 +9,7 @@ const menuInstructor = (req, res) => {
 
 const formularioComputador = async (req, res) => {
   try {
-    const rutaComputador = "http://localhost:3000/api/computador";
+    const rutaComputador = process.env.ENDPOINT + "/api/computador";
 
     // Realizar solicitud GET para obtener los datos existentes
     const getOptions = {
@@ -34,7 +34,7 @@ const respuestaPrestamo = ( (req, res) => {
 
 const formularioControlAula = async (req, res) => {
   try {
-    const rutaAmbientes = "http://localhost:3000/api/ambientes";
+    const rutaAmbientes = process.env.ENDPOINT + "/api/ambientes";
 
     const opciones = {
       method: "GET",
@@ -55,7 +55,7 @@ const formularioControlAula = async (req, res) => {
 
 const formularioMateriales = async (req, res) => {
   try {
-    const rutaMaterial = "http://localhost:3000/api/material";
+    const rutaMaterial = process.env.ENDPOINT + "/api/material";
 
     // Realizar solicitud GET para obtener los datos existentes
     const getOptions = {
@@ -76,7 +76,7 @@ const formularioMateriales = async (req, res) => {
 
 const formularioAmbiente = async (req, res) => {
   try {
-    const rutaAmbientes = "http://localhost:3000/api/ambientes";
+    const rutaAmbientes = process.env.ENDPOINT + "/api/ambientes";
 
     const opciones = {
       method: "GET",
@@ -97,7 +97,7 @@ const formularioAmbiente = async (req, res) => {
 
 const formularioHerramientas = async (req, res) => {
   try {
-    const rutaHerramienta = "http://localhost:3000/api/herramientas";
+    const rutaHerramienta = process.env.ENDPOINT + "/api/herramientas";
 
     const opciones = {
       method: "GET",
@@ -132,7 +132,7 @@ const InsertarMateriales = async (req, res) => {
       hora_res: req.body.HORA
     };
 
-    const url = "http://localhost:3000/api/reserva";
+    const url = process.env.ENDPOINT + "/api/reserva";
     const options = {
       method: "POST",
       headers: {
@@ -178,7 +178,7 @@ const InsertarHerramientas = async (req, res) => {
       hora_res: req.body.HORA
     };
 
-    const url = "http://localhost:3000/api/reserva";
+    const url = process.env.ENDPOINT + "/api/reserva";
     const options = {
       method: "POST",
       headers: {
@@ -223,7 +223,7 @@ const InsertarAmbientes = async (req, res) => {
       cantidad: req.body.NUMERO_APRENDICES
     };
 
-    const url = "http://localhost:3000/api/reserva";
+    const url = process.env.ENDPOINT + "/api/reserva";
     const options = {
       method: "POST",
       headers: {
@@ -269,7 +269,7 @@ const InsertarComputadores = async (req, res) => {
       tiempo_requerido: req.body.TIEMPO
     };
 
-    const url = "http://localhost:3000/api/reserva";
+    const url = process.env.ENDPOINT + "/api/reserva";
     const options = {
       method: "POST",
       headers: {
@@ -310,7 +310,7 @@ const Insertareportepc = async (req, res) => {
       observaciones : req.body.OBSERVACIONES,
     };
 
-    const url = "http://localhost:3000/api/prestamos";
+    const url = process.env.ENDPOINT + "/api/prestamos";
     const options = {
       method: "POST",
       headers: {

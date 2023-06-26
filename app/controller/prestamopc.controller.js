@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 
 const formularioPC = async (req, res) => {
   try {
-    const rutaComputador = "http://localhost:3000/api/computador";
+    const rutaComputador = process.env.ENDPOINT + process.env.ENDPOINT + "/api/computador";
 
     // Realizar solicitud GET para obtener los datos existentes
     const getOptions = {
@@ -34,7 +34,7 @@ const formularioPC = async (req, res) => {
         tiempo_requerido: req.body.TIEMPO
       };
   
-      const url = "http://localhost:3000/api/reserva";
+      const url = process.env.ENDPOINT + process.env.ENDPOINT + "/api/reserva";
       const options = {
         method: "POST",
         headers: {

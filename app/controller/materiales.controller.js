@@ -11,7 +11,7 @@ const materiales = async (req, res) => {
   try {
 
 
-    let ruta = "http://localhost:3000/api/material";
+    let ruta = process.env.ENDPOINT + "/api/material";
     let option = {
       method: "GET",
     }

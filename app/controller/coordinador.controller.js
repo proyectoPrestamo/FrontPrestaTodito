@@ -6,8 +6,8 @@ const reportes =  (req, res) => {
 
 const segumiento = async (req, res) => {
     try {
-      const rutaMaterial = "http://localhost:3000/api/material";
-       const rutaPrestamos = "http://localhost:3000/api/prestamos";
+      const rutaMaterial = process.env.ENDPOINT + "/api/material";
+       const rutaPrestamos = process.env.ENDPOINT + "/api/prestamos";
   
       const opciones = {
         method: "GET",
@@ -31,8 +31,8 @@ const segumiento = async (req, res) => {
 
   const aprobar = async (req, res) => {
     try {
-      const rutaMaterial = "http://localhost:3000/api/material";
-      const rutaInventario = "http://localhost:3000/api/inventario";
+      const rutaMaterial = process.env.ENDPOINT + "/api/material";
+      const rutaInventario = process.env.ENDPOINT + "/api/inventario";
   
       const opciones = {
         method: "GET",

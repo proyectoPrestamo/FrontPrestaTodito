@@ -9,7 +9,7 @@ const pcAdmin = async (req, res) => {
     try {
         
   
-        let ruta = "http://localhost:3000/api/computador";
+        let ruta = process.env.ENDPOINT + "/api/computador";
         let option = {
             method: "GET",
         }

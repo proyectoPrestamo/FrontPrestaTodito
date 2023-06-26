@@ -11,7 +11,7 @@ export const validacionLogin = async (req, res) => {
    
     
 
-    const url = `http://localhost:3000/api/consulta`;
+    const url = process.env.ENDPOINT + "/api/consulta";
     const options = {
       method: "POST",
       headers: {
