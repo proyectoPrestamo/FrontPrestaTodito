@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 
 const formularioPC = async (req, res) => {
   try {
-    const rutaComputador = process.env.ENDPOINT + process.env.ENDPOINT + "/api/computador";
+    const rutaComputador = process.env.ENDPOINT + "/api/computador";
 
     // Realizar solicitud GET para obtener los datos existentes
     const getOptions = {
@@ -34,7 +34,7 @@ const formularioPC = async (req, res) => {
         tiempo_requerido: req.body.TIEMPO
       };
   
-      const url = process.env.ENDPOINT + process.env.ENDPOINT + "/api/reserva";
+      const url = process.env.ENDPOINT + "/api/reserva";
       const options = {
         method: "POST",
         headers: {
@@ -53,8 +53,7 @@ const formularioPC = async (req, res) => {
       .catch(error => console.log(error))
   
       // Inspeccionar la respuesta del servidor
-     
-  
+
       if (data && data > 0) {
       } else {
         // Manejar la respuesta del servidor cuando si es valida

@@ -14,7 +14,7 @@ router.post('/guardarHerramienta', (req, res)=>{
        
       };
     
-      axios.post('http://localhost:3000/api/herramientas', registro)
+      axios.post(process.env.ENDPOINT + '/api/herramientas', registro)
         .then(response => {
           console.log(response.data);
           // Aquí puedes realizar alguna acción adicional o mostrar un mensaje de éxito.

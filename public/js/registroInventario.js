@@ -181,7 +181,7 @@
     };
 
     // Realizar la petición POST utilizando fetch
-    fetch('http://localhost:3000/api/material', {
+    fetch(process.env.ENDPOINT + '/api/material', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

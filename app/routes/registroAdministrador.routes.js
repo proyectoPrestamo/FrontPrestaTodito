@@ -24,7 +24,7 @@ router.post('/registrarAdmin', (req, res)=>{
        
       };
     
-      axios.post('http://localhost:3000/api/usuario', registro)
+      axios.post(process.env.ENDPOINT + '/api/usuario', registro)
         .then(response => {
           console.log(response.data);
           // Aquí puedes realizar alguna acción adicional o mostrar un mensaje de éxito.

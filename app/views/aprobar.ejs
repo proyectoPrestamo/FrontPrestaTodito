@@ -66,36 +66,37 @@
               </tr>
             </thead>
             <tbody>
-              <% datosMaterial.forEach((material,index)=>{ %>
+              <% datosReserva.forEach((reserva,index)=>{ %>
                 <tr>
                   <td>
-                    <%= material.ID_MATERIAL %>
+                    <%= reserva.ID_RESERVA %>
                   </td>
-                    <td>
-                      <%= material.NOMBRE %>
-                    </td>
-                    <% if (datosInventario[index]) { %>
-                    <td>
-                      <%= datosInventario[index].CANTIDAD %>
-                    </td>
-                    <% } else { %>
-                      <td class="info1">-</td>
-                      <% } %>
-                        <td>
-                          <%= material.TIPO %>
-                            <%= material.MEDIDA %>
-                        </td>
-                       
-                        <td>
-                          <button id="btnAceptar" class="btnAceptar">Aceptar</button>
-                          <button id="btnRechazar" class="btnRechazar">Rechazar</button>
-                          <i class="fa-sharp fa-solid fa-eye fa-lg" data-toggle="modal" data-target="#edit-modal"></i>
+                  <td>
+                    <%= reserva.NOMBRE %>
+                  </td>
 
-                        </td>
-                        <% }); %>
+                  <td>
+                    <%= reserva.CANTIDAD %>
+                  </td>  
+
+                  <td>
+                    <%= reserva.TIPO %>
+                      <%= reserva.CARACTERISTICAS %>
+                  </td>
+                  <td>
+                    <form action="/aceptar" method="POST">
+                      <button id="btnAceptar" type="submit" class="btnAceptar" data-reserva-id="<%= reserva.ID_RESERVA %>">Aceptar</button>
+                    </form>
+                    
+                   
+                    <button id="btnRechazar" class="btnRechazar">Rechazar</button>
+                    <i class="fa-sharp fa-solid fa-eye fa-lg" data-toggle="modal" data-target="#edit-modal"></i>
+
+                  </td>
+                  <% }); %>
                 </tr>
-               
-               
+
+
 
 
             </tbody>

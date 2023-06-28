@@ -15,7 +15,7 @@ router.post('/guardarEquipo', (req, res)=>{
        
       };
     
-      axios.post('http://localhost:3000/api/Computador', registro)
+      axios.post(process.env.ENDPOINT + '/api/Computador', registro)
         .then(response => {
           console.log(response.data);
           // Aquí puedes realizar alguna acción adicional o mostrar un mensaje de éxito.

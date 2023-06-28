@@ -35,7 +35,7 @@ deleteIcons.forEach(icon => {
 // Función para eliminar el computador tanto de la vista como de la base de datos
 function eliminarPC(pcCode, parentTr) {
   // Realiza la llamada a la API para eliminar el registro
-  fetch(`http://localhost:3000/api/computador/${pcCode}`, {
+  fetch(process.env.ENDPOINT + `/api/computador/${pcCode}`, {
     method: 'DELETE'
   })
   .then(response => {

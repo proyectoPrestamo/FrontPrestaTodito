@@ -35,7 +35,7 @@ deleteIcons.forEach(icon => {
 // Función para eliminar el ambiente tanto de la vista como de la base de datos
 function eliminarAmbiente(ambienteCode, parentTr) {
   // Realiza la llamada a la API para eliminar el registro
-  fetch(`http://localhost:3000/api/ambientes/${ambienteCode}`, {
+  fetch(process.env.ENDPOINT + `/api/ambientes/${ambienteCode}`, {
     method: 'DELETE'
   })
   .then(response => {

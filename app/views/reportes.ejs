@@ -15,72 +15,76 @@
 <body>
   <!--Contenedor de logos-->
   <%- include('./partials/iconos.ejs') %>
-  <!--Contenedor de la imagen-->
-  <div class="container">
-    <img src="/resources/img/logoSena.png" width="200px" class="mx-auto d-block">
-  </div>
-  <!-- contenedor del menu -->
-  <nav>
-    <ul>
-      <li><a href="#">Inicio</a></li>
-      <li>
-        <a href="aprobar">Aprobar</a>
-      </li>
-      <li>
-        <a href="seguimiento">Seguimiento</a>
-      </li>
-      <li>
-        <a href="reportes">Reportes</a>
-      </li>
-    </ul>
-  </nav>
-  
+    <!--Contenedor de la imagen-->
+    <div class="container">
+      <img src="/resources/img/logoSena.png" width="200px" class="mx-auto d-block">
+    </div>
+    <!-- contenedor del menu -->
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li>
+          <a href="aprobar">Aprobar</a>
+        </li>
+        <li>
+          <a href="seguimiento">Seguimiento</a>
+        </li>
+        <li>
+          <a href="reportes">Reportes</a>
+        </li>
+      </ul>
+    </nav>
 
 
 
-  <div class="fondo rounded-top">
-    <div class="container-reporte rounded-top">
-      <div class="titulo"> REPORTES</div>
 
-      <div class="buscador">
-        <input type="text" placeholder="Buscar" required>
-        <div class="btn">
-          <i class="fas fa-search icon"></i>
+    <div class="fondo rounded-top">
+      <div class="container-reporte rounded-top">
+        <div class="titulo"> REPORTES</div>
 
+        <div class="buscador">
+          <input type="text" placeholder="Buscar" required>
+          <div class="btn">
+            <i class="fas fa-search icon"></i>
+
+          </div>
         </div>
       </div>
-    </div>
- 
 
-    <div class="info rounded-top">
-      <section class="tinfo">
-         REPORTES DE AMBIENTES
-      </section>
 
-      <div class="botones">
-        <button class="btnGenerar"><i class="fa-sharp fa-regular fa-file-pdf"></i>Generar</button>
-        <button class="btnConfigurar"><i class="fa-solid fa-gear" style="color: #ffffff;"></i>Configurar</button>
-        <i class="fa-solid fa-floppy-disk fa-lg" style="color: #0a0a0a;"></i>
+      <div class="info rounded-top">
+        <section class="tinfo">
+          REPORTES DE AMBIENTES
+        </section>
+        <form action="generarForm" method="post">
+          <div class="botones">
+            <button class="btnGenerar"><i class="fa-sharp fa-regular fa-file-pdf" type="submit" onclick="setAction('pdf')"> </i>PDF</button>
+            <button class="btnGenerar"><i class="fa-sharp fa-regular fa-file-excel" type="submit" onclick="setAction('excel')"></i>EXCEL</button>
+
+            <i class="fa-solid fa-floppy-disk fa-lg" style="color: #0a0a0a;"></i>
+          </div>
+
       </div>
-      
-    </div>
-    <hr>
-    
+      <hr>
 
-    <div class="info rounded-top">
-      <section class="tinfo">
-         REPORTES DE INVENTARIO
-      </section>
 
-      <div class="botones">
-        <button class="btnGenerar"><i class="fa-sharp fa-regular fa-file-pdf"></i>Generar</button>
-        <button class="btnConfigurar"><i class="fa-solid fa-gear" style="color: #ffffff;"></i>Configurar</button>
-        <i class="fa-solid fa-floppy-disk fa-lg" style="color: #0a0a0a;"></i>
+      <div class="info rounded-top">
+        <section class="tinfo">
+          REPORTES DE INVENTARIO
+        </section>
+
+        <div class="botones">
+          <button class="btnGenerar"><i class="fa-sharp fa-regular fa-file-pdf" type="submit" onclick="setAction('pdf')"></i>PDF</button>
+          <button class="btnGenerar"><i class="fa-sharp fa-regular fa-file-excel" type="submit" onclick="setAction('excel')"></i>EXCEL</button>
+
+          <i class="fa-solid fa-floppy-disk fa-lg" style="color: #0a0a0a;"></i>
+        </div>
+        </form>
+
       </div>
-      
-    </div>
-    <hr>
+      <hr>
 </body>
+<script src="/resources/js/reportess.js"></script>r
 <script src="/resources/js/iconos.js"></script>
 
 </html>

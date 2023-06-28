@@ -18,7 +18,7 @@ router.post('/guardarAmbiente', (req, res)=>{
        
       };
     
-      axios.post('http://localhost:3000/api/Ambientes', registro)
+      axios.post(process.env.ENDPOINT + '/api/Ambientes', registro)
         .then(response => {
           console.log(response.data);
           // Aquí puedes realizar alguna acción adicional o mostrar un mensaje de éxito.

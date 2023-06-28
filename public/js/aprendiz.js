@@ -91,7 +91,7 @@ document.getElementById('registro-aprendiz').addEventListener('submit', function
       contrasena: contraseña
     };
 // Realizar la petición POST utilizando fetch
-fetch('http://localhost:3000/api/usuario', {
+fetch(process.env.ENDPOINT + '/api/usuario', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'

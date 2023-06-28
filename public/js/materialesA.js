@@ -35,7 +35,7 @@ deleteIcons.forEach(icon => {
 // Función para eliminar el material tanto de la vista como de la base de datos
 function eliminarMaterial(mateCode, parentTr) {
   // Realiza la llamada a la API para eliminar el registro
-  fetch(`http://localhost:3000/api/material/${mateCode}`, {
+  fetch(process.env.ENDPOINT + `/api/material/${mateCode}`, {
     method: 'DELETE'
   })
   .then(response => {
@@ -165,7 +165,7 @@ function eliminarMaterial(mateCode, parentTr) {
 
   
         // Realizar la llamada a la API para actualizar el material
-        fetch(`http://localhost:3000/api/material/${id}`, {
+        fetch(process.env.ENDPOINT + `/api/material/${id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'

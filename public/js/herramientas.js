@@ -35,7 +35,7 @@ deleteIcons.forEach(icon => {
 // Función para eliminar la herramienta tanto de la vista como de la base de datos
 function eliminarHerramienta(herraCode, parentTr) {
   // Realiza la llamada a la API para eliminar el registro
-  fetch(`http://localhost:3000/api/herramientas/${herraCode}`, {
+  fetch(process.env.ENDPOINT + `/api/herramientas/${herraCode}`, {
     method: 'DELETE'
   })
   .then(response => {
