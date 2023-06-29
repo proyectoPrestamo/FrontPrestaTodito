@@ -9,7 +9,7 @@ const validarToken = (req, res, next) => {
       return res.redirect('/denegado');
     }
 
-    const verificarToken = jwt.verify(token, process.env.SECRET_KEY);
+    const verificarToken = jwt.verify(req.cookies.PRESTATODITO, process.env.SECRET_KEY);
     if (verificarToken) {
       // Si el token es válido y la verificación es exitosa continua
       next();

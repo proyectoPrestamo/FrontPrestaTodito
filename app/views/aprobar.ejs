@@ -72,7 +72,7 @@
                     <%= reserva.ID_RESERVA %>
                   </td>
                   <td>
-                    <%= reserva.NOMBRE %>
+                    <%= reserva.NOMBRE_INSUMO %>
                   </td>
 
                   <td>
@@ -82,9 +82,10 @@
                   <td>
                     <%= reserva.TIPO %>
                       <%= reserva.CARACTERISTICAS %>
+                      <%= reserva.ID_USUARIO %>
                   </td>
                   <td>
-                    <form action="/aceptar" method="POST">
+                    <form action="aceptar?id=<%=reserva.ID_RESERVA%>&iduser=<%=reserva.ID_USUARIO%>" method="POST">
                       <button id="btnAceptar" type="submit" class="btnAceptar" data-reserva-id="<%= reserva.ID_RESERVA %>">Aceptar</button>
                     </form>
                     

@@ -29,8 +29,8 @@ export const validacionLogin = async (req, res) => {
     console.error("Error en la petición:", err);
   }
 
-  console.log("Datos:", datos);
-  console.log("Credenciales:", credenciales);
+  // console.log("Datos:", datos);
+  // console.log("Credenciales:", credenciales);
 
   if (datos && credenciales) {
     if (datos.ID_USUARIO.toString() === credenciales.id_usuario && datos.CONTRASENA === credenciales.contrasena) {
@@ -42,14 +42,14 @@ export const validacionLogin = async (req, res) => {
           res.send("Usuario incorrecto");
           return false;
         }
-        console.log("Se validó el usuario");
+        // console.log("Se validó el usuario");
 
         if (credenciales.contrasena !== datos.CONTRASENA) {
           console.log("Contraseña incorrecta");
           res.send("Contraseña incorrecta");
           return false;
         }
-        console.log("Se validó la contraseña");
+        // console.log("Se validó la contraseña");
 
         if (!req.body.rol) {
           console.log("Debe seleccionar un rol");
@@ -65,7 +65,7 @@ export const validacionLogin = async (req, res) => {
           res.send("Rol no permitido");
           return false;
         }
-        console.log("Se validó el rol");
+        // console.log("Se validó el rol");
 
         // Verificar si el rol seleccionado coincide con el rol del usuario
         if (datos.ID_ROL === undefined || parseInt(datos.ID_ROL) !== rolSeleccionado) {

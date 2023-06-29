@@ -6,6 +6,6 @@ const coordi = Router();
   coordi.get('/reportes',middle,coordinadorController.reportes)
   coordi.get('/seguimiento',middle,coordinadorController.segumiento)
   coordi.get('/aprobar',middle,coordinadorController.aprobar)
-  // coordi.post('/aceptar',coordinadorController.actualizarEstadoAprobacion);
+  coordi.post('/aceptar',coordinadorController.aceptar);
 
 export default coordi;
