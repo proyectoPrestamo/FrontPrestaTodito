@@ -124,13 +124,18 @@ export const validacionLogin = async (req, res) => {
 
 
 const cerrarsesion = (req, res) => {
+  res.clearCookie("PRESTATODITO");
+  // res.redirect("/");
   res.render('cerrarsesion.ejs');
 }
 
 const index = (req, res) => {
   res.render('index.ejs');
 }
+const denegado = (req, res) => {
+  res.render('cerrarsesion.ejs');
+}
 
 export const loginController = {
-  validacionLogin, cerrarsesion, index     
+  validacionLogin, cerrarsesion, index , denegado  
 };

@@ -51,8 +51,37 @@ const Insertareportepc = async (req, res) => {
     }
   };
 
+  const seguimientoA =  async (req, res) => {
+     let datosReserva = {};
+    try {
+      const rutaReserva = process.env.ENDPOINT + "/api/reserva";
+     
+      // Realizar solicitud GET para obtener los datos existentes
+      const getOptions = {
+        method: "GET",
+      };
+      const getResponse = await fetch(rutaReserva, getOptions)
+      const datosReserva = await getResponse.json()
+     .then(response => response.json())
+      .then(data => {
+        datosReserva = data[0]
+        console.log(data[0]);
+      })
+      .catch(err => console.error("error en peticion" + err))
+  
+      res.render('seguimientoA', {
+        datosReserva: datosReserva
+      });
+     
+    } catch (error) {
+      console.error(error);
+      res.redirect("/seguimientoA");
+    }
+  };
+  
+
   export const aprendizController = {
-    menuAprendiz, controlCompu, Insertareportepc
+    menuAprendiz, controlCompu, Insertareportepc, seguimientoA
 };
   
 

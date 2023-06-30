@@ -12,13 +12,8 @@ login.get('/cerrarsesion',loginController.cerrarsesion);
 
 login.get('/index',loginController.index);
 
-  // login.get('/salir', (req, res) => {
-  //   res.send('cerrarsesion.ejs');
-  // });
+login.get('/denegado',loginController.denegado);
 
-  login.get('/denegado', (req, res) => {
-    res.send('ruta denegado');
-  });
 
   export default login;
 

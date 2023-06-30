@@ -7,5 +7,6 @@ const coordi = Router();
   coordi.get('/seguimiento',middle,coordinadorController.segumiento)
   coordi.get('/aprobar',middle,coordinadorController.aprobar)
   coordi.post('/aceptar',coordinadorController.aceptar);
+  coordi.post('/rechazar',coordinadorController.rechazar);
 
 export default coordi;

@@ -1,7 +1,56 @@
 <div class="container-logos">
   <!-- menu de notificaciones -->
-  <div class="bell">
-    <i class="fa-solid fa-bell fa-3x" id="vernotificacion"></i>
+  <div class="bell" onclick="toggleNoti()">
+    <i class="fa-solid fa-bell fa-3x" id="vernotificacion">
+      <div id="noti" class="noti hidden">
+      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right show" id="notifi" style="left: inherit; right: 0px;">
+        <a href="#" class="dropdown-item" id="modal-cerrar">
+          <!-- Message Start -->
+          <div class="media">
+            <div class="media-body">
+              <h6 class="dropdown-item-title">
+                Brad Diesel
+                <span class="float-right text-sm text-danger"></span>
+              </h6>
+              <p class="text-sm">Call me whenever you can...</p>
+            </div>
+          </div>
+          <!-- Message End -->
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="#" class="dropdown-item">
+          <!-- Message Start -->
+          <div class="media">
+            <div class="media-body">
+              <h6 class="dropdown-item-title">
+                Brad Diesel
+                <span class="float-right text-sm text-danger"></span>
+              </h6>
+              <p class="text-sm">Call me whenever you can...</p>
+            </div>
+          </div>
+          <!-- Message End -->
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="#" class="dropdown-item">
+          <!-- Message Start -->
+          <div class="media">
+            <div class="media-body">
+              <h6 class="dropdown-item-title">
+                Brad Diesel
+                <span class="float-right text-sm text-danger"></span>
+              </h6>
+              <p class="text-sm">Call me whenever you can...</p>
+            </div>
+          </div>
+          <!-- Message End -->
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+      </div>  
+      </div>
+    </i>
+   
     <span class="badge" id="badge">0</span>
   </div>
   <!-- Menu de usuario -->

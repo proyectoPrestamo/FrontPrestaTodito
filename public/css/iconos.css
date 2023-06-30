@@ -79,7 +79,6 @@
   
   .bell :hover{
     color: #39a900;
-    transform: scale(0.9);
   }
   
   /* FUNCIONALIDAD JS */
@@ -182,8 +181,6 @@
   
   .modal-cerrar {
     display: inline-block;
-    float: right;
-    cursor: pointer;
   }
 
   .contenedor-items-formulario1{
@@ -213,6 +210,14 @@
 
   .items4:focus {
     border: 2px solid #39a900;
+}
+
+.dropdown-item{
+  height: 30px;
+}
+
+.dropdown-item-title{
+  font-size: 5px;
 }
   
 

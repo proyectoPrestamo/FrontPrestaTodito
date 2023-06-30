@@ -26,7 +26,7 @@ let code = parentTr.getAttribute('data-id');
             // Muestra una alerta de éxito utilizando SweetAlert
             Swal.fire({
               title: 'Prestamo Aceptado',
-              text: `El Prestamo de ${code}  ha sido Aceptado correctamente `,
+              text: `El Prestamo de ha sido Aceptado correctamente `,
               icon: 'success',
               confirmButtonColor: '#28A745'
             });
@@ -64,7 +64,7 @@ let code = parentTr.getAttribute('data-id');
             // Muestra una alerta de éxito utilizando SweetAlert
             Swal.fire({
               title: 'Prestamo Rechazado',
-              text: `El Prestamo de ${code}  ha sido rechazado correctamente `,
+              text: `El Prestamo de ha sido rechazado correctamente `,
               icon: 'success',
               confirmButtonColor: '#28A745'
             });

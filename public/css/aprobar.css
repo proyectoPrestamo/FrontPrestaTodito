@@ -252,32 +252,30 @@ nav ul li a:hover {
 }
 /* estilos para los botones de aceptar y rechazar prestamo */
 
-.btnAceptar{
+.button-container {
+  display: flex;
+  gap: 10px; /* Espacio entre los botones, ajusta según tus necesidades */
+}
 
- margin-left: 300px;
+.btnAceptar {
   color: white;
   background-color: #39a900;
-  
- border: #39a900;
-
-height: 40px;
-width: 100px;
-font-size: 15px;
-
+  border: #39a900;
+  height: 40px;
+  width: 100px;
+  font-size: 15px;
 }
-.btnRechazar{
 
+.btnRechazar {
   color: white;
   background-color: #a90025;
- 
- border: #a90025;
- 
-height: 40px;
-width: 100px;
-font-size: 15px;
-margin-left: 50px;
-
+  border: #a90025;
+  height: 40px;
+  width: 100px;
+  font-size: 15px;
 }
+
+
 
 .fa-sharp{
   margin-left: 50px;

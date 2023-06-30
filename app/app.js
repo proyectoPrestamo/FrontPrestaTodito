@@ -42,6 +42,7 @@ app.use(cookieParser());
 app.use(urlencoded({ extended: false }));
 app.use(json());
 
+
 // Usar las rutas definidas en routes
 app.use('/', administrador);
 app.use('/', ambienteAdmin);

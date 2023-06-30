@@ -60,7 +60,9 @@
                 <th>CODIGO</th>
                 <th>PRODUCTO</th>
                 <th>CANTIDAD</th>
-                <th>TIPO/MEDIDA</th>
+                <th>TIPO </th>
+                <th>CARACTERISTICA</th></th>
+                <th>DOCUMENTO USUARIO</th>
                 <th></th>
 
               </tr>
@@ -81,17 +83,23 @@
 
                   <td>
                     <%= reserva.TIPO %>
-                      <%= reserva.CARACTERISTICAS %>
-                      <%= reserva.ID_USUARIO %>
+                  </td>
+                  <td><%= reserva.CARACTERISTICAS %></td>
+                  <td>
+                    <%= reserva.ID_USUARIO %>
                   </td>
                   <td>
+                    <div class="button-container">
                     <form action="aceptar?id=<%=reserva.ID_RESERVA%>&iduser=<%=reserva.ID_USUARIO%>" method="POST">
                       <button id="btnAceptar" type="submit" class="btnAceptar" data-reserva-id="<%= reserva.ID_RESERVA %>">Aceptar</button>
                     </form>
                     
-                   
-                    <button id="btnRechazar" class="btnRechazar">Rechazar</button>
-                    <i class="fa-sharp fa-solid fa-eye fa-lg" data-toggle="modal" data-target="#edit-modal"></i>
+                      <form action="rechazar?id=<%=reserva.ID_RESERVA%>&iduser=<%=reserva.ID_USUARIO%>" method="POST">
+                        <button id="btnRechazar" type="submit" class="btnRechazar" data-reserva-id="<%= reserva.ID_RESERVA %>">Rechazar</button>
+                      </form>
+                      </div>
+<!--                     
+                    <i class="fa-sharp fa-solid fa-eye fa-lg" data-toggle="modal" data-target="#edit-modal"></i> -->
 
                   </td>
                   <% }); %>
@@ -106,7 +114,7 @@
       </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="edit-modal" tabindex="-1" aria-labelledby="edit-modal-label" aria-hidden="true">
+    <!-- <div class="modal fade" id="edit-modal" tabindex="-1" aria-labelledby="edit-modal-label" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -132,7 +140,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 </body>
 
 <script src="/resources/js/aprobar.js"></script>

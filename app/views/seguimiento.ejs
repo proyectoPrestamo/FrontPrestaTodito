@@ -54,10 +54,10 @@
       
       <tbody class="fondo">
        
-          <% datosMaterial.forEach((material, index) => { %>
+          <% datosReserva.forEach((reserva, index) => { %>
             <tr class="info">
               <td>
-                <h4 class="info1"><%= material.NOMBRE %>, <%= material.TIPO %>, <%= material.COLOR %></h4>
+                <h4 class="info1"><%= reserva.NOMBRE_INSUMO %><%= reserva.TIPO %> <%= reserva.CARACTERISTICAS %></h4>
                </td>
                <td>
                 <% if (datosPrestamos[index]) { %>
@@ -70,7 +70,7 @@
               
               </td>
               <td>
-                <h5 class="info1"><%= material.CANTIDAD %> <%= material.MEDIDAS %></h5>
+                <h5 class="info1"><%= reserva.CANTIDAD %> <%= reserva.MEDIDAS %></h5>
               </td>
               <td>
                 <i class="fa-sharp fa-solid fa-eye fa-2x" data-toggle="modal" data-target="#edit-modal"></i>

@@ -7,6 +7,8 @@ aprendiz.get('/menu-aprendiz',middle,aprendizController.menuAprendiz)
 
 aprendiz.get('/controlcom',middle,aprendizController.controlCompu)
 
+aprendiz.get('/seguimientoA',middle,aprendizController.seguimientoA)
+
 aprendiz.post('/insertareporte',aprendizController.Insertareportepc);
 
 
